@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Leo il est trop beau
+                    Tu veux pas marcher frr ?
                 </div>
 
                 <div class="links">
