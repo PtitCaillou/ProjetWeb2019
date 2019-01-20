@@ -81,7 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Tu veux pas marcher frr ?
+                    Leo il est trop beau </br>
+                    Vraiment trop beau </br>
+                    Mais vraiment wallah
                 </div>
 
                 <div class="links">
