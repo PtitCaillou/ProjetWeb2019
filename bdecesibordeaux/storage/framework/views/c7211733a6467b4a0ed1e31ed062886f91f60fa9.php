@@ -4,6 +4,7 @@
 
 <?php $__env->startSection('content'); ?>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -29,54 +30,54 @@
                         </div>
 
                          <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Prénom')); ?></label>
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Prénom')); ?></label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control<?php echo e($errors->has('firstname') ? ' is-invalid' : ''); ?>" name="firstname" value="<?php echo e(old('firstname')); ?>" required autofocus>
+                                <input id="lastname" type="text" class="form-control<?php echo e($errors->has('lastname') ? ' is-invalid' : ''); ?>" name="lastname" value="<?php echo e(old('lastname')); ?>" required autofocus>
 
-                                <?php if($errors->has('firstname')): ?>
+                                <?php if($errors->has('lastname')): ?>
                                     <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($errors->first('firstname')); ?></strong>
+                                        <strong><?php echo e($errors->first('lastname')); ?></strong>
                                     </span>
                                 <?php endif; ?>
                             </div>
                         </div>
                         
-                         <div class="form-group row">
-                            <label for="localisation" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Localisation')); ?></label>
-                            <select>
-                                <option>Bordeaux</option>
-                                <option>Nanterre</option>
-                                <option>Toulouse</option>
-                                <option>Nantes</option>
-                                <option>Strasbourg</option>
-                                <option>Lille</option>
-                                <option>Arras</option>
-                                <option>Rouen</option>
-                                <option>Caen</option>
-                                <option>Brest</option>
-                                <option>Saint-Nazaire</option>
-                                <option>La rochelle</option>
-                                <option>Pau</option>
-                                <option>Montpellier</option>
-                                <option>Aix-en-Provence</option>
-                                <option>Nice</option>
-                                <option>Grenoble</option>
-                                <option>Lyon</option>
-                                <option>Dijon</option>
-                                <option>Nancy</option>
-                                <option>Reims</option>
-                                <option>Orleans</option>
-                            </select>
-
-                                <?php if($errors->has('localisation')): ?>
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($errors->first('localisation')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                            
+                        <!--  <div class="form-group row">
+                           <label for="localisation" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Localisation')); ?></label>
+                           <select>
+                               <option>Bordeaux</option>
+                               <option>Nanterre</option>
+                               <option>Toulouse</option>
+                               <option>Nantes</option>
+                               <option>Strasbourg</option>
+                               <option>Lille</option>
+                               <option>Arras</option>
+                               <option>Rouen</option>
+                               <option>Caen</option>
+                               <option>Brest</option>
+                               <option>Saint-Nazaire</option>
+                               <option>La rochelle</option>
+                               <option>Pau</option>
+                               <option>Montpellier</option>
+                               <option>Aix-en-Provence</option>
+                               <option>Nice</option>
+                               <option>Grenoble</option>
+                               <option>Lyon</option>
+                               <option>Dijon</option>
+                               <option>Nancy</option>
+                               <option>Reims</option>
+                               <option>Orleans</option>
+                           </select>
+                        
+                               <?php if($errors->has('localisation')): ?>
+                                   <span class="invalid-feedback" role="alert">
+                                       <strong><?php echo e($errors->first('localisation')); ?></strong>
+                                   </span>
+                               <?php endif; ?>
+                           </div>
+                                                </div>
+                            -->
          
 
                         <div class="form-group row">
@@ -118,7 +119,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <?php echo e(__('Register')); ?>
+                                    <?php echo e(__('Inscription')); ?>
 
                                 </button>
                             </div>
