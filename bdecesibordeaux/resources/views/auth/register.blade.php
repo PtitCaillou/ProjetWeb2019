@@ -30,14 +30,14 @@
                         </div>
 
                          <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
+                                <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="{{ old('lastname') }}" required autofocus>
 
-                                @if ($errors->has('firstname'))
+                                @if ($errors->has('lastname'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('firstname') }}</strong>
+                                        <strong>{{ $errors->first('lastname') }}</strong>
                                     </span>
                                 @endif
                             </div>

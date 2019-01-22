@@ -27,8 +27,8 @@ class CreateUserTable extends Migration
             $table->string('lastname', 45);
             $table->string('name', 45);
             $table->string('email', 45);
-            $table->string('password', 45);
-            $table->integer('UserStatus_ID');
+            $table->string('password', 100);
+            $table->integer('UserStatus_ID')->nullable();
 
             $table->index(["UserStatus_ID"], 'fk_User_UserStatus1_idx');
 
