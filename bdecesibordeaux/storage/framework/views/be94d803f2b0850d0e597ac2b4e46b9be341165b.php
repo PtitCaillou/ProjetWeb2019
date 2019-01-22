@@ -30,14 +30,14 @@
                         </div>
 
                          <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Prénom')); ?></label>
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Prénom')); ?></label>
 
                             <div class="col-md-6">
-                                <input id="firstname" type="text" class="form-control<?php echo e($errors->has('firstname') ? ' is-invalid' : ''); ?>" name="firstname" value="<?php echo e(old('firstname')); ?>" required autofocus>
+                                <input id="lastname" type="text" class="form-control<?php echo e($errors->has('lastname') ? ' is-invalid' : ''); ?>" name="lastname" value="<?php echo e(old('lastname')); ?>" required autofocus>
 
-                                <?php if($errors->has('firstname')): ?>
+                                <?php if($errors->has('lastname')): ?>
                                     <span class="invalid-feedback" role="alert">
-                                        <strong><?php echo e($errors->first('firstname')); ?></strong>
+                                        <strong><?php echo e($errors->first('lastname')); ?></strong>
                                     </span>
                                 <?php endif; ?>
                             </div>
