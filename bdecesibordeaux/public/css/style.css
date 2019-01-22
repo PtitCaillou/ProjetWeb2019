@@ -1,14 +1,13 @@
 .Connexion{
-	position: relative;
-	left:65%;
-	top: 25%;
-	right: 28%;
+	left:75%;
+    margin-top: -2rem;
+    position: fixed;
 }	
 .Inscription{
-	position: relative;
-	left:65%;
+    margin-top: -2rem;
+    position: fixed;
+	left:85%;
 }
-
 h1{
 	color: white;
 	text-align: center;
@@ -20,12 +19,18 @@ h2{
 	font-size: 20px;
 	position: relative;
 }
+h3{
+    text-align: center;
+	color: rgb(255,255,255);
+	font-size: 35px;
+	position: relative;
+}
 .logo{
-	max-width: 5%;
-    line-height: 0;
+	max-width: 6%;
+    line-height: -1;
     margin-top: -4rem;
-    position: relative;
-    left: 63%;
+    position: fixed;
+    left: 5%;
 }
 
 .instagram{
