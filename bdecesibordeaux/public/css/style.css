@@ -1,0 +1,126 @@
+.Connexion{
+	position: relative;
+	left:65%;
+	top: 25%;
+	right: 28%;
+}	
+.Inscription{
+	position: relative;
+	left:65%;
+}
+
+h1{
+	color: white;
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+	color: rgb(255,255,255);
+	font-size: 20px;
+	position: relative;
+}
+.logo{
+	max-width: 5%;
+    line-height: 0;
+    margin-top: -4rem;
+    position: relative;
+    left: 63%;
+}
+
+.instagram{
+	max-width: 2%;
+	/*position: relative;
+	bottom: 10%;*/
+
+
+}
+.facebook{
+	max-width: 2%;
+	/*position: relative;
+	top: 20%;
+	left: 4%;*/
+}
+.list-item{
+	list-style-type: none;
+}
+.juridique{
+	color: rgb(150,150,150);
+	/*position: relative;
+	left: 40%;*/
+}
+footer{
+	background-color:rgb(0,0,0) ;
+	/*max-width: 70%;*/
+	  flex: 0 0 auto;
+	      flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    margin-top: auto;
+    position: relative;
+	/*position: relative;
+	left: 17%;*/
+}
+
+
+nav{
+	/*position: relative;
+	left: 33%;*/
+}
+
+.vendus{
+	max-width: 70%;
+	/*position: relative;
+	left: 15%;*/
+}
+.evenement{
+	max-width: 70%;
+	/*position: relative;
+	left: 15%;*/
+}
+
+.itm{
+	position: relative;
+	left: 0%;
+	border-bottom: double;
+	border-color: rgb(238, 193, 94);
+	margin-right: 20rem;
+}
+
+body{
+	background-color: black;
+	 font-family: Roboto,sans-serif;
+    margin: 0;
+    padding: 0
+}
+
+h3{
+	color: rgb(238, 193, 94);
+}
+.goodies{
+	max-width: 50%;
+	position: relative;
+	left: 40%;
+}
+
+main{
+	  background: #fff;
+    color: #000;
+    max-width: 100%;
+    overflow: auto
+}
+header{
+	display: inline;
+}
+
+a{
+	 color: white;
+}
+a:hover {
+    color: hsla(39,90%,55%,1)
+}
+button {
+    font-size: 1em;
+    padding-left: 0;
+    padding-right: 0
+}
