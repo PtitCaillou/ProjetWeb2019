@@ -20,6 +20,9 @@ Route::get('login', function(){
 Route::get('register', function(){
 	return view('auth/register');
 });
+Route::get('shop', function() {
+    return view('shop/shop');
+});
 
 Auth::routes();
 
