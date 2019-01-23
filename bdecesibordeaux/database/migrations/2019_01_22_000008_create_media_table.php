@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductTable extends Migration
+class CreateMediaTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'Product';
+    public $set_schema_table = 'Media';
 
     /**
      * Run the migrations.
-     * @table Product
+     * @table Media
      *
      * @return void
      */
@@ -24,18 +24,9 @@ class CreateProductTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('ID');
-            $table->string('name', 45);
-            $table->string('description', 45);
-            $table->integer('price');
-            $table->integer('ProductType_ID');
-
-            $table->index(["ProductType_ID"], 'fk_Product_ProductType1_idx');
-
-
-            $table->foreign('ProductType_ID', 'fk_Product_ProductType1_idx')
-                ->references('ID')->on('ProductType')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->string('path', 45);
+            $table->longText('description');
+            $table->integer('User_ID');
         });
     }
 
