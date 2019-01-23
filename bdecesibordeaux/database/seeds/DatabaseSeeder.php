@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             UserNationalSeeder::class,
             UserSeeder::class,
             UserStatusSeeder::class,
+            RoleTableSeeder::class,
         ]);
     }
 }

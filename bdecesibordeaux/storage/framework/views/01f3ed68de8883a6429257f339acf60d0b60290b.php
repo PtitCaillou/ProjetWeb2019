@@ -17,9 +17,6 @@
 
 <?php $__env->startSection('body'); ?>
 <main>
-  <?php if(middleware('is_student')): ?>
-  <p>Nop</p>
-  <?php endif; ?>
 </main>
 <?php $__env->stopSection(); ?>
 
