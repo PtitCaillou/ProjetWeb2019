@@ -55,7 +55,7 @@ public function hasRole($role)
         return $this->UserStatus_ID === self::STUDENT_TYPE;
     }
 
-    public function isEnmployee(){
+    public function isEmployee(){
         return $this->UserStatus_ID === self::EMPLOYEE_TYPE;
     }
     protected $fillable = [
