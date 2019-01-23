@@ -17,6 +17,9 @@
 
 @section('body')
 <main>
+  @if(middleware('is_student'))
+  <p>Nop</p>
+  @endif
 </main>
 @endsection
 

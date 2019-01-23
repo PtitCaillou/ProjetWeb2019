@@ -11,7 +11,7 @@ class MediaSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into Media (path, description, author) values (?, ?, ?)',
+        DB::connection('mysql')->insert('insert into Media (path, description, user_id) values (?, ?, ?)',
                                                            ['image1.png', 'Pas ouf l\'image', '1'],
                                                            ['image2.png', 'Mieux', '2']);
     }
