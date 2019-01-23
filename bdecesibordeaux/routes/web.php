@@ -23,9 +23,9 @@ Route::get('register', function(){
 Route::get('shop', function() {
     return view('shop');
 });
-Route::get('home', function() {
+/*Route::get('home', function() {
     return view('welcome');
-});
+});*/
 Route::get('activity', function() {
     return view('activity');
 });
@@ -35,4 +35,4 @@ Route::get('ideaBox', function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('welcome');

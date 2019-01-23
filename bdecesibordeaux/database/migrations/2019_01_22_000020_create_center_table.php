@@ -23,7 +23,7 @@ class CreateCenterTable extends Migration
         if (Schema::connection('mysql2')->hasTable($this->set_schema_table)) return;
         Schema::connection('mysql2')->create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('ID');
+            $table->increments('id');
             $table->string('center', 45);
         });
     }

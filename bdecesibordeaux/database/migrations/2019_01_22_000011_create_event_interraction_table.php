@@ -23,7 +23,7 @@ class CreateEventinterractionTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('ID');
+            $table->increments('id');
             $table->integer('Event_ID');
             $table->integer('InterractionType_ID');
             $table->integer('User_ID');
