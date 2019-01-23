@@ -12,22 +12,22 @@
     <ul class="navbar-nav mr-auto">
         <div class="itm">
       <li class="nav-item active ">
-        <a class="nav-link text-white " href="#">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-white " href="{{'/'}}">Accueil <span class="sr-only">(current)</span></a>
       </li>
       </div>
       <div class="itm">
       <li class="nav-item">
-        <a class="nav-link text-white " href="#">Boutique</a>
+        <a class="nav-link text-white " href="{{'shop'}}">Boutique</a>
       </li>
       </div>
       <div class="itm">
         <li class="nav-item">
-        <a class="nav-link text-white " href="#">Activités</a>
+        <a class="nav-link text-white " href="{{'activity'}}">Activités</a>
       </li>
       </div>
       <div class="itm">
         <li class="nav-item">
-        <a class="nav-link text-white " href="#">Boite à idées</a>
+        <a class="nav-link text-white " href="{{'ideaBox'}}">Boite à idées</a>
       </li>
       </div>
     </ul>

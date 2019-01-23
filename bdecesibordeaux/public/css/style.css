@@ -1,13 +1,21 @@
 .Connexion{
 	left:75%;
-    margin-top: -2rem;
-    position: fixed;
+    margin-top: -4rem;
+    position: relative;
 }	
 .Inscription{
-    margin-top: -2rem;
-    position: fixed;
-	left:85%;
+    margin-top: -4rem;
+    position: relative;
+    left:77%;
 }
+.container {
+    background-color: #000;
+}
+.img {
+    position:relative;
+    text-align: center;
+}
+
 h1{
 	color: white;
 	text-align: center;
@@ -17,7 +25,7 @@ h2{
 	text-align: center;
 	color: rgb(255,255,255);
 	font-size: 20px;
-	position: relative;
+    position: relative;
 }
 h3{
     text-align: center;
@@ -26,19 +34,17 @@ h3{
 	position: relative;
 }
 .logo{
-	max-width: 6%;
+	max-width: 7%;
     line-height: -1;
     margin-top: -4rem;
-    position: fixed;
-    left: 5%;
+    position: relative;
+    left: 0%;
 }
 
 .instagram{
 	max-width: 2%;
 	/*position: relative;
 	bottom: 10%;*/
-
-
 }
 .facebook{
 	max-width: 2%;
@@ -74,27 +80,27 @@ nav{
 }
 
 .vendus{
-	max-width: 70%;
-	/*position: relative;
-	left: 15%;*/
+	max-width: 50%;
+	position: relative;
+	left: 25%;
 }
 .evenement{
-	max-width: 70%;
-	/*position: relative;
-	left: 15%;*/
+	max-width: 50%;
+	position: relative;
+	left: 25%;
 }
 
 .itm{
 	position: relative;
-	left: 0%;
+	left: 13%;
 	border-bottom: double;
 	border-color: rgb(238, 193, 94);
-	margin-right: 20rem;
+	margin-right: 230px;
 }
 
 body{
 	background-color: black;
-	 font-family: Roboto,sans-serif;
+	font-family: Roboto,sans-serif;
     margin: 0;
     padding: 0
 }
@@ -105,11 +111,11 @@ h3{
 .goodies{
 	max-width: 50%;
 	position: relative;
-	left: 40%;
+    left: 50%;
 }
 
 main{
-	  background: #fff;
+	background: #fff;
     color: #000;
     max-width: 100%;
     overflow: auto
@@ -119,7 +125,7 @@ header{
 }
 
 a{
-	 color: white;
+     color: white;
 }
 a:hover {
     color: hsla(39,90%,55%,1)
