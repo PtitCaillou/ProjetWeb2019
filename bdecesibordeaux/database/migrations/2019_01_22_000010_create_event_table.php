@@ -28,7 +28,7 @@ class CreateEventTable extends Migration
             $table->longText('description');
             $table->integer('EventType_ID');
             $table->integer('EventStatus_ID');
-            $table->integer('Media_ID');
+            $table->integer('Media_ID')->nullable();
             $table->integer('User_ID');
         });
     }

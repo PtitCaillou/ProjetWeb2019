@@ -28,7 +28,8 @@ class CreateUserTable extends Migration
             $table->string('name', 45);
             $table->string('email', 45);
             $table->string('password', 100);
-            $table->integer('UserStatus_ID')->default('2');
+            $table->integer('UserStatus_ID')->default('1');
+            $table->string('remember_token', 100)->nullable();
         });
     }
 

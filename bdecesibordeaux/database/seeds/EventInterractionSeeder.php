@@ -11,9 +11,9 @@ class EventInterractionSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into EventInterraction (user, event, type) values (?, ?, ?)',
-                                                                       ['1', '1', '1'], 
-                                                                       ['2', '2', '2'],
-                                                                       ['3', '3', '3']);
+        DB::connection('mysql')->insert('insert into EventInterraction (user_id, event_id, interractiontype_id, content) values (?, ?, ?, ?)',
+                                                                       ['1', '1', '1', ''], 
+                                                                       ['2', '2', '2', 'Super'],
+                                                                       ['3', '3', '3', 'Pas ouf']);
     }
 }
