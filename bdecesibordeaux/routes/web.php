@@ -36,3 +36,7 @@ Route::get('ideaBox', function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('welcome');
+
+/*Route::get('/BDE', 'BDEController@BDE')    
+    ->middleware('is_BDE')    
+    ->name('BDE');*/

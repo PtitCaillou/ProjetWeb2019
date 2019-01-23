@@ -17,6 +17,11 @@
 
 @section('body')
 <main>
+  @if(Auth::check() && Auth::isBDE())
+  <p>Vous etes membre du BDE</p>
+  @elseif(! Auth::check() && Auth::isBDE())
+  <p>Vous etes nul</p>
+  @endif
 </main>
 @endsection
 
