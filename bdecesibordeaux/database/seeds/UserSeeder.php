@@ -11,10 +11,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into User (lastname, name, email, password, userstatus_id) values (?, ?, ?, ?, ?)',
+        DB::connection('mysql')->insert('insert into User (lastname, name, email, password, roles_id) values (?, ?, ?, ?, ?)',
                                                           ['Jean', 'Jean', 'Jean.jean@viacesi.fr', 'jeanJean12', '2'],
                                                           ['Jeanne', 'Jeanne', 'Jeanne.jeanne@viacesi.fr', 'jeanneJeanne13', '1'],
                                                           ['Lamouche', 'zebi', 'zebi.lamouche@viacesi.fr', 'zebiLamouche1', '3']);
+
     $role_BDE = Role::where('name', 'BDE')->first();
     $role_Student  = Role::where('name', 'student')->first();
     $BDE = new User();
@@ -28,6 +29,6 @@ class UserSeeder extends Seeder
     $student->email = 'student@example.com';
     $student->password = bcrypt(‘secret’);
     $student->save();
-    $student->roles()->attach($role_Student)
+    $student->roles()->attach($role_Student);
     }
 }
