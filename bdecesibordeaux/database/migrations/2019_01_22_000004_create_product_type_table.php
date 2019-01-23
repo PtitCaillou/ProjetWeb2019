@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserstatusTable extends Migration
+class CreateProducttypeTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'UserStatus';
+    public $set_schema_table = 'ProductType';
 
     /**
      * Run the migrations.
-     * @table UserStatus
+     * @table ProductType
      *
      * @return void
      */
@@ -23,8 +23,8 @@ class CreateUserstatusTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->string('status', 45);
+            $table->increments('id');
+            $table->string('type', 45);
         });
     }
 

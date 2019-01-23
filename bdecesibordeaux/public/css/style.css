@@ -8,9 +8,6 @@
     position: relative;
     left:77%;
 }
-.container {
-    background-color: #000;
-}
 .img {
     position:relative;
     text-align: center;
@@ -80,12 +77,12 @@ nav{
 .vendus{
 	max-width: 50%;
 	position: relative;
-	left: 25%;
+	left: 20%;
 }
 .evenement{
 	max-width: 50%;
 	position: relative;
-	left: 25%;
+	left: 20%;
 }
 
 .itm{
@@ -109,14 +106,15 @@ h3{
 .goodies{
 	max-width: 50%;
 	position: relative;
-    left: 50%;
+    left: 30%;
 }
 
 main{
 	background: #fff;
     color: #000;
     max-width: 100%;
-    overflow: auto
+    overflow: auto;
+    background-color: black;
 }
 header{
 	display: inline;
@@ -132,6 +130,30 @@ button {
     font-size: 1em;
     padding-left: 0;
     padding-right: 0
+}
+
+.inscr{
+	background-color: black;
+	color: white;
+}
+.inscr-head{
+	background-color: black;
+	color: rgb(238, 193, 94);
+	font-size: 150%;
+}
+.inscr-button{
+	background-color: rgb(238, 193, 94); 
+}
+
+.profile{
+	position: relative;
+	left: 80%;
+	top: -15%;
+}
+
+.profile{
+	position: relative;
+	left:20%;
 }
 .article {
     position: relative;

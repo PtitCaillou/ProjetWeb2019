@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventinfoTable extends Migration
+class CreateEventstatusTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'EventInfo';
+    public $set_schema_table = 'EventStatus';
 
     /**
      * Run the migrations.
-     * @table EventInfo
+     * @table EventStatus
      *
      * @return void
      */
@@ -23,19 +23,8 @@ class CreateEventinfoTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('ID');
-            $table->dateTime('date');
-            $table->integer('price');
-            $table->integer('Event_ID');
-            $table->string('location', 100);
-
-            $table->index(["Event_ID"], 'fk_EventInfo_Event1_idx');
-
-
-            $table->foreign('Event_ID', 'fk_EventInfo_Event1_idx')
-                ->references('ID')->on('Event')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->increments('id');
+            $table->string('status', 45);
         });
     }
 

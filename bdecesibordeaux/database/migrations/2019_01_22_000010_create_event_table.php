@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductTable extends Migration
+class CreateEventTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'Product';
+    public $set_schema_table = 'Event';
 
     /**
      * Run the migrations.
-     * @table Product
+     * @table Event
      *
      * @return void
      */
@@ -23,19 +23,13 @@ class CreateProductTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('ID');
+            $table->increments('id');
             $table->string('name', 45);
-            $table->string('description', 45);
-            $table->integer('price');
-            $table->integer('ProductType_ID');
-
-            $table->index(["ProductType_ID"], 'fk_Product_ProductType1_idx');
-
-
-            $table->foreign('ProductType_ID', 'fk_Product_ProductType1_idx')
-                ->references('ID')->on('ProductType')
-                ->onDelete('no action')
-                ->onUpdate('no action');
+            $table->longText('description');
+            $table->integer('EventType_ID');
+            $table->integer('EventStatus_ID');
+            $table->integer('Media_ID');
+            $table->integer('User_ID');
         });
     }
 
