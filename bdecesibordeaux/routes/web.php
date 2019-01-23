@@ -20,18 +20,14 @@ Route::get('login', function(){
 Route::get('register', function(){
 	return view('auth/register');
 });
-Route::get('shop', function() {
-    return view('shop');
-});
+Route::get('shop',"shopController@shop");
+
 /*Route::get('home', function() {
     return view('welcome');
 });*/
-Route::get('activity', function() {
-    return view('activity');
-});
-Route::get('ideaBox', function() {
-    return view('ideaBox');
-});
+Route::get('activity',"activityController@activity");
+
+Route::get('ideaBox', "ideaBoxController@idBox");
 
 Auth::routes();
 
