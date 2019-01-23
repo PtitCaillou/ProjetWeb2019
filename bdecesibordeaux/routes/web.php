@@ -29,9 +29,7 @@ Route::get('shop', function() {
 Route::get('activity', function() {
     return view('activity');
 });
-Route::get('ideaBox', function() {
-    return view('ideaBox');
-});
+Route::get('ideaBox', "ideaBoxController@idBox");
 
 Auth::routes();
 
