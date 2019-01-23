@@ -23,7 +23,7 @@ class CreateMediaTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('ID');
+            $table->increments('id');
             $table->string('path', 45);
             $table->longText('description');
             $table->integer('User_ID');
