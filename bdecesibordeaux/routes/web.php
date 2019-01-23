@@ -26,6 +26,7 @@ Route::get('shop',"shopController@shop");
 /*Route::get('home', function() {
     return view('welcome');
 });*/
+
 Route::get('activity',"activityController@activity");
 
 Route::get('ideaBox', "ideaBoxController@idBox");
