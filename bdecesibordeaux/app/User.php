@@ -13,11 +13,29 @@ class User extends Authenticatable
     public $timestamps = false;
     protected $table = 'user';
 
+
+//types d'utilisateurs que l'on souhaite utiliser
+    const BDE_TYPE = '1';
+    const STUDENT_TYPE = '2';
+    const EMPLOYEE_TYPE = '3';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
+    //Fonctions de verification des différents utilisateurs
+    public function isBDE(){
+        return $this->UserStatus_ID === self::BDE_TYPE;
+    }
+
+    public function isStudent(){
+        return $this->UserStatus_ID === self::STUDENT_TYPE;
+    }
+
+    public function isEnmployee(){
+        return $this->UserStatus_ID === self::EMPLOYEE_TYPE;
+    }
     protected $fillable = [
         'lastname', 'name', 'email', 'password', 'status'
     ];

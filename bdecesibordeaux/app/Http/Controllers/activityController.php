@@ -7,5 +7,7 @@ use App\Http\Controllers\Controller;
 
 class activityController extends Controller
 {
-    //
+        public function activity() {
+        return view('activity');
+    }
 }

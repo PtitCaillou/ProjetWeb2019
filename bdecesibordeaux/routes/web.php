@@ -20,6 +20,7 @@ Route::get('login', function(){
 Route::get('register', function(){
 	return view('auth/register');
 });
+
 Route::get('shop',"shopController@shop");
 
 /*Route::get('home', function() {
@@ -32,3 +33,7 @@ Route::get('ideaBox', "ideaBoxController@idBox");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('welcome');
+
+/*Route::get('/BDE', 'BDEController@BDE')    
+    ->middleware('is_BDE')    
+    ->name('BDE');*/
