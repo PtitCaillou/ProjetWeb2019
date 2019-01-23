@@ -1,5 +1,5 @@
     <h1>Connexion</h1>
-    
+
 
 
 <?php $__env->startSection('content'); ?>
@@ -9,7 +9,10 @@
     <div class="row justify-content-center">
    
             <div class="card">
+                <div class="inscr-head">
                 <div class="card-header"><?php echo e(__('Connexion')); ?></div>
+            </div>
+                <div class="inscr">
                 <div class="card-body">
                     <form method="POST" action="<?php echo e(route('login')); ?>">
                         <?php echo csrf_field(); ?>
@@ -57,7 +60,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn"  style="background-color:rgb(238, 193, 94)">
                                     <?php echo e(__('Login')); ?>
 
                                 </button>
@@ -73,6 +76,7 @@
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

@@ -17,11 +17,6 @@
 
 <?php $__env->startSection('body'); ?>
 <main>
-  <?php if(Auth::check() && Auth::isBDE()): ?>
-  <p>Vous etes membre du BDE</p>
-  <?php elseif(! Auth::check() && Auth::isBDE()): ?>
-  <p>Vous etes nul</p>
-  <?php endif; ?>
 </main>
 <?php $__env->stopSection(); ?>
 
