@@ -5,11 +5,10 @@
     <a class="Inscription" href="{{'register'}}">Inscription</a>
     @elseif(Auth::check())
      <li class="nav-item dropdown">
-                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left: 80%; top: -5rem;">
                                   {{ Auth::user()->name }} <span class="caret"></span>
                               </a>
-                              <div class="logout">
-                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" style="background-color: rgb(238, 193, 94);">
                                   <a class="dropdown-item" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">
@@ -20,7 +19,8 @@
                                       @csrf
                                   </form>
                                 </div>
-                                </div>
+
+                                
                                 @endif
     <nav class="navbar navbar-expand-lg navbar-light bg-black navbar-fixed-top ">
         <div class="barre">

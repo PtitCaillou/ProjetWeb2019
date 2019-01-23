@@ -152,7 +152,8 @@ button {
 	left: 80%;
 	top: -15%;
 }
-.logout{
+
+.profile{
 	position: relative;
-	right:20px;
+	left:20%;
 }
