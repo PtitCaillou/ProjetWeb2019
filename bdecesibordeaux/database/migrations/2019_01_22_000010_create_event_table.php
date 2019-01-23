@@ -30,35 +30,6 @@ class CreateEventTable extends Migration
             $table->integer('EventStatus_ID');
             $table->integer('Media_ID');
             $table->integer('User_ID');
-
-            $table->index(["Media_ID"], 'fk_Event_Media1_idx');
-
-            $table->index(["User_ID"], 'fk_Event_User1_idx');
-
-            $table->index(["EventStatus_ID"], 'fk_Event_EventStatus1_idx');
-
-            $table->index(["EventType_ID"], 'fk_Event_EventType_idx');
-
-
-            $table->foreign('EventType_ID', 'fk_Event_EventType_idx')
-                ->references('ID')->on('EventType')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('EventStatus_ID', 'fk_Event_EventStatus1_idx')
-                ->references('ID')->on('EventStatus')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('Media_ID', 'fk_Event_Media1_idx')
-                ->references('ID')->on('Media')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('User_ID', 'fk_Event_User1_idx')
-                ->references('ID')->on('User')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 

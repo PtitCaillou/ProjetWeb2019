@@ -28,28 +28,6 @@ class CreateEventinterractionTable extends Migration
             $table->integer('InterractionType_ID');
             $table->integer('User_ID');
             $table->longText('content');
-
-            $table->index(["InterractionType_ID"], 'fk_EventInterraction_InterractionType1_idx');
-
-            $table->index(["User_ID"], 'fk_EventInterraction_User1_idx');
-
-            $table->index(["Event_ID"], 'fk_EventInterraction_Event1_idx');
-
-
-            $table->foreign('Event_ID', 'fk_EventInterraction_Event1_idx')
-                ->references('ID')->on('Event')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('InterractionType_ID', 'fk_EventInterraction_InterractionType1_idx')
-                ->references('ID')->on('InterractionType')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('User_ID', 'fk_EventInterraction_User1_idx')
-                ->references('ID')->on('User')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 
