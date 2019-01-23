@@ -16,13 +16,14 @@
 
         <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       <!-- Content Row -->
+        <div class="produits">
       <div class="row">
 
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Pull Bleu</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+             <img class= "article" src="css/PullCesi.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">More Info</a>
@@ -91,6 +92,7 @@
               <a href="#" class="btn btn-primary">More Info</a>
             </div>
           </div>
+</div>
  
         <!-- /.col-md-4 -->
 
