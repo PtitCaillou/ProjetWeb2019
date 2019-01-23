@@ -21,7 +21,16 @@ Route::get('register', function(){
 	return view('auth/register');
 });
 Route::get('shop', function() {
-    return view('shop/shop');
+    return view('shop');
+});
+Route::get('home', function() {
+    return view('welcome');
+});
+Route::get('activity', function() {
+    return view('activity');
+});
+Route::get('ideaBox', function() {
+    return view('ideaBox');
 });
 
 Auth::routes();
