@@ -29,7 +29,7 @@ Route::get('shop',"shopController@shop");
 
 Route::get('activity',"activityController@activity");
 
-Route::get('ideaBox', "ideaBoxController@idBox");
+Route::get('ideaBox', "ideaBoxController@ideaBox");
 
 Auth::routes();
 
