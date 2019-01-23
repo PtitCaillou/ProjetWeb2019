@@ -9,7 +9,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class= "goodies" src="css/PullCesi.jpg" class="d-block w-50" alt="...">
+      <img class= "goodies" src="css/PullCesi.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
       <img class="goodies" src="css/Capture.jpg" class="d-block w-100" alt="...">
