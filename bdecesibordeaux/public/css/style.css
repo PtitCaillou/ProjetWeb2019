@@ -40,15 +40,13 @@ h3{
 }
 
 .instagram{
-	max-width: 2%;
-	/*position: relative;
-	bottom: 10%;*/
+	max-width: 3%;
+    position: relative;
 }
 .facebook{
-	max-width: 2%;
-	/*position: relative;
-	top: 20%;
-	left: 4%;*/
+	max-width: 3%;
+	position: relative;
+	left: 8%;
 }
 .list-item{
     list-style-type: none;
@@ -104,9 +102,14 @@ h3{
 	color: rgb(238, 193, 94);
 }
 .goodies{
-	max-width: 50%;
+	max-width: 60%;
 	position: relative;
-    left: 30%;
+    left: 50%;
+}
+.pullbleu {
+    max-width: 60%;
+    position: relative;
+    left: 20%;
 }
 
 main{
