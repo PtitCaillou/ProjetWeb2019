@@ -175,3 +175,19 @@ button {
 .btn btn-primary {
    background-color: rgb(238, 193, 94); 
 }
+.add-article{
+	position: relative;
+	left: 70%;
+	top:-2rem;
+	margin-bottom: -5rem;
+}
+.basket{
+position: relative;
+	left: 82%;
+	margin-bottom: -3rem;
+}
+.hide{
+	position: relative;
+	left: 70%;
+	top:-21rem;
+}

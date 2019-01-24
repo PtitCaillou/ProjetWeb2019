@@ -10,4 +10,11 @@ class shopController extends Controller
     public function shop() {
         return view('shop');
     }
+
+    public function add(){
+    	return view('addProduct');
+    }
+    public function basket(){
+    	return view('basket');
+    }
 }
