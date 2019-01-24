@@ -8,13 +8,35 @@
    <!-- Page Content -->
 
    <header>
-        <h3>Boutique</h3>
+        <h3>BOUTIQUE</h3>
 </header>
       
-
         @include('menu')
+        <h2>Eléments les plus vendus</h2>
 
-        @include('goodiesDuMois')
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+       <img class= "produits" src="css/PullCesi.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img class="produits" src="css/Capture.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+        <h3><br>BOUTIQUE</h3>
       <!-- Content Row -->
         <div class="produits">
       <div class="row">
@@ -27,7 +49,7 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">20€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
+              <button class="btn btn-warning"><span class="glyphicon  glyphicon-shopping-cart"></span> Ajouter au panier</button>    </br></br>
             </div>
           </div>
         </div>
@@ -41,7 +63,7 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">25€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
+              <button class="btn btn-warning"><span class="glyphicon  glyphicon-shopping-cart"></span> Ajouter au panier</button>    </br></br>
             </div>
           </div>
         </div>
@@ -55,7 +77,7 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">30€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
+              <button class="btn btn-warning"><span class="glyphicon  glyphicon-shopping-cart"></span> Ajouter au panier</button>    </br></br>
             </div>
           </div>
         </div>
@@ -70,7 +92,7 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">10€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
+              <button class="btn btn-warning"><span class="glyphicon  glyphicon-shopping-cart"></span> Ajouter au panier</button>    </br></br>
             </div>
           </div>
         </div>
@@ -85,7 +107,7 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">7,99€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
+              <button class="btn btn-warning"><span class="glyphicon  glyphicon-shopping-cart"></span> Ajouter au panier</button>    </br></br>
             </div>
           </div>
         </div>
@@ -95,12 +117,12 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Bracelet Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <img class= "pullbleu" src="css/bracelet.jpg" class="d-block w-100" alt="...">
               <p class="card-text"></p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">3€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
+              <button class="btn btn-warning"><span class="glyphicon  glyphicon-shopping-cart"></span> Ajouter au panier</button>    </br></br> 
             </div>
           </div>
 </div>
@@ -108,11 +130,15 @@
         <!-- /.col-md-4 -->
 
  
-     <div class="container">
+      <div class="container">
         <footer>
             @extends('footer')
         </footer>
-    </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
 

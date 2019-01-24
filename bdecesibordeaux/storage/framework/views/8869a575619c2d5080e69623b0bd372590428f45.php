@@ -5,6 +5,7 @@
         <li class="list-item text-white">communication@bdecesibordeaux.fr</li>
         <li class="list-item text-white"><a href="https://www.instagram.com/bde_cesi_bdx/?hl=fr"><img class="instagram" src="css/instagram.png"></a></li>
         <li class="list-item text-white"><a href="https://www.facebook.com/bdecesibdx/"><img class="facebook" src="css/fb.png"></a></li>
+        <li class="list-item text-white"><a href="https://twitter.com/BdeCesiBordeaux"><img class="twitter" src="css/twitter.png"'></a></li>
     </ul>
   </div>
     <a class="juridique" href="#">Mentions légales</a>
