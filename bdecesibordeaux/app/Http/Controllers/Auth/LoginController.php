@@ -21,7 +21,7 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     public function login() {
-    return view('login');
+    return view('welcome');
     }
    
     /**
