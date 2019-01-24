@@ -11,23 +11,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into User (lastname, name, email, password, UserStatus_ID) values (?, ?, ?, ?, ?)',
-                                                          ['Jean', 'Jean', 'Jean.jean@viacesi.fr', 'jeanJean12', '2'],
-                                                          ['Jeanne', 'Jeanne', 'Jeanne.jeanne@viacesi.fr', 'jeanneJeanne13', '1'],
-                                                          ['Lamouche', 'zebi', 'zebi.lamouche@viacesi.fr', 'zebiLamouche1', '3']);
-    $role_BDE = Role::where('name', 'BDE')->first();
-    $role_Student  = Role::where('name', 'student')->first();
-    $BDE = new User();
-    $BDE->name = 'BDE Name';
-    $BDE->email = 'BDE@example.com';
-    $BDE->password = bcrypt('secret');
-    $BDE->save();
-    $BDE->roles()->attach($role_BDE);
-    $student = new User();
-    $student->name = 'student Name';
-    $student->email = 'student@example.com';
-    $student->password = bcrypt('secret');
-    $student->save();
-    $student->roles()->attach($role_Student);
+        DB::table('User')->insert(['lastname' => 'Jean', 'name' => 'Jean', 'email' => 'Jean.jean@viacesi.fr', 'password' => 'jeanJean12', 'role_id' => '2']);
+        DB::table('User')->insert(['lastname' => 'Jeanne', 'name' => 'Jeanne', 'email' => 'Jeanne.jeanne@viacesi.fr', 'password' => 'jeanneJeanne13', 'role_id' => '1']);
+        DB::table('User')->insert(['lastname' => 'Lamouche', 'name' => 'zebi', 'email' => 'zebi.lamouche@viacesi.fr', 'password' => 'zebiLamouche1', 'role_id' => '3']);
     }
 }

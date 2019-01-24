@@ -11,8 +11,7 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into Event (name, description, user_id, eventstatus_id, media_id, eventtype_id) values (?, ?, ?, ?, ?, ?)', 
-                                                           ['Soiree BDE', 'Grosse soiree', '2', '2', '1', '1'], 
-                                                           ['Pic-nic', 'Pic-nic de Sancho', '1', '1', '2', '1']);
+        DB::table('Event')->insert(['name' => 'Soiree BDE', 'description' => 'Grosse soiree', 'user_id' => '2', 'eventstatus_id' => '2', 'media_id' => '1', 'eventtype_id' => '1']);
+        DB::table('Event')->insert(['name' => 'Pic-nic', 'description' => 'Pic-nic de Sancho', 'user_id' => '1', 'eventstatus_id' => '1', 'media_id' => '2', 'eventtype_id' => '1']);
     }
 }

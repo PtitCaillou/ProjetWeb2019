@@ -11,9 +11,8 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into Product (name, description, price, producttype_id) values (?, ?, ?, ?)',
-                                                             ['Mug', 'Joli mug', '10', '1'],
-                                                             ['Pull', 'Tres joli pull', '20', '2'],
-                                                             ['T-Shirt', 'T-Shirt tres mignon', '15', '3']);
+        DB::table('Product')->insert(['name' => 'Mug', 'description' => 'Joli mug', 'price' => '10', 'producttype_id' => '1']);
+        DB::table('Product')->insert(['name' => 'Pull', 'description' => 'Tres joli pull', 'price' => '20', 'producttype_id' => '2']);
+        DB::table('Product')->insert(['name' => 'T-Shirt', 'description' => 'T-Shirt tres mignon', 'price' => '15', 'producttype_id' => '3']);
     }
 }

@@ -11,9 +11,8 @@ class UserNationalSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql2')->insert('insert into User (lastname, name, email, password, center_id) values (?, ?, ?, ?, ?)',
-                                                          ['Jean', 'Jean', 'Jean.jean@viacesi.fr', 'jeanJean12', '17'],
-                                                          ['Jeanne', 'Jeanne', 'Jeanne.jeanne@viacesi.fr', 'jeanneJeanne13', '17'],
-                                                          ['Lamouche', 'zebi', 'zebi.lamouche@viacesi.fr', 'zebiLamouche1', '17']);
+        DB::table('User')->insert(['lastname' => 'Jean', 'name' => 'Jean', 'email' => 'Jean.jean@viacesi.fr', 'password' => 'jeanJean12', 'center_id' => '17']);
+        DB::table('User')->insert(['lastname' => 'Jeanne', 'name' => 'Jeanne', 'email' => 'Jeanne.jeanne@viacesi.fr', 'password' => 'jeanneJeanne13', 'center_id' => '17']);
+        DB::table('User')->insert(['lastname' => 'Lamouche', 'name' => 'zebi', 'email' => 'zebi.lamouche@viacesi.fr', 'password' => 'zebiLamouche1', 'center_id' => '17']);
     }
 }
