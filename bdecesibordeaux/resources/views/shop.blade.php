@@ -26,7 +26,8 @@
               <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">More Info</a>
+              <a href="#" class="btn btn-primary">20€</a>
+              <a href="#" class="btn btn-primary">Ajouter au panier</a>
             </div>
           </div>
         </div>
@@ -35,10 +36,12 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Pull Rouge</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <p class="card-text"></p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">More Info</a>
+              <a href="#" class="btn btn-primary">25€</a>
+              <a href="#" class="btn btn-primary">Ajouter au panier</a>
             </div>
           </div>
         </div>
@@ -47,10 +50,12 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Pull Gris</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <p class="card-text"></p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">More Info</a>
+              <a href="#" class="btn btn-primary">30€</a>
+              <a href="#" class="btn btn-primary">Ajouter au panier</a>
             </div>
           </div>
         </div>
@@ -60,10 +65,12 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Mug Cesi</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <p class="card-text"></p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">More Info</a>
+              <a href="#" class="btn btn-primary">10€</a>
+              <a href="#" class="btn btn-primary">Ajouter au panier</a>
             </div>
           </div>
         </div>
@@ -73,10 +80,12 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Thermos Cesi</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <p class="card-text"></p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">More Info</a>
+              <a href="#" class="btn btn-primary">7,99€</a>
+              <a href="#" class="btn btn-primary">Ajouter au panier</a>
             </div>
           </div>
         </div>
@@ -86,10 +95,12 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Bracelet Cesi</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <p class="card-text"></p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">More Info</a>
+              <a href="#" class="btn btn-primary">3€</a>
+              <a href="#" class="btn btn-primary">Ajouter au panier</a>
             </div>
           </div>
 </div>
