@@ -23,7 +23,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Pull Bleu</h4>
-             <img class= "article" src="css/PullCesi.jpg" class="d-block w-100" alt="...">
+              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">More Info</a>
