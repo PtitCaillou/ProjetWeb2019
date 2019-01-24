@@ -15,16 +15,16 @@ class User extends Authenticatable
 
 
 //types d'utilisateurs que l'on souhaite utiliser
-    const BDE_TYPE = '1';
+   /* const BDE_TYPE = '1';
     const STUDENT_TYPE = '2';
-    const EMPLOYEE_TYPE = '3';
+    const EMPLOYEE_TYPE = '3';*/
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
 
-    public function roles()
+  /*  public function roles()
 {
   return $this->belongsToMany(User::class);
 }
@@ -57,9 +57,9 @@ public function hasRole($role)
 
     public function isEmployee(){
         return $this->UserStatus_ID === self::EMPLOYEE_TYPE;
-    }
+    }*/
     protected $fillable = [
-        'lastname', 'name', 'email', 'password', 'status'
+        'lastname', 'name', 'email', 'password'
     ];
 
     /**
