@@ -11,9 +11,8 @@ class MediaInterractionSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into MediaInterraction (user_id, media_id, interractiontype_id, content) values (?, ?, ?, ?)',
-                                                                       ['1', '1', '1', ''], 
-                                                                       ['2', '2', '2', 'Super'],
-                                                                       ['3', '2', '3', 'Pas ouf']);
+        DB::table('MediaInterraction')->insert(['user_id' => '1', 'media_id' => '1', 'interractiontype_id' => '1', 'content' => '']);
+        DB::table('MediaInterraction')->insert(['user_id' => '2', 'media_id' => '2', 'interractiontype_id' => '2', 'content' => 'Super']);
+        DB::table('MediaInterraction')->insert(['user_id' => '3', 'media_id' => '2', 'interractiontype_id' => '3', 'content' => 'Pas ouf']);
     }
 }

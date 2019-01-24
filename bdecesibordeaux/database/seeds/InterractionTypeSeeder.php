@@ -11,6 +11,9 @@ class InterractionTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into InterractionType (type) values (?)', ['Like'], ['Comment'], ['Signal'], ['Delete']);
+        DB::table('InterractionType')->insert(['type' => 'Like']);
+        DB::table('InterractionType')->insert(['type' => 'Comment']);
+        DB::table('InterractionType')->insert(['type' => 'Signal']);
+        DB::table('InterractionType')->insert(['type' => 'Delete']);
     }
 }

@@ -11,9 +11,8 @@ class BasketSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into Basket (user_id, product_id, quantity) values (?, ?, ?)',
-                                                            ['1', '1', '12'], 
-                                                            ['3', '3', '1'],
-                                                            ['1', '2', '2']);
+        DB::table('Basket')->insert(['user_id' => '1', 'product_id' => '1', 'quantity' => '12']);
+        DB::table('Basket')->insert(['user_id' => '3', 'product_id' => '3', 'quantity' => '1']);
+        DB::table('Basket')->insert(['user_id' => '1', 'product_id' => '2', 'quantity' => '2']);
     }
 }

@@ -11,6 +11,8 @@ class EventStatusSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into eventstatus (status) values (?)', ['Pending'], ['Valid'], ['Invalid']);
+        DB::table('EventStatus')->insert(['status' => 'Pending']);
+        DB::table('EventStatus')->insert(['status' => 'Valid']);
+        DB::table('EventStatus')->insert(['status' => 'Invalid']);
     }
 }
