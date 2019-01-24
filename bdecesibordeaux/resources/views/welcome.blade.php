@@ -13,6 +13,7 @@
 @section('head')
     <header>
             <h1>Accueil BDE</h1>
+            
 </header>
 @endsection
 
