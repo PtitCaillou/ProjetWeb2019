@@ -172,3 +172,6 @@ button {
     left: 20%;
     padding-top: 25px;
 }
+.btn btn-primary {
+   background-color: rgb(238, 193, 94); 
+}
