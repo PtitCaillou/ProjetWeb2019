@@ -15,9 +15,9 @@ class User extends Authenticatable
 
 
 //types d'utilisateurs que l'on souhaite utiliser
-   /* const BDE_TYPE = '1';
+    const BDE_TYPE = '1';
     const STUDENT_TYPE = '2';
-    const EMPLOYEE_TYPE = '3';*/
+    const EMPLOYEE_TYPE = '3';
     /**
      * The attributes that are mass assignable.
      *
@@ -44,20 +44,20 @@ public function hasAnyRole($roles)
 public function hasRole($role)
 {
   return null !== $this->roles()->where('role', $role)->first();
-}
+}*/
 
     //Fonctions de verification des différents utilisateurs
     public function isBDE(){
-        return $this->UserStatus_ID === self::BDE_TYPE;
+        return $this->role_id === self::BDE_TYPE;
     }
 
     public function isStudent(){
-        return $this->UserStatus_ID === self::STUDENT_TYPE;
+        return $this->role_id === self::STUDENT_TYPE;
     }
 
     public function isEmployee(){
-        return $this->UserStatus_ID === self::EMPLOYEE_TYPE;
-    }*/
+        return $this->role_id === self::EMPLOYEE_TYPE;
+    }
     protected $fillable = [
         'lastname', 'name', 'email', 'password'
     ];

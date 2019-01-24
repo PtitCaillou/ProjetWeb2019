@@ -28,10 +28,21 @@ Route::get('activity',"activityController@activity");
 
 Route::get('ideaBox', "ideaBoxController@ideaBox");
 
+Route::get('add.product',"shopController@add");
+Route::get('basket', "shopController@basket");
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('welcome');
 
-/*Route::get('/BDE', 'BDEController@BDE')    
+Route::get('/BDE', 'BDEController@BDE')    
     ->middleware('is_BDE')    
-    ->name('BDE');*/
+    ->name('BDE');
+
+Route::get('/student', 'StudentController@student')    
+    ->middleware('is_Student')    
+    ->name('student');
+
+Route::get('/employee', 'EmployeeController@employee')    
+    ->middleware('is_employee')    
+    ->name('employee');

@@ -12,6 +12,6 @@ class BDEController extends Controller
     }
     public function BDE(){
     	
-    	return view('boutique');
+    	return view('BDE');
     }
 }
