@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             BasketSeeder::class,
-            CenterSeeder::class,
             EventInfoSeeder::class,
             EventInterractionSeeder::class,
             EventSeeder::class,
@@ -24,9 +23,10 @@ class DatabaseSeeder extends Seeder
             MediaSeeder::class,
             ProductSeeder::class,
             ProductTypeSeeder::class,
+            CenterSeeder::class,
             UserNationalSeeder::class,
             UserSeeder::class,
-            UserStatusSeeder::class,
+            RoleTableSeeder::class
         ]);
     }
 }

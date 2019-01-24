@@ -75,5 +75,10 @@ class RegisterController extends Controller
             'password'=> Hash::make($data['password']),
             'UserStatus_ID'=>User::STUDENT_TYPE,
         ]);
+
+         $user
+       ->roles()
+       ->attach(Role::where('name', 'student')->first());
+    return $user;
     }
 }
