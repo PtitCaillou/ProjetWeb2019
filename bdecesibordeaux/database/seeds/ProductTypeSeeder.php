@@ -11,6 +11,8 @@ class ProductTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into ProductType (type) values (?)', ['Mug'], ['Pull'], ['T-Shirt']);
+        DB::table('ProductType')->insert(['type' => 'Mug']);
+        DB::table('ProductType')->insert(['type' => 'Pull']);
+        DB::table('ProductType')->insert(['type' => 'T-Shirt']);
     }
 }
