@@ -13,14 +13,14 @@
       
         @include('menu')
         <h2>Eléments les plus vendus</h2>
-
+<div class= "carrousel">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-       <img class= "produits" src="css/PullCesi.jpg" class="d-block w-100" alt="...">
+       <img class= "carrousel" src="css/PullCesi.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img class="produits" src="css/Capture.jpg" class="d-block w-100" alt="...">
+      <img class="carrousel" src="css/Capture.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="..." alt="Third slide">
@@ -34,6 +34,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div>
 </div>
 
         <h3><br>BOUTIQUE</h3>
@@ -87,7 +88,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Mug Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <img class= "mug" src="css/Mug.jpg" class="d-block w-100" alt="...">
               <p class="card-text"></p>
             </div>
             <div class="card-footer">
@@ -117,7 +118,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Bracelet Cesi</h4>
-              <img class= "pullbleu" src="css/bracelet.jpg" class="d-block w-100" alt="...">
+              <img class= "bracelet" src="css/bracelet.jpg" class="d-block w-100" alt="...">
               <p class="card-text"></p>
             </div>
             <div class="card-footer">
@@ -129,7 +130,6 @@
  
         <!-- /.col-md-4 -->
 
- 
       <div class="container">
         <footer>
             @extends('footer')
