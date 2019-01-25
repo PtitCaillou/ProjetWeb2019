@@ -3,7 +3,6 @@ var bodyParser = require("body-parser");
 var mysql = require('mysql');
 var fs = require('fs');
 var htmltopdf = require('html-pdf');
-const Json2csvParser = require('json2csv').Parser;
 var hostname = 'localhost';
 var port = 3000;
 var app = express();
@@ -23,14 +22,9 @@ var pool = mysql.createPool({
 const JsonToCsv = (response, data, id) => {
     var text = "name,lastname,email \n";
     var path = "./csv/output" + id + ".csv";
-
-    for (var i = 0; i < data.length; i++) {
-        text += data[i].name + "," + data[i].lastname + "," + data[i].email + "\n";
-    }
-
+    for (var i = 0; i < data.length; i++) { text += data[i].name + "," + data[i].lastname + "," + data[i].email + "\n"; }
     fs.writeFileSync(path, text);
     response.download(path);
-    console.log("File surely written !");
 }
 
 function JsonToPdf(response, data, id) {
