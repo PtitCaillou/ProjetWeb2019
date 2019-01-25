@@ -24,7 +24,7 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /*public function register() {
-    return view('welv');
+    return view('welcome');
     }*/
 
     /**
