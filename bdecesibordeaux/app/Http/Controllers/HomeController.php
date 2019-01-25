@@ -23,12 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $request->user()->authorizeRoles(['BDE', 'student']);
+       /* $request->user()->authorizeRoles(['BDE', 'student']);*/
         return view('welcome');
     }
-    public function someAdminStuff(Request $request)
+   /* public function someAdminStuff(Request $request)
   {
     $request->user()->authorizeRoles('BDE');
     return view('boutique');
-  }
+  }*/
 }

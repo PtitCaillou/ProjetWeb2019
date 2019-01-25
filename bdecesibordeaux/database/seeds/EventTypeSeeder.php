@@ -11,6 +11,7 @@ class EventTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into eventtype (type) values (?)', ['Punctual'], ['Recurring']);
+        DB::table('EventType')->insert(['type' => 'Punctual']);
+        DB::table('EventType')->insert(['type' => 'Recurring']);
     }
 }

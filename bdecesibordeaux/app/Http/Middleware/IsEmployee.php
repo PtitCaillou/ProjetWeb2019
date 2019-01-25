@@ -15,6 +15,9 @@ class IsEmployee
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(auth()->user()->isEmployee()) {
+            return $next($request);
+        }
+        return view('welcome'));
     }
 }

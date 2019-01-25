@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
 
-    public function roles()
+  /*  public function roles()
 {
   return $this->belongsToMany(User::class);
 }
@@ -44,22 +44,22 @@ public function hasAnyRole($roles)
 public function hasRole($role)
 {
   return null !== $this->roles()->where('role', $role)->first();
-}
+}*/
 
     //Fonctions de verification des différents utilisateurs
     public function isBDE(){
-        return $this->UserStatus_ID === self::BDE_TYPE;
+        return $this->role_id === self::BDE_TYPE;
     }
 
     public function isStudent(){
-        return $this->UserStatus_ID === self::STUDENT_TYPE;
+        return $this->role_id === self::STUDENT_TYPE;
     }
 
     public function isEmployee(){
-        return $this->UserStatus_ID === self::EMPLOYEE_TYPE;
+        return $this->role_id === self::EMPLOYEE_TYPE;
     }
     protected $fillable = [
-        'lastname', 'name', 'email', 'password', 'status'
+        'lastname', 'name', 'email', 'password'
     ];
 
     /**

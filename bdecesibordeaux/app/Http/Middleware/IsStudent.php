@@ -15,6 +15,9 @@ class IsStudent
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(auth()->user()->isStudent()) {
+            return $next($request);
+        }
+        return view('welcome');
     }
 }

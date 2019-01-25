@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Role;
 
 class UserSeeder extends Seeder
 {
@@ -12,9 +11,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-      DB::connection('mysql')->insert('insert into User (lastname, name, email, password, role_id) values (?, ?, ?, ?, ?)',
-                                                        ['Jean', 'Jean', 'Jean.jean@viacesi.fr', 'jeanJean12', '2'],
-                                                        ['Jeanne', 'Jeanne', 'Jeanne.jeanne@viacesi.fr', 'jeanneJeanne13', '1'],
-                                                        ['Lamouche', 'zebi', 'zebi.lamouche@viacesi.fr', 'zebiLamouche1', '3']);
+        DB::table('User')->insert(['lastname' => 'Jean', 'name' => 'Jean', 'email' => 'Jeanjean@viacesi.fr', 'password' => 'jeanJean12', 'role_id' => '2']);
+        DB::table('User')->insert(['lastname' => 'Jeanne', 'name' => 'Jeanne', 'email' => 'Jeannejeanne@viacesi.fr', 'password' => 'jeanneJeanne13', 'role_id' => '1']);
+        DB::table('User')->insert(['lastname' => 'Lamouche', 'name' => 'zebi', 'email' => 'zebilamouche@viacesi.fr', 'password' => 'zebiLamouche1', 'role_id' => '3']);
     }
 }

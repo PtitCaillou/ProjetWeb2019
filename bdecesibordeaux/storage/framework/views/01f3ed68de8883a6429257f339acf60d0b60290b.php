@@ -17,6 +17,7 @@
 
 <?php $__env->startSection('body'); ?>
 <main>
+
 </main>
 <?php $__env->stopSection(); ?>
 

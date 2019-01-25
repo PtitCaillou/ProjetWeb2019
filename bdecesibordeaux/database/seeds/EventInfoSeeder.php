@@ -11,8 +11,7 @@ class EventInfoSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('mysql')->insert('insert into EventInfo (date, event_id, price, location) values (?, ?, ?, ?)',
-                                                                       ['2019-01-25', '1', '3', 'Bar la Casa, 33000 Bordeaux'], 
-                                                                       ['2019-01-26', '2', '0', 'Jardin Public, 33000 Bordeaux']);
+        DB::table('EventInfo')->insert(['date' => '2019-01-25', 'event_id' => '1', 'price' => '3', 'location' => 'Bar la Casa, 33000 Bordeaux']);
+        DB::table('EventInfo')->insert(['date' => '2019-01-26', 'event_id' => '2', 'price' => '0', 'location' => 'Jardin Public, 33000 Bordeaux']);
     }
 }
