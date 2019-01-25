@@ -13,6 +13,7 @@
 <?php $__env->startSection('head'); ?>
     <header>
             <h1>Accueil BDE</h1>
+            
 </header>
 <?php $__env->stopSection(); ?>
 
