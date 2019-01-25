@@ -20,9 +20,9 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /*public function login() {
-    return view('welcome');
-    }*/
+    public function login() {
+    return view('Welcome');
+    }
    
     /**
      * Where to redirect users after login.
