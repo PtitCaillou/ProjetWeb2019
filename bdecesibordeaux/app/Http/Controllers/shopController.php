@@ -17,4 +17,7 @@ class shopController extends Controller
     public function basket(){
     	return view('basket');
     }
+    public function addBasket(){
+    	return view('add-basket');
+    }
 }

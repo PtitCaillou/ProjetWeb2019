@@ -13,6 +13,40 @@
 @section('head')
     <header>
             <h1>Accueil BDE</h1>
+            <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Manage Permission</div>
+
+
+                <div class="panel-body">
+
+
+                   <!--  @if(checkPermission(['student']))
+                   <a href="{{ url('permissions-all-users') }}"><button>Access All Users</button></a>
+                   @endif
+                   
+                   
+                   @if(checkPermission(['employee']))
+                   <a href="{{ url('permissions-admin-employee') }}"><button>Access Admin and Superadmin</button></a>
+                   @endif
+                   
+                   
+                   @if(checkPermission(['bde']))
+                   <a href="{{ url('permissions-bde') }}"><button>Access Only Superadmin</button></a>
+                   @endif
+                   
+                   @if(checkPermission(['visitor']))
+                   <a href="{{ url('permissions-visitor') }}"><button></button></a>
+                   @endif -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
             
 </header>
 @endsection
