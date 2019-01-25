@@ -11,8 +11,11 @@ class BasketSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Basket')->insert(['user_id' => '1', 'product_id' => '1', 'quantity' => '12']);
-        DB::table('Basket')->insert(['user_id' => '3', 'product_id' => '3', 'quantity' => '1']);
-        DB::table('Basket')->insert(['user_id' => '1', 'product_id' => '2', 'quantity' => '2']);
+        DB::table('Basket')->insert(['user_id' => '1', 'product_id' => '1', 'quantity' => '12', 'status' => '0']);
+        DB::table('Basket')->insert(['user_id' => '3', 'product_id' => '3', 'quantity' => '1', 'status' => '0']);
+        DB::table('Basket')->insert(['user_id' => '1', 'product_id' => '2', 'quantity' => '2', 'status' => '0']);
+        DB::table('Basket')->insert(['user_id' => '2', 'product_id' => '1', 'quantity' => '12', 'status' => '1']);
+        DB::table('Basket')->insert(['user_id' => '2', 'product_id' => '3', 'quantity' => '1', 'status' => '1']);
+        DB::table('Basket')->insert(['user_id' => '2', 'product_id' => '2', 'quantity' => '2', 'status' => '1']);
     }
 }
