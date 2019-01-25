@@ -72,6 +72,9 @@ nav{
 	left: 33%;*/
 }
 
+.carrousel {
+    width: 75%;
+}
 .vendus{
 	max-width: 50%;
 	position: relative;
