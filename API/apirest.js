@@ -34,7 +34,6 @@ function JsonToPdf(response, data, id) {
 
     for (var i = 0; i < data.length; i++) { html += "<ul><li>Prénom: " + data[i].name + "</li><li>Nom: " + data[i].lastname + "</li><li>Email: " + data[i].email + "</li></ul>"; }
     html += "<li>Number of members: " + data.length + "</li></ul>";
-
     htmltopdf.create(html, { format: 'A4' }).toFile(path, function (err, res) {
         if (!err) { response.download(path); }
     })
