@@ -6,17 +6,21 @@
 </head>
 <body>
    <!-- Page Content -->
+
+   <header>
+        <h3>BOUTIQUE</h3>
+</header>
 <!-- We check if one user is connected -->
-        <?php if(Auth::check()): ?>
 
 <!-- If there is an user connected, we get is role id -->
 <!-- When this id is equal to 1 he has a student status. So we create the page for a student -->
- <?php if( Auth::user()->role_id == '1'): ?>{
- <header>
+
         <h3>Boutique</h3>
         <!-- Button to have an access to the user's basket -->
          <div class="basket">
            <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"><i class="fas fa-shopping-basket" style="max-width: 20%; position: relative; right: 15%"></i> Panier</a>
+        </div></a>
+        <?php if(checkPermission(['bde'])): ?>
         </div>
                 </header>
         <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -153,17 +157,37 @@
         <h3>Boutique</h3>
        <!--  adding button to add an article  -->
         <div class="add-article">
-          <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);">Ajouter un article</a>     
-           </div>
-        <div class="basket">
-           <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"><i class="fas fa-shopping-basket" style="max-width: 20%; position: relative; right: 15%"></i> Panier</a>
+        <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
-       
+        <?php endif; ?>
                 </header>
-  
         <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
+        <h2>Eléments les plus vendus</h2>
+<div class= "carrousel">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+       <img class= "carrousel" src="css/PullCesi.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img class="carrousel" src="css/Capture.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
         <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <!-- creating the product view -->
       <!-- Content Row -->
         <div class="produits">
       <div class="row">
@@ -176,11 +200,13 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">20€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
-                <!-- adding button to hide products -->
+              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <?php if(checkPermission(['employee'])): ?>
+              <a href="#" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
               <a href="#" class="btn btn-primary">Masquer</a>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -194,10 +220,13 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">25€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
+              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <?php if(checkPermission(['employee'])): ?>
+              <a href="#" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
               <a href="#" class="btn btn-primary">Masquer</a>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -211,10 +240,13 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">30€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
+              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <?php if(checkPermission(['employee'])): ?>
+              <a href="#" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
               <a href="#" class="btn btn-primary">Masquer</a>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -224,15 +256,18 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Mug Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <img class= "mug" src="css/Mug.jpg" class="d-block w-100" alt="...">
               <p class="card-text"></p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">10€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
+              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <?php if(checkPermission(['employee'])): ?>
+              <a href="#" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
               <a href="#" class="btn btn-primary">Masquer</a>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -247,10 +282,13 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">7,99€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
+              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <?php if(checkPermission(['employee'])): ?>
+              <a href="#" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
               <a href="#" class="btn btn-primary">Masquer</a>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -260,147 +298,23 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">Bracelet Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+              <img class= "bracelet" src="css/bracelet.jpg" class="d-block w-100" alt="...">
               <p class="card-text"></p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">3€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
+              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <?php if(checkPermission(['employee'])): ?>
+              <a href="#" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
               <a href="#" class="btn btn-primary">Masquer</a>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
-</div>
-</div>
 </div>
  
         <!-- /.col-md-4 -->
- }
-  <!-- When the id is equal to 3 he has a employee status. So we create the page for an employee -->
- <?php elseif( Auth::user()->role_id == '3'): ?>{
-  <h3>Boutique</h3>
-   <div class="basket">
-           <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"><i class="fas fa-shopping-basket" style="max-width: 20%; position: relative; right: 15%"></i> Panier</a>
-        </div>
-                </header>
-  
-        <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-        <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-      <!-- Content Row -->
-        <div class="produits">
-      <div class="row">
-
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Pull Bleu</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">20€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
-               <!--  Changing button to send an e-mail to a BDE member -->
-              <a href="#" class="btn btn-primary">Signaler</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Pull Rouge</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">25€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
-              <a href="#" class="btn btn-primary">Signaler</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Pull Gris</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">30€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
-              <a href="#" class="btn btn-primary">Signaler</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Mug Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">10€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
-              <a href="#" class="btn btn-primary">Signaler</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-                <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Thermos Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">7,99€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
-              <a href="#" class="btn btn-primary">Signaler</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-                <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Bracelet Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">3€</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-              <div class ="hide">
-              <a href="#" class="btn btn-primary">Signaler</a>
-              </div>
-            </div>
-          </div>
-</div>
-</div>
-</div>
- 
-        <!-- /.col-md-4 -->
-
 </body>
  }
 <?php endif; ?>
@@ -508,11 +422,8 @@
 
         <!-- /.col-md-4 -->
 
- 
-
 </body>
    }
-<?php endif; ?>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
