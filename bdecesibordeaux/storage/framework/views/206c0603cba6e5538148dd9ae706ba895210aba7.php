@@ -13,12 +13,10 @@
 	<h3>Activités</h3>
 	 <?php if(checkPermission(['bde'])): ?>
         <div class="add-article">
-        <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter une activité</a>
+        <a href="<?php echo e(('add.activity')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter une activité</a>
         </div>
-	 <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-	 
         <?php endif; ?>
+             <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </header>
 <?php echo $__env->yieldContent('body'); ?>
 <main>

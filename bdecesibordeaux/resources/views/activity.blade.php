@@ -13,12 +13,10 @@
 	<h3>Activités</h3>
 	 @if(checkPermission(['bde']))
         <div class="add-article">
-        <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter une activité</a>
+        <a href="{{('add.activity')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter une activité</a>
         </div>
-	 @include('menu')
-
-	 
         @endif
+             @include('menu')
 </header>
 @yield('body')
 <main>
