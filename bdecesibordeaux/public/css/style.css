@@ -31,6 +31,9 @@ h3{
 	font-size: 35px;
 	position: relative;
 }
+h5 {
+    color: rgb(255,255,255);
+}
 .logo{
 	max-width: 7%;
     line-height: -1;
@@ -39,33 +42,34 @@ h3{
     left: 0%;
 }
 
-.instagram{
-	max-width: 3%;
+.socialService {
     position: relative;
+    right: 40%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
 }
-.facebook{
-	max-width: 3%;
-	position: relative;
-	left: 8%;
+.socialService img {
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    margin: auto;
+}
+.contact {
+    left: 50%;
 }
 .list-item{
     list-style-type: none;
 }
 .juridique{
-	color: rgb(150,150,150);
-	/*position: relative;
-	left: 40%;*/
+    color: rgb(150,150,150);
+    padding-left: 76%;
+    padding-bottom: 0%;
 }
-/* footer{
-	background-color:rgb(0,0,0) ;
-	  flex: 0 0 auto;
-	      flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
-    margin-top: auto;
-    position: relative;
-} */
-
+.footer{
+    align-items: center;
+} 
 
 nav{
 	/*position: relative;
@@ -114,6 +118,13 @@ h3{
     max-width: 60%;
     position: relative;
     left: 20%;
+}
+.mug, .bracelet {
+    max-width: 60%;
+    position: relative;
+    left: 20%;
+    top: 10%;
+    padding-bottom: 10%;
 }
 
 main{
@@ -168,8 +179,16 @@ button {
     left: 20%;
     width: 400px;
 }
-
 .produits {
+    width:800px;
+    height: 500px;
+    position: relative;
+    padding-top: 25px;
+    margin: 0 auto;
+}
+.carrousel {
+    width: 75%;
+    margin-left: 12%;
     width: 60%;
     height: 50%;
     position: relative;
@@ -204,4 +223,24 @@ position: relative;
 }
 .night{
 	max-width: 90%;
+}
+
+.idea-group{
+	position:relative;
+	top: 50%;
+	max-width: 50%;
+	margin-top: -7rem;
+}
+
+.add-idea{
+	position: relative;
+	top: 60%;
+	max-width: 50%;
+	margin-top: 2rem;
+}
+
+.body-idea{
+	position: relative;
+	top: 70%;
+	margin-top: -28rem
 }

@@ -23,9 +23,10 @@ class CreateBasketTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('quantity');
             $table->integer('Product_ID');
             $table->integer('User_ID');
+            $table->integer('quantity');
+            $table->integer('status')->default('0');
         });
     }
 

@@ -15,5 +15,6 @@ class InterractionTypeSeeder extends Seeder
         DB::table('InterractionType')->insert(['type' => 'Comment']);
         DB::table('InterractionType')->insert(['type' => 'Signal']);
         DB::table('InterractionType')->insert(['type' => 'Delete']);
+        DB::table('InterractionType')->insert(['type' => 'Register']);
     }
 }
