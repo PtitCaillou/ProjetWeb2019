@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class IsBDE
+class CheckPermission
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,14 @@ class IsBDE
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->isBDE()) {
+         $permission = explode('|', $permission);
+
+        
+        if(checkPermission($permission)){
             return $next($request);
         }
-        return redirect('welcome');
+
+
+        return response()->view('errors.check-permission');
     }
 }

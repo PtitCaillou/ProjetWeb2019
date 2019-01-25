@@ -4,6 +4,7 @@
     
     
     
+
     <title>BDE Acceuil</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -12,6 +13,41 @@
 <?php $__env->startSection('head'); ?>
     <header>
             <h1>Accueil BDE</h1>
+            <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Manage Permission</div>
+
+
+                <div class="panel-body">
+
+
+                   <!--  <?php if(checkPermission(['student'])): ?>
+                   <a href="<?php echo e(url('permissions-all-users')); ?>"><button>Access All Users</button></a>
+                   <?php endif; ?>
+                   
+                   
+                   <?php if(checkPermission(['employee'])): ?>
+                   <a href="<?php echo e(url('permissions-admin-employee')); ?>"><button>Access Admin and Superadmin</button></a>
+                   <?php endif; ?>
+                   
+                   
+                   <?php if(checkPermission(['bde'])): ?>
+                   <a href="<?php echo e(url('permissions-bde')); ?>"><button>Access Only Superadmin</button></a>
+                   <?php endif; ?>
+                   
+                   <?php if(checkPermission(['visitor'])): ?>
+                   <a href="<?php echo e(url('permissions-visitor')); ?>"><button></button></a>
+                   <?php endif; ?> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
 </header>
 <?php $__env->stopSection(); ?>
 

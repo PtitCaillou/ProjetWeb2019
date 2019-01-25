@@ -31,4 +31,30 @@ class HomeController extends Controller
     $request->user()->authorizeRoles('BDE');
     return view('boutique');
   }*/
+  public function student()
+    {
+        dd('Access student');
+    }
+
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function employee()
+    {
+        dd('Access employee');
+    }
+
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function bde()
+    {
+        dd('Access only bde');
+    }
 }
