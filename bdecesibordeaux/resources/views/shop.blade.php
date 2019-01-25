@@ -114,15 +114,15 @@
             </div>
           </div>
 </div>
- 
-        <!-- /.col-md-4 -->
 
- 
      <div class="container">
         <footer>
             @extends('footer')
         </footer>
     </div>
+ 
+        <!-- /.col-md-4 -->
+
 </body>
    }
 
@@ -380,12 +380,6 @@
  
         <!-- /.col-md-4 -->
 
- 
-<!--      <div class="container">
-   <footer>
-       @extends('footer')
-   </footer>
-    </div> -->
 </body>
  }
 @endif
@@ -494,11 +488,7 @@
         <!-- /.col-md-4 -->
 
  
-     <div class="container">
-        <footer>
-            @extends('footer')
-        </footer>
-    </div>
+
 </body>
    }
 @endif

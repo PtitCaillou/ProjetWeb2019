@@ -114,15 +114,15 @@
             </div>
           </div>
 </div>
- 
-        <!-- /.col-md-4 -->
 
- 
      <div class="container">
         <footer>
             
         </footer>
     </div>
+ 
+        <!-- /.col-md-4 -->
+
 </body>
    }
 
@@ -380,12 +380,6 @@
  
         <!-- /.col-md-4 -->
 
- 
-<!--      <div class="container">
-   <footer>
-       
-   </footer>
-    </div> -->
 </body>
  }
 <?php endif; ?>
@@ -494,11 +488,7 @@
         <!-- /.col-md-4 -->
 
  
-     <div class="container">
-        <footer>
-            
-        </footer>
-    </div>
+
 </body>
    }
 <?php endif; ?>
@@ -512,6 +502,4 @@
 
 
  
-<?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
