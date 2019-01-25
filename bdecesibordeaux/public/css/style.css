@@ -77,7 +77,8 @@ nav{
 }
 
 .carrousel {
-    width: 75%;
+    width: 80%;
+    margin-left: 10%;
 }
 .vendus{
 	max-width: 50%;
