@@ -220,3 +220,23 @@ position: relative;
 .night{
 	max-width: 90%;
 }
+
+.idea-group{
+	position:relative;
+	top: 50%;
+	max-width: 50%;
+	margin-top: -7rem;
+}
+
+.add-idea{
+	position: relative;
+	top: 60%;
+	max-width: 50%;
+	margin-top: 2rem;
+}
+
+.body-idea{
+	position: relative;
+	top: 70%;
+	margin-top: -28rem
+}
