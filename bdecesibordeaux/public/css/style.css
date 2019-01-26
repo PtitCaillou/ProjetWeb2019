@@ -239,9 +239,34 @@ position: relative;
 	max-width: 50%;
 	margin-top: 2rem;
 }
-
+.card {
+    position: relative;
+    margin-left: 30%;
+    margin-top: 20%;
+    margin-bottom: 5%;
+}
 .body-idea{
 	position: relative;
+}
+.text-right, .text-left {
+    margin-left: 3%;
+    color: rgb(255,255,255);
+}
+.well {
+    border: 5px solid rgb(255,255,255);
+    margin-bottom: 5%;
+    padding: 1%;
+}
+.comments{
+    display:flex;
+    flex-direction: row;
+    margin-left: 3%
+}
+.idea-image {
+   width: 20%;
+}
+.pull-left {
+  overflow: hidden;
 	top: 70%;
 	margin-top: -28rem
 }
