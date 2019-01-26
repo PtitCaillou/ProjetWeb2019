@@ -11,6 +11,9 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mysql": "^2.16.0"
+    "html-pdf": "^2.2.0",
+    "json2csv": "^4.3.3",
+    "mysql": "^2.16.0",
+    "wkhtmltopdf": "^0.3.4"
   }
 }

@@ -266,6 +266,14 @@ position: relative;
    width: 20%;
 }
 .pull-left {
-    overflow: hidden;
-    
+  overflow: hidden;
+	top: 70%;
+	margin-top: -28rem
+}
+.add.activity{
+   position: relative;
+   left: 50%;
+}
+.adding{
+    max-width: 50%;
 }
