@@ -24,7 +24,7 @@
         </div></a>
         <?php if(checkPermission(['bde'])): ?>
         <div class="add-article">
-        <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+        <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
         <?php endif; ?>
                 </header>
@@ -54,6 +54,7 @@
 </div>
 </div>
         <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <!-- creating the product view -->
       <!-- Content Row -->
         <div class="produits">
@@ -62,11 +63,11 @@
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h4 class="card-title">Pull Bleu</h4>
+              <h4 class="card-title"><?php echo e($product->name); ?></h4>
               <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">20€</a>
+              <a href="#" class="btn btn-primary"><?php echo e($product->price); ?></a>
               <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
               <?php if(checkPermission(['employee'])): ?>
               <a href="#" class="btn btn-primary">Signaler</a>
@@ -77,109 +78,10 @@
             </div>
           </div>
         </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Pull Rouge</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">25€</a>
-              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Pull Gris</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">30€</a>
-              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Mug Cesi</h4>
-              <img class= "mug" src="css/Mug.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">10€</a>
-              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-                <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Thermos Cesi</h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">7,99€</a>
-              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-                <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Bracelet Cesi</h4>
-              <img class= "bracelet" src="css/bracelet.jpg" class="d-block w-100" alt="...">
-              <p class="card-text"></p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">3€</a>
-              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
+
 </div>
+</div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  
         <!-- /.col-md-4 -->
  

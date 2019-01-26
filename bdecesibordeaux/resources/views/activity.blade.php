@@ -31,7 +31,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title"> {{ $event->name }} </h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
+              <img class= "night" src="{{('css/event.jpg')}}" class="d-block w-100" alt="...">
               <p class="card-text"> {{ $event->description }}</p>
               <a href="#" style="color: blue;">Voir plus</a>
                @if(checkPermission(['employee']))

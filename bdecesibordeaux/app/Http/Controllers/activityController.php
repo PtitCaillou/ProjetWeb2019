@@ -12,7 +12,9 @@ class activityController extends Controller
 {
         public function activity() {
         $event = Event::all();
-	return view('activity', ['event'=>$event]);
+        /*$eventImg = Event::all()->pluck('media_id');
+        $img = Media::where('id', '=', $eventImg);*/
+	return view('activity', ['event'=>$event/*, 'media'=>$img*/]);
     }
 
     public function add(){
@@ -40,9 +42,11 @@ public function store(Request $request){
 	$info->save();
 	$img = new Media;
 	$img->path = $request->img;
-
-	$event = Event::all();
-	return view('activity', ['event' => $event]);
+ $event = Event::all();
+        $eventImg = Event::all()->pluck('media_id');
+        $img = Media::where('id', '=', $eventImg);
+	return view('activity', ['event'=>$event
+								/*'media'=>$img,*/]);
 }
 
 /*protected function validator(array $data){

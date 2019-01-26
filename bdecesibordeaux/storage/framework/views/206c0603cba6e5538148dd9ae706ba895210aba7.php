@@ -31,7 +31,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title"> <?php echo e($event->name); ?> </h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
+              <img class= "night" src="<?php echo e(('css/event.jpg')); ?>" class="d-block w-100" alt="...">
               <p class="card-text"> <?php echo e($event->description); ?></p>
               <a href="#" style="color: blue;">Voir plus</a>
                <?php if(checkPermission(['employee'])): ?>
