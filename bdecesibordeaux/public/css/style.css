@@ -212,10 +212,11 @@ position: relative;
 	top:-21rem;
 }
 .event{
-    max-width: 60%;
-    position: relative;
-    left: 20%;
-    padding-top: -2rem;
+    width: 60%;
+    height: 20%;
+   /*  position: relative;
+   left: 20%; */
+    /* padding-top: -2rem; */
 }
 .night{
 	max-width: 90%;

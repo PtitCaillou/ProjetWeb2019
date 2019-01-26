@@ -11,15 +11,12 @@ use App\Media;
 class activityController extends Controller
 {
         public function activity() {
-        return view('activity');
+        $event = Event::all();
+	return view('activity', ['event'=>$event]);
     }
 
     public function add(){
     	return view('addActivity');
-    }
-
-    public function scriptadd(){
-    	return view('scriptAddActivity');
     }
 
 public function store(Request $request){
@@ -43,13 +40,9 @@ public function store(Request $request){
 	$info->save();
 	$img = new Media;
 	$img->path = $request->img;
-	
 
 	$event = Event::all();
-	$eventInfo = EventInfo::all();
-	$eventImg = Media::all();
-	return view('activity', ['event'=>$event]);
-
+	return view('activity', ['event' => $event]);
 }
 
 /*protected function validator(array $data){
