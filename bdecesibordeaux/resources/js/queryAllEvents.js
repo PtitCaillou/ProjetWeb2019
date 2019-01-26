@@ -3,7 +3,6 @@ request.open('GET', 'http://siteweb:3000/events');
 request.onload = function () {
     var data = JSON.parse(this.response);
     data.forEach(event => {
-        console.log(event);
         document.getElementById('event').insertAdjacentHTML('beforeend', "<tr><td>"
             + event.name + "</td><td>"
             + event.eventtype + "</td><td>"
