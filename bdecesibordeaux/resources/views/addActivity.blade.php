@@ -11,6 +11,7 @@
 	<main>
 		@yield('body')
 		<form style="margin-top: 5rem;" method="POST" action="{{('store')}}">
+      {{ csrf_field() }}
 	<div class="form-group">
     <label for="exampleFormControlInput1" style="color: white; position: relative; left: 20%; ">Titre de l'activité</label>
     <input type="text" name="name" class="form-control" style="position: relative; left: 20%; max-width: 50%; " id="exampleFormControlInput1" placeholder="Titre">
@@ -31,6 +32,11 @@
     <label for="exampleFormControlTextarea1" style="color: white; position: relative; left: 20%; ">Description</label>
     <textarea class="form-control" name="description" id="exampleFormControlTextarea1" style="position: relative; left: 20%; max-width: 50%;" rows="3"></textarea>
   </div>
+  <select name="type" class="custom-select">
+  <option selected>Choisir le type de l'évenement</option>
+  <option value="1">Ponctuel</option>
+  <option value="2">Récurrant</option>
+</select>
   <div class="form-group">
     <label for="exampleFormControlFile1">Ajouter une image</label>
     <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1" style=" position: relative; left: 20%; max-width: 50%;">
