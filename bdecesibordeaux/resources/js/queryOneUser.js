@@ -1,5 +1,6 @@
 var request = new XMLHttpRequest();
-request.open('GET', 'http://siteweb:3000/users');
+var url = "http://siteweb:3000/users/" + document.currentScript.getAttribute('id');
+request.open('GET', url);
 request.onload = function () {
     var data = JSON.parse(this.response);
     data.forEach(user => {
