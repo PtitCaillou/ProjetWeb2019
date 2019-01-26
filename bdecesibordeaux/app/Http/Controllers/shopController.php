@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Basket;
 
 class shopController extends Controller
 {
@@ -20,7 +21,9 @@ class shopController extends Controller
     	return view('basket');
     }
     public function addBasket(){
-    	return view('add-basket');
+        $basket = new Basket;
+        dd(Product::find('id'));
+    	return view('shop');
     }
     public function store(Request $request){
         $product = new Product;
