@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var mysql = require('mysql');
 var fs = require('fs');
 var htmltopdf = require('html-pdf');
+var archiver = require('archiver');
 var hostname = 'localhost';
 var port = 3000;
 var app = express();
@@ -39,6 +40,26 @@ function JsonToPdf(response, data, id) {
     })
 }
 
+//HAVE TO TY THIS
+function DownloadAlbum(response, data, id) {
+    var path = './album/album' + id + '.zip';
+    var output = fs.createWriteStream(path);
+    var archive = archiver('zip', { zlib: { level: 9 } });
+
+    for (var i = 0; i < data.length; i++) {
+        console.log(data[i].path);
+        archive.file(data[i].path);
+    }
+
+    output.on('end', function () {
+        console.log('Data has been drained');
+        response.download(path);
+        console.log('Archive has been download');
+    });
+
+    archive.finalize();
+}
+
 
 
 //Query all users
@@ -71,6 +92,8 @@ var queryOneProduct = "SELECT name, description, price, producttype.type FROM Pr
 var queryAllMedias = "SELECT path, description, user.name, user.lastname FROM Media INNER JOIN user ON media.user_id = user.id";
 //Query one specific media
 var queryOneMedia = "SELECT path, description, user.name, user.lastname FROM Media INNER JOIN user ON media.user_id = user.id WHERE media.id = ";
+//Query all medias of one event
+var queryAlbum = "SELECT path, description FROM Media WHERE status = 1 AND event_id = ";
 
 
 function handle_database(req, res, opt) {
@@ -167,20 +190,16 @@ function handle_database(req, res, opt) {
         } else if (opt == 16) { //Download a pdf file with the registered user of one event
             connection.query(queryRegisteredUsers + req.params.event_id, function (err, rows) {
                 connection.release();
+                if (!err) { JsonToPdf(res, rows, id); }
+            });
+        } else if (opt == 17) { //Download an archive with the photos of an album of an event
+            connection.query(queryAlbum + req.params.event_id, function (err, rows) {
+                connection.release();
                 if (!err) {
-                    JsonToPdf(res, rows, id);
+                    DownloadAlbum(res, rows, id);
                 }
             });
         }
-        /* TO DO
-        else if (opt == 17) { //Download an archive with the photos of an album of an event
-            connection.query(queryRegisteredUsers + req.params.event_id, function (err, rows) {
-                connection.release();
-                if (!err) {
-                    JsonToPdf(res, rows, id);
-                }
-            });
-        }*/
 
 
 

@@ -9,6 +9,7 @@
   "author": "Peyret Romain",
   "license": "MIT",
   "dependencies": {
+    "archiver": "^3.0.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "html-pdf": "^2.2.0",
