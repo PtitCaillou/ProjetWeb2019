@@ -1,5 +1,5 @@
  @if(checkPermission(['student','employee','bde']))
- <p>Votre panier</p>
+ <p>produit ajouté</p>
  @else
  <?php 
 header('Location: login'); 

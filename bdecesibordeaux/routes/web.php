@@ -30,19 +30,18 @@ Route::get('ideaBox', "ideaBoxController@ideaBox");
 
 Route::get('add.product',"shopController@add");
 Route::get('basket', "shopController@basket");
+Route::get('add-basket', "shopController@addBasket");
+Route::get('add.activity', "activityController@add");
+Route::post('store', "activityController@store");
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('welcome');
 
-Route::get('/BDE', 'BDEController@BDE')    
-    ->middleware('is_BDE')    
-    ->name('BDE');
+Route::group(['middleware'=>'auth'], function () {
+	Route::get('permissions-student',['middleware'=>'check-permission:student','uses'=>'HomeController@student']);
+	Route::get('permissions-employee',['middleware'=>'check-permission:employee','uses'=>'HomeController@employee']);
+	Route::get('permissions-bde',['middleware'=>'check-permission:bde','uses'=>'HomeController@bde']);
 
-Route::get('/student', 'StudentController@student')    
-    ->middleware('is_Student')    
-    ->name('student');
-
-Route::get('/employee', 'EmployeeController@employee')    
-    ->middleware('is_employee')    
-    ->name('employee');
+});

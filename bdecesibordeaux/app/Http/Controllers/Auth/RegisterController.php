@@ -23,9 +23,10 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-   /* public function register() {
+    /*public function register() {
     return view('welcome');
     }*/
+
     /**
      * Where to redirect users after registration.
      *
@@ -73,7 +74,6 @@ class RegisterController extends Controller
             'name'=> $data['name'],
             'email'=> $data['email'],
             'password'=> Hash::make($data['password']),
-            'role_id'=>User::STUDENT_TYPE,
         ]);
 
          /*$user
