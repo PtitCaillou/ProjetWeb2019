@@ -59,23 +59,23 @@ var queryAllUsers = "SELECT lastname, name, email, role_id FROM User";
 //Query one specific user
 var queryOneUser = "SELECT lastname, name, email, role_id FROM User WHERE id = ";
 //Query all events
-var queryAllEvents = "SELECT event.name, event.description, eventtype.type, eventstatus.status, media.path, user.name, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN eventstatus ON event.eventstatus_id = eventstatus.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id ";
+var queryAllEvents = "SELECT event.name, event.description, eventtype.type AS eventtype, eventstatus.status, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN eventstatus ON event.eventstatus_id = eventstatus.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id ";
 //Query one specific event
-var queryOneEvent = "SELECT event.name, event.description, eventtype.type, eventstatus.status, media.path, user.name, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN eventstatus ON event.eventstatus_id = eventstatus.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id WHERE event.id = ";
+var queryOneEvent = "SELECT event.name, event.description, eventtype.type AS eventtype, eventstatus.status, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN eventstatus ON event.eventstatus_id = eventstatus.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id WHERE event.id = ";
 //Query a list of user that have registered to an upcoming event
 var queryRegisteredUsers = "SELECT name, lastname, email FROM User INNER JOIN eventinterraction ON user.id = eventinterraction.user_id WHERE eventinterraction.interractiontype_id = 5 AND eventinterraction.event_id = ";
 //Query all baskets
-var queryAllBaskets = "SELECT user.lastname, user.name, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id";
+var queryAllBaskets = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id";
 //Query all complete baskets
-var queryAllBasketsComplete = "SELECT user.lastname, user.name, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 1";
+var queryAllBasketsComplete = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 1";
 //Query all uncomplete baskets
-var queryAllBasketsUncomplete = "SELECT user.lastname, user.name, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 0";
+var queryAllBasketsUncomplete = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 0";
 //Query all baskets of one user
-var queryOneBasketUser = "SELECT user.lastname, user.name, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE user.id = ";
+var queryOneBasket = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE user.id = ";
 //Query all complete baskets of one user
-var queryOneBasketsUncomplete = "SELECT user.lastname, user.name, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 1 AND user.id = ";
+var queryOneBasketUncomplete = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 1 AND user.id = ";
 //Query all uncomplete baskets of one user
-var queryOneBasketComplete = "SELECT user.lastname, user.name, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 0 AND user.id = ";
+var queryOneBasketComplete = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 0 AND user.id = ";
 //Query all products
 var queryAllProducts = "SELECT name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id";
 //Query one specific product
@@ -141,7 +141,7 @@ function handle_database(req, res, opt) {
                 if (!err) { res.json(rows); }
             });
         } else if (opt == 8) { //Get all baskets of one user
-            connection.query(queryOneBasketUser + req.params.user_id, function (err, rows) {
+            connection.query(queryOneBasket + req.params.user_id, function (err, rows) {
                 connection.release();
                 if (!err) { res.json(rows); }
             });
@@ -204,8 +204,6 @@ function handle_database(req, res, opt) {
 }
 
 var appRouter = function (app) {
-
-
     app.get('/users', function (req, res) {
         handle_database(req, res, 0);
     })
