@@ -32,7 +32,7 @@
     <label for="exampleFormControlTextarea1" style="color: white; position: relative; left: 20%; ">Description</label>
     <textarea class="form-control" name="description" id="exampleFormControlTextarea1" style="position: relative; left: 20%; max-width: 50%;" rows="3"></textarea>
   </div>
-  <select name="type" class="custom-select">
+  <select style="position: relative; left: 20%; max-width: 50%;" name="type" class="custom-select">
   <option selected>Choisir le type de l'évenement</option>
   <option value="1">Ponctuel</option>
   <option value="2">Récurrant</option>
