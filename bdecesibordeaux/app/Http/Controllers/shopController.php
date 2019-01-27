@@ -16,6 +16,7 @@ class shopController extends Controller
             $product = new Product();
             $product->name = $data['name'];
             $product->price = $data['price'];
+            $product->description = $data['description'];
             array_push($products, $product);
         }
         return view('shop', ['product'=>$products]);

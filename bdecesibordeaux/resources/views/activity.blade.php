@@ -21,7 +21,7 @@
         @include('searchBar')
         </form>
            <!-- <script type="text/javascript">
-               var path = "{{ route('autocompleteActivity') }}";
+           var path = "{{ route('autocompleteActivity') }}";
                $('input.typehead').typeahead({
                    source:  function (query, process) {
                    return $.get(path, { query: query }, function (data) {

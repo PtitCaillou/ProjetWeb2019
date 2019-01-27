@@ -14,13 +14,14 @@
         <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
         <?php endif; ?>
+                <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
                 </header>
         <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchShop')); ?>" id='search' class="typehead">
         <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </form>
     <!--    <script type="text/javascript">
-        var path = "<?php echo e(route('autocomplete')); ?>";
+    var path = "{//{ route('autocomplete') }}";
         $('input.typehead').typeahead({
      source:  function (query, process) {
      return $.get(path, { query: query }, function (data) {
@@ -33,8 +34,10 @@
         <!-- creating the product view -->
       <!-- Content Row -->
         <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <?php $name = $product->name;
-        $price = $product->price;
+        <?php 
+          $name = $product->name;
+          $price = $product->price;
+          $description = $product->description;
         ?>
         <div class="produits">
       <div class="row">
@@ -46,6 +49,7 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary"><?php echo e($price); ?><? return $price ?></a>
+              <p><?php echo e($description); ?><? return $description?></p>
               <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
               <?php if(checkPermission(['employee'])): ?>
               <a href="#" class="btn btn-primary">Signaler</a>

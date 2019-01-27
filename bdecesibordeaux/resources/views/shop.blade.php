@@ -21,7 +21,7 @@
         @include('searchBar')
         </form>
     <!--    <script type="text/javascript">
-        var path = "{{ route('autocomplete') }}";
+    var path = "{//{ route('autocomplete') }}";
         $('input.typehead').typeahead({
      source:  function (query, process) {
      return $.get(path, { query: query }, function (data) {
@@ -34,8 +34,10 @@
         <!-- creating the product view -->
       <!-- Content Row -->
         @foreach($product as $product)
-        <?php $name = $product->name;
-        $price = $product->price;
+        <?php 
+          $name = $product->name;
+          $price = $product->price;
+          $description = $product->description;
         ?>
         <div class="produits">
       <div class="row">
@@ -47,6 +49,7 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">{{$price}}<? return $price ?></a>
+              <p>{{$description}}<? return $description?></p>
               <a href="{{('add-basket')}}" class="btn btn-primary">Ajouter au panier</a>
               @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>
