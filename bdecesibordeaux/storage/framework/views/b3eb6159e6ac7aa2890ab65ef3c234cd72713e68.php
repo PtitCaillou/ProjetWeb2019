@@ -17,12 +17,11 @@
         </div>
         <?php endif; ?>
              <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-</header>
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" class="typehead">
         <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </form>
            <!-- <script type="text/javascript">
-               var path = "<?php echo e(route('autocompleteActivity')); ?>";
+           var path = "<?php echo e(route('autocompleteActivity')); ?>";
                $('input.typehead').typeahead({
                    source:  function (query, process) {
                    return $.get(path, { query: query }, function (data) {

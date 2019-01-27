@@ -111,9 +111,11 @@ h3{
 	color: rgb(238, 193, 94);
 }
 .goodies{
-	max-width: 60%;
-	position: relative;
-    left: 50%;
+	max-width: 90%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+
 }
 .pullbleu {
     max-width: 60%;
