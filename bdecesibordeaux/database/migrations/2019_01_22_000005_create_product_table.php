@@ -27,6 +27,7 @@ class CreateProductTable extends Migration
             $table->string('name', 45);
             $table->string('description');
             $table->integer('price');
+            $table->integer('stock');
             $table->integer('ProductType_ID');
         });
     }
