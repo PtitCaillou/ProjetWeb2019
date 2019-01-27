@@ -14,6 +14,7 @@
         <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
         @endif
+                <a href="{{('basket')}}" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
                 </header>
         @include('menu')
         <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}" id='search' class="typehead">
