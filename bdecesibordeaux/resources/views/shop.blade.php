@@ -6,6 +6,15 @@
 </head>
 <body>
   <header>
+       <h3>BOUTIQUE</h3>
+        @if(checkPermission(['bde']))
+        <div class="add-article">
+          <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+        </div>
+        @endif
+            @include('menu')
+    </header>
+    
     <h3>BOUTIQUE</h3>
     <!--  adding button to add an article  -->
     </div></a>
@@ -14,20 +23,33 @@
         <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
         </div>
-      @endif
-  </header>
-  @include('menu')
-  <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}">
-    @include('searchBar')
-  </form>
-  @include('goodiesDuMois')
-  @foreach($product as $product)
-    <?php $name = $product->name;
-      $price = $product->price;
-    ?>
-    <!-- creating the product view -->                                                                                                                               
-    <!-- Content Row -->
-    <div class="produits">
+        @endif
+                <a href="{{('basket')}}" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+                </header>
+        @include('menu')
+        <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}" id='search' class="typehead">
+        @include('searchBar')
+        </form>
+    <!--    <script type="text/javascript">
+    var path = "{//{ route('autocomplete') }}";
+        $('input.typehead').typeahead({
+     source:  function (query, process) {
+     return $.get(path, { query: query }, function (data) {
+             return process(data);
+         });
+     }
+        });
+    </script> -->
+        @include('goodiesDuMois')
+        <!-- creating the product view -->
+      <!-- Content Row -->
+        @foreach($product as $product)
+        <?php 
+          $name = $product->name;
+          $price = $product->price;
+          $description = $product->description;
+        ?>
+        <div class="produits">
       <div class="row">
         <div class="col-md-4 mb-4">
           <div class="card h-100">
@@ -42,6 +64,8 @@
               <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="{{$product->id}}">
                <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
               </form>
+              <p>{{$description}}<? return $description?></p>
+              <a href="{{('add-basket')}}" class="btn btn-primary">Ajouter au panier</a>
               @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>
               @endif

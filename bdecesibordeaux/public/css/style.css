@@ -1,12 +1,13 @@
 .Connexion{
-	left:75%;
+	left:55%;
     margin-top: -4rem;
     position: relative;
 }	
 .Inscription{
     margin-top: -4rem;
     position: relative;
-    left:77%;
+    margin-right: 20%;
+    left: 60%;
 }
 .img {
     position:relative;
@@ -37,9 +38,9 @@ h5 {
 .logo{
 	max-width: 7%;
     line-height: -1;
-    margin-top: -4rem;
+    margin-top: -3rem;
     position: relative;
-    left: 0%;
+    margin-right: 10%;
 }
 
 .socialService {
@@ -263,13 +264,16 @@ position: relative;
     flex-direction: row;
     margin-left: 3%
 }
+.likes, .comment {
+    color: rgb(255,255,255);
+}
 .idea-image {
    width: 20%;
 }
 .pull-left {
   overflow: hidden;
-	top: 70%;
-	margin-top: -28rem
+    top: 70%;
+    margin-top: -28rem
 }
 .add.activity{
    position: relative;
@@ -277,4 +281,10 @@ position: relative;
 }
 .adding{
     max-width: 50%;
+}
+.thumb-up {
+    position: relative;
+    margin-top: 3%;
+    width: 3%;
+    height: 50%;
 }

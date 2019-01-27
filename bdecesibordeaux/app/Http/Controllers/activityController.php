@@ -56,7 +56,20 @@ public function description(Request $request){
 	return view('description', ['event'=>$event
 								/*'media'=>$img,*/]);
 }
-
+public function search(Request $request){
+        $research = $request->search;
+        $event = Event::where('name', '=', $research)->get();
+        return view('activity', ['event'=>$event]);
+    
+}
+ public function autocomplete(Request $request)
+    {
+        $data = Event::select("name")
+                ->where("name","LIKE","%{$request->input('query')}%")
+                ->get();
+   
+        return response()->json($data);
+    }
 /*protected function validator(array $data){
  return Validator::make($data, [
 'name' =>['required', 'string', 'max :255'],

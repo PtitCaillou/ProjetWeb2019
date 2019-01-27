@@ -36,6 +36,9 @@ Route::post('store', "activityController@store");
 Route::post('storeProduct', "shopController@store");
 Route::get('searchShop', "shopController@search");
 Route::post('description', "activityController@description");
+Route::get('searchActivity', "activityController@search");
+/*Route::get('autocompleteShop', 'shopController@autocomplete')->name('autocompleteShop');
+Route::get('autocompleteActivity', 'activityController@autocomplete')->name('autocompleteActivity');*/
 
 Auth::routes();
 

@@ -10,8 +10,16 @@ use App\Basket;
 class shopController extends Controller
 {
     public function shop() {
-       $prod = Product::all();
-        return view('shop', ['product'=>$prod]);
+        $datas = json_decode(file_get_contents('http://siteweb:3000/products'), true);
+        $products = [];
+        foreach($datas as $data){
+            $product = new Product();
+            $product->name = $data['name'];
+            $product->price = $data['price'];
+            $product->description = $data['description'];
+            array_push($products, $product);
+        }
+        return view('shop', ['product'=>$products]);
     }
 
     public function add(){
@@ -37,26 +45,25 @@ class shopController extends Controller
 
     public function search(Request $request){
         $research = $request->search;
-        $prod = Product::where('name', '=', $research)->get();
-        dump($prod);
-        return view('shop', ['product'=>$prod]);
+        $uri = "http://siteweb:3000/products/" . $research;
+        $datas = json_decode(file_get_contents($uri), true);
+        $products = [];
+        foreach($datas as $data){
+            $product = new Product();
+            $product->name = $data['name'];
+            $product->price = $data['price'];
+            array_push($products, $product);
+        }
+        return view('shop', ['product'=>$products]);
     }
-    public function store(Request $request){
-        $product = new Product;
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-       if ($request->type == "1") {
-        $product->productType_id = '1';
+  
+     public function autocomplete(Request $request)
+    {
+        $data = Product::select("name")
+                ->where("name","LIKE","%{$request->input('query')}%")
+                ->get();
+   
+        return response()->json($data);
     }
-    elseif (($request->type == "2")) {
-        $product->productType_id = '2';
-    }
-    else{
-        $product->productType_id = '3';
-    }
-    dump($product);
-        $prod = Product::all();
-        return view('shop', ['product'=>$prod]);
-    }
+
 }

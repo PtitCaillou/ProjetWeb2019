@@ -17,7 +17,19 @@
         </div>
         @endif
              @include('menu')
-</header>
+             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" class="typehead">
+        @include('searchBar')
+        </form>
+           <!-- <script type="text/javascript">
+           var path = "{{ route('autocompleteActivity') }}";
+               $('input.typehead').typeahead({
+                   source:  function (query, process) {
+                   return $.get(path, { query: query }, function (data) {
+                return process(data);
+            });
+                   }
+               });
+           </script> -->
 @yield('body')
 <main>
 	@include('eventDuMois')
@@ -41,7 +53,7 @@
                @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>
               @endif
-              @if(checkPermission(['bde']))
+              @if(checkPermission(['bde'])) 
               <a href="#" class="btn btn-primary">Masquer</a>
               @endif
             </div>
