@@ -49,6 +49,14 @@ public function store(Request $request){
 								/*'media'=>$img,*/]);
 }
 
+public function description(Request $request){
+	$desc=$request->description;
+	dump(Event::where('id', '=', $desc)->get());
+	$event=Event::where('id', '=', $desc)->get();
+	return view('description', ['event'=>$event
+								/*'media'=>$img,*/]);
+}
+
 /*protected function validator(array $data){
  return Validator::make($data, [
 'name' =>['required', 'string', 'max :255'],

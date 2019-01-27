@@ -20,13 +20,19 @@ class shopController extends Controller
     public function basket(){
     	return view('basket');
     }
-    public function addBasket(){
+    public function addBasket(Request $request){
+        $add = $request->add;
         $basket = new Basket;
-        $product = new Product;
-        dd($this->$product->name);
-        $basket->name = $this->$product->name;
+    dump(Product::where('id', '=', $add)->find('id'));
+    $product=Product::where('id', '=', $add)->get()->pluck('id');
+    Basket::create(['product_id' => $product]);
+     $user_id= auth()->user()->id;
+    Basket::create(['user_id'=> $user_id]);
+    Basket::create(['quantity' => '1']);
+    Basket::create(['status'=>'1']);
 
-    	return view('shop');
+   $prod = Product::all();
+        return view('shop', ['product'=>$prod]);
     }
 
     public function search(Request $request){

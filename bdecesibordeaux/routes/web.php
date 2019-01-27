@@ -30,11 +30,12 @@ Route::get('ideaBox', "ideaBoxController@ideaBox");
 
 Route::get('add.product',"shopController@add");
 Route::get('basket', "shopController@basket");
-Route::get('add-basket', "shopController@addBasket");
+Route::post('add-basket', "shopController@addBasket");
 Route::get('add.activity', "activityController@add");
 Route::post('store', "activityController@store");
 Route::post('storeProduct', "shopController@store");
 Route::get('searchShop', "shopController@search");
+Route::post('description', "activityController@description");
 
 Auth::routes();
 

@@ -12,6 +12,7 @@
       <?php if(checkPermission(['bde'])): ?>
         <div class="add-article">
         <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+        <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
         </div>
       <?php endif; ?>
   </header>
@@ -36,7 +37,12 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary"><?php echo e($price); ?><? return $price ?></a>
-              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <form method="post" action="<?php echo e(('add-basket')); ?>">
+                 <?php echo e(csrf_field()); ?>
+
+              <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="<?php echo e($product->id); ?>">
+               <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
+              </form>
               <?php if(checkPermission(['employee'])): ?>
               <a href="#" class="btn btn-primary">Signaler</a>
               <?php endif; ?>
