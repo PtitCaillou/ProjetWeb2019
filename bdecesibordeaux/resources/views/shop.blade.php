@@ -29,6 +29,9 @@
         @endif
                 </header>
         @include('menu')
+        <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}">
+        @include('searchBar')
+        </form>
         <h2>Eléments les plus vendus</h2>
 <div class= "carrousel">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

@@ -29,6 +29,9 @@
         <?php endif; ?>
                 </header>
         <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchShop')); ?>">
+        <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </form>
         <h2>Eléments les plus vendus</h2>
 <div class= "carrousel">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -66,8 +69,7 @@
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h4 class="card-title" name ="name" ><?php echo e($name); ?></h4>
-              <? dd(return $name) ?>
+              <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
               <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">

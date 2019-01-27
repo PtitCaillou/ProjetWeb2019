@@ -34,6 +34,7 @@ Route::get('add-basket', "shopController@addBasket");
 Route::get('add.activity', "activityController@add");
 Route::post('store', "activityController@store");
 Route::post('storeProduct', "shopController@store");
+Route::get('searchShop', "shopController@search");
 
 Auth::routes();
 

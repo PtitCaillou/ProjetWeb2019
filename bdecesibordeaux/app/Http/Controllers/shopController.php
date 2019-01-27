@@ -28,6 +28,13 @@ class shopController extends Controller
 
     	return view('shop');
     }
+
+    public function search(Request $request){
+        $research = $request->search;
+        $prod = Product::where('name', '=', $research)->get();
+        dump($prod);
+        return view('shop', ['product'=>$prod]);
+    }
     public function store(Request $request){
         $product = new Product;
         $product->name = $request->name;
