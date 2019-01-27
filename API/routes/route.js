@@ -79,7 +79,7 @@ var queryOneBasketComplete = "SELECT user.lastname, user.name AS username, produ
 //Query all products
 var queryAllProducts = "SELECT name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id";
 //Query one specific product
-var queryOneProduct = "SELECT name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id WHERE Product.id = ";
+var queryOneProduct = "SELECT name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id WHERE Product.name = \"";
 //Query all medias
 var queryAllMedias = "SELECT path, description, user.name, user.lastname FROM Media INNER JOIN user ON media.user_id = user.id";
 //Query one specific media
@@ -161,7 +161,7 @@ function handle_database(req, res, opt) {
                 if (!err) { res.json(rows); }
             });
         } else if (opt == 12) { //Get one product
-            connection.query(queryOneProduct + req.params.product_id, function (err, rows) {
+            connection.query(queryOneProduct + req.params.product_name + "\"", function (err, rows) {
                 connection.release();
                 if (!err) { res.json(rows); }
             });
@@ -252,7 +252,7 @@ var appRouter = function (app) {
         handle_database(req, res, 11);
     })
 
-    app.get('/products/:product_id', function (req, res) {
+    app.get('/products/:product_name', function (req, res) {
         handle_database(req, res, 12);
     })
 
