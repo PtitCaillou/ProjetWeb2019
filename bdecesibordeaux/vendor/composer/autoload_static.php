@@ -421,9 +421,11 @@ class ComposerStaticInit61ea75b7418413564eb193f9d569dc42
     );
 
     public static $classMap = array (
+        'App\\Basket' => __DIR__ . '/../..' . '/app/Basket.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\EventInfo' => __DIR__ . '/../..' . '/app/EventInfo.php',
+        'App\\EventType' => __DIR__ . '/../..' . '/app/EventType.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

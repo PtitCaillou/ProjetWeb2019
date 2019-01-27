@@ -29,14 +29,13 @@
      }
         });
     </script> -->
-        <h2>Eléments les plus vendus</h2>
         @include('goodiesDuMois')
+        <!-- creating the product view -->
+      <!-- Content Row -->
         @foreach($product as $product)
         <?php $name = $product->name;
         $price = $product->price;
         ?>
-        <!-- creating the product view -->
-      <!-- Content Row -->
         <div class="produits">
       <div class="row">
         <div class="col-md-4 mb-4">
