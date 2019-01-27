@@ -49,6 +49,21 @@ public function store(Request $request){
 								/*'media'=>$img,*/]);
 }
 
+public function search(Request $request){
+        $research = $request->search;
+        $event = Event::where('name', '=', $research)->get();
+        return view('activity', ['event'=>$event]);
+    
+}
+ public function autocomplete(Request $request)
+    {
+        $query = $request->get('query','');        
+
+        $posts = Event::where('name','LIKE','%'.$query.'%')->get();
+        dump($post);        
+
+        return response()->json($posts);
+    }
 /*protected function validator(array $data){
  return Validator::make($data, [
 'name' =>['required', 'string', 'max :255'],

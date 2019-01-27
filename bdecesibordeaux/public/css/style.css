@@ -201,7 +201,7 @@ button {
 .add-article{
 	position: relative;
 left: 65%;
-margin-top: -5rem;
+/* margin-top: -5rem; */
 margin-bottom: -2rem; 
 }
 .basket{
@@ -274,6 +274,7 @@ position: relative;
 .add.activity{
    position: relative;
    left: 50%;
+   margin-top: 5rem;
 }
 .adding{
     max-width: 50%;

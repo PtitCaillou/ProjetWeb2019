@@ -32,7 +32,6 @@ class shopController extends Controller
     public function search(Request $request){
         $research = $request->search;
         $prod = Product::where('name', '=', $research)->get();
-        dump($prod);
         return view('shop', ['product'=>$prod]);
     }
     public function store(Request $request){
@@ -53,4 +52,13 @@ class shopController extends Controller
         $prod = Product::all();
         return view('shop', ['product'=>$prod]);
     }
+     public function autocomplete(Request $request)
+    {
+        $data = Product::select("name")
+                ->where("name","LIKE","%{$request->input('query')}%")
+                ->get();
+   
+        return response()->json($data);
+    }
+
 }
