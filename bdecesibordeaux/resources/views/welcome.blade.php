@@ -4,7 +4,6 @@
     @extends('eventDuMois')
     @extends('goodiesDuMois')
     @extends('menu')
-
     <title>BDE Acceuil</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -17,7 +16,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Manage Permission</div>
 
 
                 <div class="panel-body">

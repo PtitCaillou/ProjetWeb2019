@@ -49,4 +49,14 @@ class shopController extends Controller
         }
         return view('shop', ['product'=>$products]);
     }
+  
+     public function autocomplete(Request $request)
+    {
+        $data = Product::select("name")
+                ->where("name","LIKE","%{$request->input('query')}%")
+                ->get();
+   
+        return response()->json($data);
+    }
+
 }
