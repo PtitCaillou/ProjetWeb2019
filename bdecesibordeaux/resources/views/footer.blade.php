@@ -37,7 +37,7 @@
     <!-- Footer Links -->
     <!-- Copyright -->
       <a href="http://bdecesibordeaux/"> bdecesibordeaux.fr</a>
-       <a class="juridique" href="#"><br>Mentions légales</a>
+       <a class="juridique" href="Mentions légales.pdf"><br>Mentions légales</a>
     <!-- Copyright -->
 </div>
 

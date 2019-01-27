@@ -271,8 +271,8 @@ position: relative;
 }
 .pull-left {
   overflow: hidden;
-	top: 70%;
-	margin-top: -28rem
+    top: 70%;
+    margin-top: -28rem
 }
 .add.activity{
    position: relative;
@@ -280,4 +280,10 @@ position: relative;
 }
 .adding{
     max-width: 50%;
+}
+.thumb-up {
+    position: relative;
+    margin-top: 3%;
+    width: 3%;
+    height: 50%;
 }

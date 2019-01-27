@@ -11,16 +11,15 @@
         
   <header>
        <h3>BOUTIQUE</h3>
-       <!--  adding button to add an article  -->
-        </div></a>
         <?php if(checkPermission(['bde'])): ?>
         <div class="add-article">
+          <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
         <?php endif; ?>
-                <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
-                </header>
-          <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </header>
       
+     
         <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <!-- creating the product view -->
       <!-- Content Row -->
