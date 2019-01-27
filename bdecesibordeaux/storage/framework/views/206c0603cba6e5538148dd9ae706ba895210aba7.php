@@ -17,7 +17,23 @@
         </div>
         <?php endif; ?>
              <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-</header>
+             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true">
+        <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </form>
+        <script type="text/javascript">
+          var list = [
+          <?php App\Product::all()->pluck('name');?>
+          ];
+
+          $('#search').autocomplete({
+            source : function(){
+              $.ajax({
+            url : 'http://localhost/phpmyadmin/sql.php?db=bde_cesi_bordeaux&table=event&pos=0', // on appelle le script JSON
+            dataType : 'sql', // on spécifie bien que le type de données est en JSON
+            }
+          });
+          
+        </script>
 <?php echo $__env->yieldContent('body'); ?>
 <main>
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

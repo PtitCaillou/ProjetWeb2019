@@ -29,9 +29,19 @@
         @endif
                 </header>
         @include('menu')
-        <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}">
+        <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}" id='search' class="typehead">
         @include('searchBar')
         </form>
+       <script type="text/javascript">
+    var path = "{{ route('autocomplete') }}";
+    $('input.typehead').typeahead({
+        source:  function (query, process) {
+        return $.get(path, { query: query }, function (data) {
+                return process(data);
+            });
+        }
+    });
+</script>
         <h2>Eléments les plus vendus</h2>
 <div class= "carrousel">
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
