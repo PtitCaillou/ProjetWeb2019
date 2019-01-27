@@ -55,6 +55,9 @@
 </div>
         @include('goodiesDuMois')
         @foreach($product as $product)
+        <?php $name = $product->name;
+        $price = $product->price;
+        ?>
         <!-- creating the product view -->
       <!-- Content Row -->
         <div class="produits">
@@ -63,11 +66,11 @@
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h4 class="card-title">{{$product->name}}</h4>
+              <h4 class="card-title" name ="name" >{{$name}}<? return $name ?></h4>
               <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">{{$product->price}}</a>
+              <a href="#" class="btn btn-primary">{{$price}}<? return $price ?></a>
               <a href="{{('add-basket')}}" class="btn btn-primary">Ajouter au panier</a>
               @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>

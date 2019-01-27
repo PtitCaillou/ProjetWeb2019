@@ -22,7 +22,10 @@ class shopController extends Controller
     }
     public function addBasket(){
         $basket = new Basket;
-        dd(Product::find('id'));
+        $product = new Product;
+        dd($this->$product->name);
+        $basket->name = $this->$product->name;
+
     	return view('shop');
     }
     public function store(Request $request){

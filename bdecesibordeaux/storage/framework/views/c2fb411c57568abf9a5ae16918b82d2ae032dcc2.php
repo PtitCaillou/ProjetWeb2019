@@ -55,6 +55,9 @@
 </div>
         <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $name = $product->name;
+        $price = $product->price;
+        ?>
         <!-- creating the product view -->
       <!-- Content Row -->
         <div class="produits">
@@ -63,11 +66,12 @@
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h4 class="card-title"><?php echo e($product->name); ?></h4>
+              <h4 class="card-title" name ="name" ><?php echo e($name); ?></h4>
+              <? dd(return $name) ?>
               <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary"><?php echo e($product->price); ?></a>
+              <a href="#" class="btn btn-primary"><?php echo e($price); ?><? return $price ?></a>
               <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
               <?php if(checkPermission(['employee'])): ?>
               <a href="#" class="btn btn-primary">Signaler</a>
