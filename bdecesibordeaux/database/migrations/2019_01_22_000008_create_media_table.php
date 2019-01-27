@@ -27,6 +27,8 @@ class CreateMediaTable extends Migration
             $table->string('path', 45);
             $table->longText('description');
             $table->integer('User_ID');
+            $table->integer('event_id');
+            $table->integer('status')->default("1");
         });
     }
 

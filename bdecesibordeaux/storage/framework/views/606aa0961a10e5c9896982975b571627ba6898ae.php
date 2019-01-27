@@ -1,4 +1,4 @@
-  <?php echo $__env->yieldContent('foot'); ?>
+<?php echo $__env->yieldContent('foot'); ?>
   <div class="contact">
     <ul class="list-item-group">
         <li class="list-item text-white">264 boulevard godard, 33000, Bordeaux, France</li>
