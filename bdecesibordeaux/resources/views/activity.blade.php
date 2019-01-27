@@ -20,16 +20,16 @@
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" class="typehead">
         @include('searchBar')
         </form>
-           <script type="text/javascript">
-    var path = "{{ route('autocompleteActivity') }}";
-    $('input.typehead').typeahead({
-        source:  function (query, process) {
-        return $.get(path, { query: query }, function (data) {
+           <!-- <script type="text/javascript">
+               var path = "{{ route('autocompleteActivity') }}";
+               $('input.typehead').typeahead({
+                   source:  function (query, process) {
+                   return $.get(path, { query: query }, function (data) {
                 return process(data);
             });
-        }
-    });
-</script>
+                   }
+               });
+           </script> -->
 @yield('body')
 <main>
 	@include('eventDuMois')
