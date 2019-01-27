@@ -13,10 +13,14 @@
         </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="css/bracelet.jpg" alt="...">
+        <div class="goodies">
+      <img class="d-block w-100" src="css/goodies-bde.jpg" alt="...">
+        </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="css/Capture.jpg" alt="...">
+        <div class= "goodies">
+      <img class="d-block w-100" src="css/mug-bde.jpg" style="height: 100%;" alt="...">
+        </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

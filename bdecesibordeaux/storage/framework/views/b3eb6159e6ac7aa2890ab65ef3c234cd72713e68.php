@@ -45,11 +45,16 @@
               <h4 class="card-title"> <?php echo e($event->name); ?> </h4>
               <img class= "night" src="<?php echo e(('css/event.jpg')); ?>" class="d-block w-100" alt="...">
               <p class="card-text"> <?php echo e($event->description); ?></p>
-              <a href="#" style="color: blue;">Voir plus</a>
+              <form method="post" action="<?php echo e(('description')); ?>">
+                 <?php echo e(csrf_field()); ?>
+
+              <input type="hidden" readonly class="form-control-plaintext" name="description" id="name" value="<?php echo e($event->id); ?>">
+               <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
+              </form>
                <?php if(checkPermission(['employee'])): ?>
               <a href="#" class="btn btn-primary">Signaler</a>
               <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
+              <?php if(checkPermission(['bde'])): ?> 
               <a href="#" class="btn btn-primary">Masquer</a>
               <?php endif; ?>
             </div>
