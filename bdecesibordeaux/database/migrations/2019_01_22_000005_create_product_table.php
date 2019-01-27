@@ -25,7 +25,7 @@ class CreateProductTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 45);
-            $table->string('description', 45);
+            $table->string('description');
             $table->integer('price');
             $table->integer('stock');
             $table->integer('ProductType_ID');

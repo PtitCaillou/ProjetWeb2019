@@ -23,6 +23,12 @@
     <label for="exampleFormControlTextarea1" style="color: white; position: relative; left: 20%; ">Description</label>
     <textarea class="form-control" name="description" id="exampleFormControlTextarea1" style="position: relative; left: 20%; max-width: 50%;" rows="3"></textarea>
   </div>
+  <select style="position: relative; left: 20%; max-width: 50%;" name="type" class="custom-select">
+  <option selected>Choisir le type de produit</option>
+  <option value="1">Mug</option>
+  <option value="2">Pull</option>
+  <option value="3">Tee shirt</option>
+</select>
   <div class="form-group">
     <label for="exampleFormControlFile1">Ajouter une image</label>
     <input type="file" name="img" class="form-control-file" id="exampleFormControlFile1" style=" position: relative; left: 20%; max-width: 50%;">

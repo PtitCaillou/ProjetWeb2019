@@ -6,35 +6,64 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\EventInfo;
 use App\Event;
+use App\Media;
 
 class activityController extends Controller
 {
         public function activity() {
-        return view('activity');
+        $event = Event::all();
+        /*$eventImg = Event::all()->pluck('media_id');
+        $img = Media::where('id', '=', $eventImg);*/
+	return view('activity', ['event'=>$event/*, 'media'=>$img*/]);
     }
 
     public function add(){
     	return view('addActivity');
     }
 
-    public function scriptadd(){
-    	return view('scriptAddActivity');
-    }
-
 public function store(Request $request){
 	$activity = new Event;
 	$activity->name = $request->name;
 	$activity->description = $request->description;
+	if ($request->type =="Ponctuel") {
+		$activity->eventType_id = '1';
+	}
+	else{
+		$activity->eventType_id = '2';
+	}
+	$activity->user_id = auth()->user()->id;
+	$activity->eventStatus_id = '2';
 	$activity->save();
 	$info = new EventInfo;
+	$info->event_id = Event::max('id');
 	$info->location = $request->location;
 	$info->date = $request->date;
 	$info->price = $request->price;
 	$info->save();
-	return view('activity');
+	$img = new Media;
+	$img->path = $request->img;
+ $event = Event::all();
+        $eventImg = Event::all()->pluck('media_id');
+        $img = Media::where('id', '=', $eventImg);
+	return view('activity', ['event'=>$event
+								/*'media'=>$img,*/]);
 }
 
-protected function validator(array $data){
+public function search(Request $request){
+        $research = $request->search;
+        $event = Event::where('name', '=', $research)->get();
+        return view('activity', ['event'=>$event]);
+    
+}
+ public function autocomplete(Request $request)
+    {
+        $data = Event::select("name")
+                ->where("name","LIKE","%{$request->input('query')}%")
+                ->get();
+   
+        return response()->json($data);
+    }
+/*protected function validator(array $data){
  return Validator::make($data, [
 'name' =>['required', 'string', 'max :255'],
 'description' => ['required', 'string', 'max:255'],
@@ -54,6 +83,6 @@ EventInfo::create(['location'=>$data['lieu'],
 	'date'=>$data['date'],
 	'price'=>$data['prix'],
 ]);
-}
+}*/
 }
     
