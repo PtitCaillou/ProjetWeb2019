@@ -1,12 +1,13 @@
 .Connexion{
-	left:75%;
+	left:55%;
     margin-top: -4rem;
     position: relative;
 }	
 .Inscription{
     margin-top: -4rem;
     position: relative;
-    left:77%;
+    margin-right: 20%;
+    left: 60%;
 }
 .img {
     position:relative;
@@ -37,9 +38,9 @@ h5 {
 .logo{
 	max-width: 7%;
     line-height: -1;
-    margin-top: -4rem;
+    margin-top: -3rem;
     position: relative;
-    left: 0%;
+    margin-right: 10%;
 }
 
 .socialService {
@@ -261,6 +262,9 @@ position: relative;
     display:flex;
     flex-direction: row;
     margin-left: 3%
+}
+.likes, .comment {
+    color: rgb(255,255,255);
 }
 .idea-image {
    width: 20%;

@@ -15,9 +15,9 @@
         </div></a>
         @if(checkPermission(['bde']))
         <div class="add-article">
-        <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
         @endif
+                <a href="{{('basket')}}" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
                 </header>
         @include('menu')
      
