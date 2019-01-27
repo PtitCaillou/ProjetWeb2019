@@ -23,15 +23,16 @@
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	<h2>Autres activités</h2>
+  <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<div class="event">
  <div class="row">
 
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h4 class="card-title">Soirée BDE</h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
-              <p class="card-text" >Soirée amicale entre les différentes promo du cesi bordeaux</p>
+              <h4 class="card-title"> <?php echo e($event->name); ?> </h4>
+              <img class= "night" src="<?php echo e(('css/event.jpg')); ?>" class="d-block w-100" alt="...">
+              <p class="card-text"> <?php echo e($event->description); ?></p>
               <a href="#" style="color: blue;">Voir plus</a>
                <?php if(checkPermission(['employee'])): ?>
               <a href="#" class="btn btn-primary">Signaler</a>
@@ -42,93 +43,7 @@
             </div>
           </div>
         </div>
-
- 		<div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Soirée BDE</h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
-              <p class="card-text" >Soirée amicale entre les différentes promo du cesi bordeaux</p>
-              <a href="#" style="color: blue;">Voir plus</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-
-            </div>
-          </div>
-        </div>
-
-         <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Soirée BDE</h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
-              <p class="card-text" >Soirée amicale entre les différentes promo du cesi bordeaux</p>
-              <a href="#" style="color: blue;">Voir plus</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-
-          <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Soirée BDE</h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
-              <p class="card-text" >Soirée amicale entre les différentes promo du cesi bordeaux</p>
-              <a href="#" style="color: blue;">Voir plus</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-
-         <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Soirée BDE</h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
-              <p class="card-text" >Soirée amicale entre les différentes promo du cesi bordeaux</p>
-              <a href="#" style="color: blue;">Voir plus</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title">Soirée BDE</h4>
-              <img class= "night" src="css/event.jpg" class="d-block w-100" alt="...">
-              <p class="card-text" >Soirée amicale entre les différentes promo du cesi bordeaux</p>
-              <a href="#" style="color: blue;">Voir plus</a>
-              <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-              <?php endif; ?>
-              <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
     </div>
 </main>
