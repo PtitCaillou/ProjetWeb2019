@@ -21,6 +21,7 @@
       @if(checkPermission(['bde']))
         <div class="add-article">
         <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+        <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
         </div>
         @endif
                 <a href="{{('basket')}}" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
@@ -58,6 +59,11 @@
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">{{$price}}<? return $price ?></a>
+              <form method="post" action="{{('add-basket')}}">
+                 {{ csrf_field() }}
+              <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="{{$product->id}}">
+               <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
+              </form>
               <p>{{$description}}<? return $description?></p>
               <a href="{{('add-basket')}}" class="btn btn-primary">Ajouter au panier</a>
               @if(checkPermission(['employee']))
