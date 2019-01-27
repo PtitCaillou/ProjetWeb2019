@@ -7,11 +7,11 @@
 <body>
   <header>
     <h3>PANIER</h3>
-    @if(checkPermission(['student','employee','bde']))
+    <?php if(checkPermission(['student','employee','bde'])): ?>
     
 
 
-    @foreach($product as $product)
+    <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <?php
         $name = $product->name;
         $quantity = $product->quantity;
@@ -21,34 +21,34 @@
           <div class="col-md-4 mb-4">
             <div class="card h-100">
               <div class="card-body">
-                <h4 class="card-title" name ="name" >{{$name}}<? return $name ?></h4>
+                <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
                 <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
               </div>
               <div class="card-footer">
-                <a href="#" class="btn btn-primary">{{$quantity}}<? return $price ?></a>
+                <a href="#" class="btn btn-primary"><?php echo e($quantity); ?><? return $price ?></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    @endforeach 
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
 
 
 
-    @else
+    <?php else: ?>
       <?php 
         header('Location: login'); 
         exit();
       ?>
       <p>Vous n'etes pas connecté, vous ne pouvez donc pas acceder a cette page.</p><br>
-      <p>Pour vous connecter cliquez <a href="{{('login')}}"> ici</a></p>
-    @endif
+      <p>Pour vous connecter cliquez <a href="<?php echo e(('login')); ?>"> ici</a></p>
+    <?php endif; ?>
   </header>
 
 
   <div class="container">
     <footer>
-      @extends('footer')
+      
     </footer>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -57,3 +57,4 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </body>
 </html>
+<?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

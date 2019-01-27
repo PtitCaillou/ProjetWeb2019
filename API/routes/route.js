@@ -89,11 +89,11 @@ var queryOneBasketComplete = "SELECT user.lastname, user.name AS username, produ
 //Query all complete baskets of one user
 var queryOneBasketUncomplete = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 1 AND user.id = ";
 //Query all products
-var queryAllProducts = "SELECT name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id";
+var queryAllProducts = "SELECT product.id, name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id";
 //Add one product
 var addOneProduct = "INSERT INTO product (name, description, price, stock, producttype_id)VALUES (\"";
 //Query one product
-var queryOneProduct = "SELECT name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id WHERE Product.name = \"";
+var queryOneProduct = "SELECT product.id, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id WHERE Product.name = \"";
 //Update one product
 var updateOneProduct = "UPDATE product SET stock =";
 //Query all medias
@@ -119,7 +119,7 @@ function handle_database(req, res, opt) {
         }
         var query;
         var id = connection.threadId;
-        //console.log('connected as id ' + id);
+        console.log('connected as id ' + id);
 
         if (opt == 0) { //Query all users
             connection.query(queryAllUsers, function (err, rows) {
@@ -196,10 +196,10 @@ function handle_database(req, res, opt) {
                 if (!err) { res.json(rows); }
             });
         } else if (opt == 13) { //Add one basket
-            query = addOneBasket + req.query.product + "\", \""
+            query = addOneBasket + req.body.product + "\", \""
                 + req.params.user_id + "\", \""
-                + req.query.quantity + "\", \""
-                + req.query.status + "\")";
+                + req.body.quantity + "\", \""
+                + req.body.status + "\")";
             connection.query(query, function (err, rows) {
                 connection.release();
                 if (!err) { res.json(rows); }
