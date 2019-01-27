@@ -13,20 +13,30 @@
         <div class="add-article">
         <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
-      @endif
-  </header>
-  @include('menu')
-  <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}">
-    @include('searchBar')
-  </form>
-  @include('goodiesDuMois')
-  <!-- creating the product view -->                                                                                                                               
-  <!-- Content Row -->
-  @foreach($product as $product)
-    <?php $name = $product->name;
-      $price = $product->price;
-    ?>
-    <div class="produits">
+        @endif
+                </header>
+        @include('menu')
+        <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}" id='search' class="typehead">
+        @include('searchBar')
+        </form>
+    <!--    <script type="text/javascript">
+        var path = "{{ route('autocomplete') }}";
+        $('input.typehead').typeahead({
+     source:  function (query, process) {
+     return $.get(path, { query: query }, function (data) {
+             return process(data);
+         });
+     }
+        });
+    </script> -->
+        @include('goodiesDuMois')
+        <!-- creating the product view -->
+      <!-- Content Row -->
+        @foreach($product as $product)
+        <?php $name = $product->name;
+        $price = $product->price;
+        ?>
+        <div class="produits">
       <div class="row">
         <div class="col-md-4 mb-4">
           <div class="card h-100">
