@@ -49,6 +49,13 @@ public function store(Request $request){
 								/*'media'=>$img,*/]);
 }
 
+public function description(Request $request){
+	$desc=$request->description;
+	dump(Event::where('id', '=', $desc)->get());
+	$event=Event::where('id', '=', $desc)->get();
+	return view('description', ['event'=>$event
+								/*'media'=>$img,*/]);
+}
 public function search(Request $request){
         $research = $request->search;
         $event = Event::where('name', '=', $research)->get();

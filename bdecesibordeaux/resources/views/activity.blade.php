@@ -45,7 +45,11 @@
               <h4 class="card-title"> {{ $event->name }} </h4>
               <img class= "night" src="{{('css/event.jpg')}}" class="d-block w-100" alt="...">
               <p class="card-text"> {{ $event->description }}</p>
-              <a href="#" style="color: blue;">Voir plus</a>
+              <form method="post" action="{{('description')}}">
+                 {{ csrf_field() }}
+              <input type="hidden" readonly class="form-control-plaintext" name="description" id="name" value="{{$event->id}}">
+               <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
+              </form>
                @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>
               @endif
