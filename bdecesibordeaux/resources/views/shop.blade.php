@@ -6,6 +6,15 @@
 </head>
 <body>
   <header>
+       <h3>BOUTIQUE</h3>
+        @if(checkPermission(['bde']))
+        <div class="add-article">
+          <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+        </div>
+        @endif
+            @include('menu')
+    </header>
+    
     <h3>BOUTIQUE</h3>
     <!--  adding button to add an article  -->
     </div></a>

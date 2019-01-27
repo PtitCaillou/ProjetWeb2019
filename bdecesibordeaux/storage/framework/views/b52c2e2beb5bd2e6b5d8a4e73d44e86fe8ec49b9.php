@@ -11,8 +11,36 @@
     </div></a>
       <?php if(checkPermission(['bde'])): ?>
         <div class="add-article">
+          <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
         </div>
         <?php endif; ?>
+            <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </header>
+      
+     
+        <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <!-- creating the product view -->
+      <!-- Content Row -->
+        <div class="produits">
+      <div class="row">
+
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title">Pull Bleu</h4>
+              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">20€</a>
+              <a href="<?php echo e(('add-basket')); ?>" class="btn btn-primary">Ajouter au panier</a>
+              <?php if(checkPermission(['employee'])): ?>
+              <a href="#" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
+              <a href="#" class="btn btn-primary">Masquer</a>
+              <?php endif; ?>
+            </div>
+          </div>
                 <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
                 </header>
         <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>

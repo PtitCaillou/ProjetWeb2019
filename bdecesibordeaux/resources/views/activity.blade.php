@@ -49,7 +49,7 @@
                @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>
               @endif
-              @if(checkPermission(['bde']))
+              @if(checkPermission(['bde'])) 
               <a href="#" class="btn btn-primary">Masquer</a>
               @endif
             </div>
