@@ -44,7 +44,7 @@
                     <ul class="list-inline list-unstyled">
                         <div class="comments">
                             <li><span><p class="like"></span></li>
-                            <img class="thumb-up" src="images/like.png">
+                            <!-- <img class="thumb-up" src="images/like.png"> -->
                             <span><p class="comment"></p></span>
                         </div>
                         <i class="glyphicon glyphicon-thumbs-up"></i>

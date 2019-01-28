@@ -57,7 +57,6 @@
             </div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-</main>
 <?php $__env->stopSection(); ?>
 </body>
 </html>
