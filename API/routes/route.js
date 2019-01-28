@@ -97,6 +97,8 @@ var addOneProduct = "INSERT INTO product (name, description, price, stock, produ
 var queryOneProduct = "SELECT product.id, product.description, product.price, producttype.type, media.path FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON product.media_id = media.id WHERE Product.name = \"";
 //Update one product
 var updateOneProduct = "UPDATE product SET status = ";
+//Update one stock
+var updateStock = "UPDATE product SET stock = ";
 //Query all medias
 var queryAllMedias = "SELECT media.id, path, description, user.name, user.lastname FROM Media INNER JOIN user ON media.user_id = user.id";
 //Add one media
@@ -395,6 +397,9 @@ var appRouter = function (app) {
 	})
 	app.put('/products/update/:product_id', function (req, res) {
 		handle_database(req, res, 21);
+	})
+	app.put('/products/stock/remove', function (req, res) {
+		handle_database(req, res, 30);
 	})
 
 	app.get('/medias', function (req, res) {

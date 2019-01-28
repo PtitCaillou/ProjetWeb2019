@@ -33,8 +33,15 @@
         </div>
       </div>
     @endforeach 
+    <form method="post" action="{{('finish-basket')}}">
+      {{ csrf_field() }}
+      <button type="submit" class="btn btn-primary mb-2">Finaliser le panier</button>
+    </form>
 
-
+    <form method="post" action="{{('del-basket')}}">
+      {{ csrf_field() }}
+      <button type="submit" class="btn btn-primary mb-2">Supprimer le panier</button>
+    </form>
 
     @else
       <?php 
