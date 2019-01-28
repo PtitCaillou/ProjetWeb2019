@@ -4,6 +4,7 @@
     @section('content')
     @include('goodiesDuMois')
     @include('eventDuMois')
+    @include('cookie')
     @endsection
 </body>
 </html>
