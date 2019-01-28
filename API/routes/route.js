@@ -98,7 +98,7 @@ var queryOneProduct = "SELECT product.id, product.description, product.price, pr
 //Update one product
 var updateOneProduct = "UPDATE product SET status = ";
 //Update one stock
-var updateStock = "UPDATE product SET stock = ";
+var updateStock = "UPDATE product INNER JOIN basket ON product.id = basket.product_id INNER JOIN user ON user.id = basket.user_id SET product.stock = product.stock - basket.quantity WHERE basket.status = 1 AND basket.user_id = ";
 //Query all medias
 var queryAllMedias = "SELECT media.id, path, description, user.name, user.lastname FROM Media INNER JOIN user ON media.user_id = user.id";
 //Add one media
@@ -308,6 +308,15 @@ function handle_database(req, res, opt) {
 			connection.query(queryAllTypes, function (err, rows) {
 				connection.release();
 				if (!err) { res.json(rows); }
+			});
+		} else if (opt == 30) { //Update stock and basket
+			connection.query(updateStock + req.body.user_id, function (err, rows) {
+				if (!err) {
+					connection.query(updateOneBasket + "0 WHERE user_id = " + req.body.user_id, function (err, rows) {
+						connection.release();
+						if (!err) { res.json(rows); }
+					});
+				}
 			});
 		}
 
