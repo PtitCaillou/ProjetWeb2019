@@ -12,87 +12,74 @@
             <li><p href="#" title="Lien 3">Manifestations</p></li>
             <li><p href="#" title="Lien 4">Associations</p></li>
         </ul>
-        </div>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-<?php $__env->stopSection(); ?>
 
- <?php $__env->startSection('content'); ?>
+    </div>
+
     <div class="container">
+        <?php $__currentLoopData = $idea; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $idea): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php 
+            $id = $idea->id;
+            $name = $idea->name;
+            $description = $idea->description;
+            $type = $idea->type;
+            $image = $idea->image;
+            $user = $idea->user;
+            ?>
         <div class="well">
             <div class="media">
-                <img class="idea-image" src="css/marteau.jpg">
-                    <div class="media-body">
-                        <h4 class="text-left">Le marteau de la mort</h4>
-                            <p class="text-left">Tu dois comprendre les options bootstrap</p>
-                            <p class="text-right">By Noé Duclos</p>
-                            <?php if(checkPermission(['employee'])): ?>
-                                <a href="#" class="btn btn-primary">Signaler</a>
-                                <?php endif; ?>
-                                    <?php if(checkPermission(['bde'])): ?>
-                                    <a href="#" class="btn btn-primary">Masquer</a>
-                                    <a href="#" class="btn btn-primary">Accepter</a>
-                                    <?php endif; ?>
-                                    <ul class="list-inline list-unstyled">
-                                        <div class="comments">
-                                        <li><span><p class="like"></i>5 &nbsp</span></li>
-                                        <img class="thumb-up" src="css/like.png">
-                                            <span><p class="comment"></i> &nbsp&nbsp&nbsp 2</span>
-                                        </p>
-                                         </div>
-                                        <i class="glyphicon glyphicon-thumbs-up"></i>
-                                     </ul>
+                <img class="idea-image" src="<?php echo e($image); ?>">
+                <div class="media-body">
+                    <h4 class="text-left"><?php echo e($name); ?></h4>
+                    <p class="text-left"><?php echo e($description); ?></p>
+                    <p class="text-right">Autheur : <?php echo e($user); ?></p>
+                    <?php if(checkPermission(['employee'])): ?>
+                        <a href="#" class="btn btn-primary">Signaler</a> <!--IDEA BOX CONTROLLER -->
+                    <?php endif; ?>
+                    <?php if(checkPermission(['bde'])): ?>
+                        <a href="#" class="btn btn-primary">Masquer</a> <!--IDEA BOX CONTROLLER -->
+                        <a href="#" class="btn btn-primary">Accepeter</a> <!--IDEA BOX CONTROLLER -->
+                    <?php endif; ?>
+                    <ul class="list-inline list-unstyled">
+                        <div class="comments">
+                            <li><span><p class="like"></i>5 &nbsp</span></li>
+                            <img class="thumb-up" src="images/like.png">
+                            <span><p class="comment"></i> &nbsp&nbsp&nbsp 2</p></span>
                         </div>
+                        <i class="glyphicon glyphicon-thumbs-up"></i>
+                    </ul>
                 </div>
             </div>
-        <div class="well">
-            <div class="media">
-                <img class="idea-image" src="css/herisson.jpg">
-  		    <div class="media-body">
-    		    <h4 class="text-left">Le hérisson fou</h4>
-            <p class="text-left">On est pas encore des anciens à ce stade.</p>
-            <p class="text-right">By Thompu</p>
-            <?php if(checkPermission(['employee'])): ?>
-                <a href="#" class="btn btn-primary">Signaler</a>
-            <?php endif; ?>
-            <?php if(checkPermission(['bde'])): ?>
-                <a href="#" class="btn btn-primary">Masquer</a>
-            <?php endif; ?>
-                <ul class="list-inline list-unstyled">
-                    <div class="comments">
-                        <li><span><p class="likes"></i>10 likes &nbsp</span></li>
-                        <span><p class="comment"></i> 2 comments</span>
-                    </div>
-			    </ul>
-            </div>
-            </div>
         </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
     </div>
-<div class="body-idea">
-<form class="add-idea">
-<div class="form-group">
-    <label for="exampleFormControlTextarea1" style="color: white;">Titre de l'idée:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1" style="color: white;">Description de l'idée:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
-  </div>
-   <div class="form-group">
-    <label for="exampleFormControlFile1" style="color: white;">Images:</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-  </div>
-   <button type="submit" class="btn btn-primary">Envoyer</button>
-</form>
-</div>
-<?php $__env->stopSection(); ?>
-    </body>
-</html>
 
 
+        
+        
 
+    <div class="body-idea">
+        <form method="post" action="<?php echo e(('add-idea')); ?>" enctype="multipart/form-data">
+            <?php echo e(csrf_field()); ?>
 
-
-
- 
+            <p>Titre de l'idée : </p>
+            <input type="text" class="form-control" name="titre">
+            <p>Description de l'idée : </p>
+            <input type="text" class="form-control" name="description">
+            <p>Image : </p>
+            <input type="file" class="form-control-file" name="image" accept="image/*">
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+    </div>
+    <div class="container">
+        <footer>
+            
+        </footer>
+    </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>  
+</body> 
+<?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

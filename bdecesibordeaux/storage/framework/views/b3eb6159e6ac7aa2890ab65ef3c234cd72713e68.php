@@ -1,36 +1,20 @@
-<!DOCTYPE html>
+<?php $__env->startSection('li'); ?>
 <html>
-<head>
-	<title>Activités</title>
-</head>
-
 <body>
 	<!-- We check if one user is connected -->
 
 <!-- If there is an user connected, we get is role id -->
 <!-- When this id is equal to 1 he has a student status. So we create the page for a student -->
-<header>
-	<h3>Activités</h3>
 	 <?php if(checkPermission(['bde'])): ?>
         <div class="add-article">
         <a href="<?php echo e(('add.activity')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter une activité</a>
         </div>
         <?php endif; ?>
-             <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" class="typehead">
-        <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" >
+        
         </form>
-           <!-- <script type="text/javascript">
-           var path = "<?php echo e(route('autocompleteActivity')); ?>";
-               $('input.typehead').typeahead({
-                   source:  function (query, process) {
-                   return $.get(path, { query: query }, function (data) {
-                return process(data);
-            });
-                   }
-               });
-           </script> -->
-<?php echo $__env->yieldContent('body'); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <main>
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -64,16 +48,9 @@
     </div>
     </div>
 </main>
-
- <div class="container">
-        <footer>
-            
-        </footer>
-    </div>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
- <link rel="stylesheet" type="text/css" href="css/style.css">
-
+<?php $__env->stopSection(); ?>
 </body>
 </html>
  
-<?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

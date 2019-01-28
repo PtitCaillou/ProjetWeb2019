@@ -1,25 +1,21 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+@section('li')
 <html>
-<head>
-	<title>Activités</title>
-</head>
-
 <body>
 	<!-- We check if one user is connected -->
 
 <!-- If there is an user connected, we get is role id -->
 <!-- When this id is equal to 1 he has a student status. So we create the page for a student -->
-<header>
-	<h3>Activités</h3>
 	 @if(checkPermission(['bde']))
         <div class="add-article">
         <a href="{{('add.activity')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter une activité</a>
         </div>
         @endif
-             @include('menu')
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" >
-        @include('searchBar')
+        @extends('searchBar')
         </form>
+@endsection
+@section('content')
        <script type="text/javascript">
 
         var url = "{{ route('autocompleteActivity') }}";
@@ -93,17 +89,7 @@
     </div>
     @endforeach
 </main>
-
- <div class="container">
-        <footer>
-            @extends('footer')
-        </footer>
-    </div>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
- <link rel="stylesheet" type="text/css" href="css/style.css">
- <link rel="stylesheet"href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+@endsection
 </body>
 </html>
  

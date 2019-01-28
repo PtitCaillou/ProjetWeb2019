@@ -1,15 +1,14 @@
-<h1>Inscription</h1>
-@extends('footer')
 @extends('layouts.app')
-@extends('menu')
 @section('content')
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<div class="container">
+<html>
+    <body>
+<div class="container-inscription">
+    <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 ">
+        <div class="col-md-6 ">
             <div class="card">
                 <div class="inscr-head">
-                <div class="card-header ">{{ __('Inscription') }}</div>
+                <div class="card-header " style="margin-left:25%;">{{ __('INSCRIPTION') }}</div>
                 </div>
                 <div class="inscr">
                 <div class="card-body">
@@ -117,7 +116,10 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-                        
+                        <div class="cgu">
+                        <input type="checkbox" id="scales" name="scales">
+                            <label for="scales">J'accepte les conditions générales d'utilisations</label>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn" style="background-color:rgb(238, 193, 94)">
@@ -132,4 +134,7 @@
     </div>
 </div>
 </div>
+</div>
 @endsection
+</body>
+</html>

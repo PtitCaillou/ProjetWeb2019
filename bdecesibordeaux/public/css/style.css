@@ -1,22 +1,16 @@
-.Connexion{
-	margin-left: 675%;
-    margin-top: -4rem;
-    position: relative;
+.authentification {
+    margin-left: 670%;
     color: white;
     position: relative;
-  left: 70%; 
-    margin-top: -4rem;
-        
-}	
-.Inscription{
-    color: white;
-    position: relative;
-   left: 75%;
-   margin-bottom: -20rem; 
-    
+}
+.container-inscription {
+   margin-left: -10%;
 }
 .connected {
     margin-left: 675%;
+}
+.cgu {
+    margin-left: 12%;
 }
 #menu {
     width: 150px;

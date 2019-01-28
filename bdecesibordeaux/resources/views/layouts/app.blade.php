@@ -28,7 +28,6 @@
 
     <body>
         <div id="app">
-            @section('head')
                 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:black; z-index:2;">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -55,7 +54,7 @@
                                     </div>
                                 @elseif(Auth::check())
                                     <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color:white;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left: 90%; top: -5rem;">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style= "color:white;"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left: 90%; top: -5rem;">
                                             {{ Auth::user()->name }} <span class="caret"></span>
                                         </a>
                                         <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" style="background-color: rgb(238, 193, 94);">
@@ -75,7 +74,6 @@
                         </ul>
                     </div>
                 </nav>
-            @show
 
             <main class="py-4">
                 @yield('content')
