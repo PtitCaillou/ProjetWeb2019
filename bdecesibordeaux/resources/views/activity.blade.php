@@ -8,7 +8,6 @@
         </div>
         @endif
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" >
-        @extends('searchBar')
         </form>
 @endsection
 @section('content')
@@ -24,6 +23,7 @@
     </script>
 @yield('body')
 <main>
+    @include('searchBar')
 	@include('eventDuMois')
 	<h2>Autres activités</h2>
   @foreach($event as $event)
@@ -50,6 +50,9 @@
                 <button type="submit" class="btn btn-primary mb-2">Masquer</button>
               </form>
               @endif
+        </div>
+        </div>
+        </div>
             </div>
         </div>
     @endforeach
