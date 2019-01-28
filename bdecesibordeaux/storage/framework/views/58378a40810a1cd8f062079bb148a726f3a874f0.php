@@ -5,10 +5,10 @@
     </div>  
       <select class="custom-select" id="inputGroupSelect01">
         <option selected>Choose...</option>
-          <?php $__currentLoopData = $prod; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $prod): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <!-- @/foreach($prod as $prod)
           <option name="filterCat" value="">
         </option>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        @/endforeach -->
         <option>
           Prix par ordre croissant
         </option>

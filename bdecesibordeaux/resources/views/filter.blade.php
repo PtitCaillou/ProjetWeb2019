@@ -5,10 +5,10 @@
     </div>  
       <select class="custom-select" id="inputGroupSelect01">
         <option selected>Choose...</option>
-          @foreach($prod as $prod)
+          <!-- @/foreach($prod as $prod)
           <option name="filterCat" value="">
         </option>
-        @endforeach
+        @/endforeach -->
         <option>
           Prix par ordre croissant
         </option>
