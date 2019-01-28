@@ -21,12 +21,8 @@
 
           </option>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <option>
-          Prix par ordre croissant
-        </option>
-        <option>
-          Prix par ordre décroissant
-        </option>
+        <option>Prix par ordre croissant</option>
+        <option>Prix par ordre décroissant</option>
       </select>
     </div>
     <button class="btn btn-sm" style="background-color: rgb(238, 193, 94);">Filtrer</button>
