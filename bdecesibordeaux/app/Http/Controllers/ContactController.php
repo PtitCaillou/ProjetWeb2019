@@ -8,16 +8,14 @@ use Mail;
 
 class ContactController extends Controller
 {
-    public function create()
-    {
-        return view('contact');
-    }
- 
-    public function store(ContactRequest $request)
-    {
-        Mail::to('leo.chazeau@viacesi.fr')
-            ->send(new Contact($request->except('_token')));
- 
-        return view('confirm');
+    public function sendMail(){
+    	$title = "Signalement d'une publication";
+    	$content = "Une publication a été signalée";
+    	$user_email = "email";
+    	$user_name = "nom";
+
+    	try{
+    		$data = ['email'=>$user_email, 'name'=> ]
+    	}
     }
 }
