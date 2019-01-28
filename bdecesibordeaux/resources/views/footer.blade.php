@@ -27,7 +27,7 @@
         <a class="text-uppercase" style="color:white;">Links</a>
         <li class="list-item text-white"><a href="https://www.instagram.com/bde_cesi_bdx/?hl=fr"><img class="instagram" src="images/instagram.png"></a></li>
         <li class="list-item text-white"><a href="https://www.facebook.com/bdecesibdx/"><img class="facebook" src="images/fb.png"></a></li>
-        <li class="list-item text-white"><a href="https://twitter.com/BdeCesiBordeaux"><img class="twitter" src="images/twitter.png"'></a></li>       
+        <li class="list-item text-white"><a href="https://www.twitter.com/BdeCesiBordeaux"><img class="twitter" src="images/twitter.png"'></a></li>       
 </div>
  <div class="links">
     <a href="http://bdecesibordeaux/"> bdecesibordeaux.fr</a>
