@@ -1,5 +1,5 @@
 .Connexion{
-	margin-left: 670%;
+	margin-left: 675%;
     margin-top: -4rem;
     position: relative;
     color: white;
@@ -20,6 +20,9 @@
     float: left;
     position: sticky;
 }
+.menu-top:hover {
+    z-index:1;
+}
 .img {
     position:relative;
     text-align: center;
@@ -33,9 +36,11 @@ h1{
 h2{
 	text-align: center;
 	color: black;
-	font-size: 20px;
+    font-size: 50px;
+    font-weight: bold;
     position: relative;
     line-height: 5;
+    background-color: hsla(0,0%,96%,1);;
 }
 h3{
     text-align: center;
@@ -56,17 +61,25 @@ h5 {
 
 .socialService {
     position: relative;
-    right: 40%;
+    left: 0%;
     display:flex;
-    justify-content: space-around;
-    align-items: center;
     flex-direction: row;
+    align-items: center;
 }
 .socialService img {
     width: 40px;
     height: 40px;
-    left: 50%;
-    margin: auto;
+    margin-left: -900%;
+    margin-top: 25%;
+    margin-bottom: -900%;
+    
+}
+
+.links {
+    margin-left: -10%;
+}
+.text-uppercase {
+   margin: auto;
 }
 .contact {
     left: 50%;
@@ -76,8 +89,8 @@ h5 {
 }
 .juridique{
     color: rgb(150,150,150);
-    padding-left: 76%;
     padding-bottom: 0%;
+    margin-left: 0%;
 }
 .footer{
     align-items: center;
@@ -190,7 +203,7 @@ button {
     width: 400px;
 }
 .produits {
-    width:800px;
+    width:1000px;
     height: 500px;
     position: relative;
     padding-top: 25px;
