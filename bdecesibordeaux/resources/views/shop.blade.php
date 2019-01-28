@@ -4,7 +4,7 @@
   @section('li')
   <header>
     <div class= "menu-top">
-      <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+      <a href="{{('productadd')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
       <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
 
       @include('searchBar')
@@ -59,7 +59,11 @@
                 <a href="#" class="btn btn-primary">Signaler</a>
               @endif
               @if(checkPermission(['bde']))
-                <a href="#" class="btn btn-primary">Masquer</a>
+              <form method="post" action="{{('hideproduct')}}">
+                {{ csrf_field() }}
+                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $product->id }}">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
               @endif
             </div>
           </div>

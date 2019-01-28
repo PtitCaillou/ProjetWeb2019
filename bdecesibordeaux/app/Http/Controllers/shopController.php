@@ -18,15 +18,17 @@ class shopController extends Controller
         $prod = [];
         $producttypes =[];
         foreach($datas as $data){
-            $product = new Product();
-            $product->id = $data['id'];
-            $product->name = $data['name'];
-            $product->price = $data['price'];
-            $product->description = $data['description'];
-            $product->image = $data['path'];
-            $product->type = $data['type'];
-            array_push($products, $product);
-            array_push($prod, $product);
+            if($data['status']){
+                $product = new Product();
+                $product->id = $data['id'];
+                $product->name = $data['name'];
+                $product->price = $data['price'];
+                $product->description = $data['description'];
+                $product->image = $data['path'];
+                $product->type = $data['type'];
+                array_push($products, $product);
+                array_push($prod, $product);
+            }
         }
         foreach ($datatypes as $datatype) {
             $producttype = new ProductType;
@@ -40,8 +42,29 @@ class shopController extends Controller
                             'producttype'=>$producttypes]);
     }
 
-    public function add(){
-    	return view('addProduct');
+    public function add(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+        dd($request);
+        
+        $url = "http://bdecesibordeaux:3000/products/add";
+        $body['name'] = $request->name;
+        $body['description'] = $request->description;
+        $body['price'] = $request->price;
+        $body['stock'] = "1";
+        $body['type'] = $request->type;
+        $response = $client->post($url, ['form_params'=>$body]);
+    	return $this->shop();
+    }
+
+    public function hide(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+        
+        $url = "http://bdecesibordeaux:3000/products/update/" . $request->hide;
+        $body['status'] = "0";
+        $response = $client->put($url, ['form_params'=>$body]);
+    	return $this->shop();
     }
 
     public function basket(){
