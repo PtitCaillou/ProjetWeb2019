@@ -4,12 +4,11 @@ var archiver = require('archiver');
 var fs = require('fs');
 
 var pool = mysql.createPool({
-    connectionLimit: 100,
+    //connectionLimit: 100,
     host: "localhost",
     user: "web",
     password: "projet",
-    database: 'bde_cesi_bordeaux',
-    debug: false
+    database: 'bde_cesi_bordeaux'
 });
 
 const JsonToCsv = (response, data, id) => {
@@ -65,7 +64,7 @@ var queryAllEvents = "SELECT event.id, event.name, event.description, eventtype.
 //Query all events
 var queryAllIdeas = "SELECT event.id, event.name, event.description, eventtype.type AS eventtype, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id WHERE event.eventstatus_id = 1";
 //Add one event
-var addOneEvent = "INSERT INTO user (name, description, eventtype_id, eventstatus_id, media_id, user_id) VALUES (\"";
+var addOneEvent = "INSERT INTO event (name, description, eventtype_id, eventstatus_id, media_id, user_id) VALUES (\"";
 //Query one event
 var queryOneEvent = "SELECT event.name, event.description, eventtype.type AS eventtype, eventstatus.status, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN eventstatus ON event.eventstatus_id = eventstatus.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id WHERE event.id = ";
 //Update one event
@@ -93,7 +92,7 @@ var queryOneBasketUncomplete = "SELECT user.lastname, user.name AS username, pro
 //Query all products
 var queryAllProducts = "SELECT product.id, product.name, product.description, product.price, producttype.type, media.path FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON media.id = product.media_id";
 //Add one product
-var addOneProduct = "INSERT INTO product (name, description, price, stock, producttype_id)VALUES (\"";
+var addOneProduct = "INSERT INTO product (name, description, price, stock, producttype_id) VALUES (\"";
 //Query one product
 var queryOneProduct = "SELECT product.id, product.description, product.price, producttype.type, media.path FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON product.media_id = media.id WHERE Product.name = \"";
 //Update one product
@@ -157,9 +156,7 @@ function handle_database(req, res, opt) {
             });
         } else if (opt == 5) { //Add one event
             query = addOneEvent + req.body.name + "\", \""
-                + req.body.description + "\", \""
-                + req.body.eventtype + "\", \""
-                + req.body.eventstatus + "\", \""
+                + req.body.description + "\", 1, 1, \""
                 + req.body.media + "\", \""
                 + req.body.user + "\")";
             connection.query(query, function (err, rows) {
@@ -269,10 +266,9 @@ function handle_database(req, res, opt) {
             });
         } else if (opt == 23) { //Add one media
             query = addOneMedia + req.body.path + "\", \""
-                + req.body.description + "\", \""
-                + req.body.user + "\", \""
-                + req.body.status + "\")";
-            console.log(query);
+                + req.body.description + "\", "
+                + req.body.user + ", "
+                + req.body.status + ")";
             connection.query(query, function (err, rows) {
                 connection.release();
                 if (!err) { res.json(rows); }
@@ -280,7 +276,7 @@ function handle_database(req, res, opt) {
         } else if (opt == 24) { //Querry one media
             connection.query(queryOneMedia + req.params.media_id, function (err, rows) {
                 connection.release();
-                //if (!err) { res.json(rows); }
+                if (!err) { res.json(rows); }
             });
         } else if (opt == 25) { //Update one media
             query = updateOneMedia + req.query.status + " WHERE path = "

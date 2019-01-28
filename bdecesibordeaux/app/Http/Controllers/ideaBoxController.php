@@ -30,7 +30,6 @@ class ideaBoxController extends Controller
     public function addIdea(Request $request) {
         $client = new Client();
         $user_id = auth()->user()->id;
-
         $description = $request->file('image')->getClientOriginalName();
         $filepath = $request->file('image')->store('images');
 
@@ -40,18 +39,18 @@ class ideaBoxController extends Controller
         $body['user'] = $user_id;
         $body['status'] = "1";
         $response = $client->post($url, ['form_params'=>$body]);
-        dd($response);
-/*
-
+        dump($response);
+        unset($body);
 
         $url = "http://bdecesibordeaux:3000/events/add";
         $body['name'] = $request->titre;
         $body['description'] = $request->description;
         $body['eventtype'] = "1";
         $body['eventstatus'] = "1";
-        $body['media'] = $filepath;
+        $body['media'] = "20";
         $body['user'] = $user_id;
-        $response = $client->post($url, ['form_params'=>$body]);*/
+        $response = $client->post($url, ['form_params'=>$body]);
+        dump($response);
         return $this->ideaBox();
     }
 }

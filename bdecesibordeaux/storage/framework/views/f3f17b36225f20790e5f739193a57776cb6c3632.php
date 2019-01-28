@@ -32,7 +32,7 @@
             ?>
         <div class="well">
             <div class="idea">
-                <img class="idea-image" src="<?php echo e($image); ?>">
+                <img class="idea-image" src="../storage/app/<?php echo e($image); ?>">
                 <div class="media-body">
                     <h4 class="text-left"><?php echo e($name); ?></h4>
                     <p class="text-left"><?php echo e($description); ?></p>
@@ -42,7 +42,7 @@
                     <?php endif; ?>
                     <?php if(checkPermission(['bde'])): ?>
                         <a href="#" class="btn btn-primary">Masquer</a> <!--IDEA BOX CONTROLLER -->
-                        <a href="#" class="btn btn-primary">Accepeter</a> <!--IDEA BOX CONTROLLER -->
+                        <a href="#" class="btn btn-primary">Accepter</a> <!--IDEA BOX CONTROLLER -->
                     <?php endif; ?>
                     <ul class="list-inline list-unstyled">
                         <div class="comments">
