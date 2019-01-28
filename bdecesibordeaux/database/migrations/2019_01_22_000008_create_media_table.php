@@ -24,7 +24,7 @@ class CreateMediaTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('path', 45);
+            $table->string('path',100);
             $table->longText('description');
             $table->integer('User_ID');
             $table->integer('status')->default("1");

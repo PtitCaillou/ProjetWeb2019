@@ -17,9 +17,31 @@
         </div>
         <?php endif; ?>
              <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" class="typehead">
+             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" >
         <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </form>
+<<<<<<< HEAD
+       <script type="text/javascript">
+
+        var url = "<?php echo e(route('autocompleteActivity')); ?>";
+
+        $('#search_text').typeahead({
+
+            source:  function (query, process) {
+
+            return $.get(url, { query: query }, function (data) {
+
+                    return process(data);
+
+                });
+
+            }
+
+        });
+
+    </script>
+           </script> 
+=======
            <!-- <script type="text/javascript">
            var path = "<?php echo e(route('autocompleteActivity')); ?>";
                $('input.typehead').typeahead({
@@ -30,6 +52,7 @@
                    }
                });
            </script> -->
+>>>>>>> 5616c1217a3b61700c1a9e88a2d645fb79bc0477
 <?php echo $__env->yieldContent('body'); ?>
 <main>
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
@@ -72,7 +95,9 @@
     </div>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="css/style.css">
-
+ <link rel="stylesheet"href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 </body>
 </html>
  
