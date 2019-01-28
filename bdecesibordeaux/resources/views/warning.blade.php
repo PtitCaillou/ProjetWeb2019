@@ -7,7 +7,7 @@ $user = auth()->user()->name;
 	 {{ csrf_field() }}
   <div class="form-group">
     <label for="title">Objet</label>
-    <input type="text" class="form-control" id="title" placeholder="Merci de préciser le nom de la publication que vous signaler">
+    <input type="text" class="form-control" name="title" id="title" placeholder="Merci de préciser le nom de la publication que vous signaler">
   </div>
    <div class="form-group">
     <label for="exampleFormControlTextarea1">Content</label>
