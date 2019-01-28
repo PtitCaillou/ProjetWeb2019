@@ -35,31 +35,14 @@
         });
 
     </script>
-           </script> 
-           <!-- <script type="text/javascript">
-           var path = "{{ route('autocompleteActivity') }}";
-               $('input.typehead').typeahead({
-                   source:  function (query, process) {
-                   return $.get(path, { query: query }, function (data) {
-                return process(data);
-            });
-                   }
-               });
-           </script> -->
-@yield('body')
-<main>
 	@include('eventDuMois')
 
 	<h2>Autres activités</h2>
  
-
-
   @foreach($event as $event)
 
 
-	<div class="event">
  <div class="row">
-
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
@@ -84,11 +67,8 @@
             </div>
           </div>
         </div>
-
-    </div>
     </div>
     @endforeach
-</main>
 @endsection
 </body>
 </html>
