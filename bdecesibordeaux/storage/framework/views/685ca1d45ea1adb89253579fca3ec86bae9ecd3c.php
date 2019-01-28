@@ -3,11 +3,10 @@
   <?php $__env->startSection('li'); ?>
   <header>
     <div class= "menu-top">
-      <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+      <a href="<?php echo e(('productadd')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
       <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
-      <form  style="position: relative; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchShop')); ?>" id='search' class="typehead">
-          <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-      </form>
+
+      <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
        <form style= "position: relative; margin-left: 120%; margin-top: -1rem; max-width: 20%;" action="<?php echo e(('filter')); ?>" >
     <div class="input-group mb-3">
       <div class="input-group-prepend">
@@ -61,7 +60,12 @@
                 <a href="#" class="btn btn-primary">Signaler</a>
               <?php endif; ?>
               <?php if(checkPermission(['bde'])): ?>
-                <a href="#" class="btn btn-primary">Masquer</a>
+              <form method="post" action="<?php echo e(('hideproduct')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="<?php echo e($product->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
               <?php endif; ?>
             </div>
           </div>

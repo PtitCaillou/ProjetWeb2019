@@ -10,7 +10,7 @@
 	</header>
 	<main>
 		<?php echo $__env->yieldContent('body'); ?>
-		<form style="margin-top: 5rem;" method="POST" action="<?php echo e(('store')); ?>">
+		<form style="margin-top: 5rem;" method="POST" action="<?php echo e(('add-product')); ?>">
 	<div class="form-group">
     <label for="exampleFormControlInput1" style="color: white; position: relative; left: 20%; ">Nom du produit</label>
     <input type="text" name="name" class="form-control" style="position: relative; left: 20%; max-width: 50%; " id="exampleFormControlInput1" placeholder="Titre">
