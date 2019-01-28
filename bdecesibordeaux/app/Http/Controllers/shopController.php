@@ -13,7 +13,7 @@ class shopController extends Controller
 {
     public function shop() {
         $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/products'), true);
-        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/producttypes'), true);
+        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/types'), true);
         $products = [];
         $prod = [];
         $producttypes =[];
@@ -31,6 +31,7 @@ class shopController extends Controller
         foreach ($datatypes as $datatype) {
             $producttype = new ProductType;
             $producttype->id = $datatype['id'];
+            
             $producttype->type = $datatype['type'];
             array_push($producttypes, $producttype);
         }
@@ -73,7 +74,7 @@ class shopController extends Controller
     public function search(Request $request){
         $research = $request->search;
         $uri = "http://bdecesibordeaux:3000/products/" . $research;
-        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/producttypes'), true);
+        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/types'), true);
         $datas = json_decode(file_get_contents($uri), true);
         $products = [];
         $prod = [];
@@ -112,7 +113,7 @@ class shopController extends Controller
         $research = $request->filter;
         dd($request->filterCat);
         $uri = "http://bdecesibordeaux:3000/products/" . $research;
-        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/producttypes'), true);
+        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/types'), true);
         $datas = json_decode(file_get_contents($uri), true);
         $products = [];
         $prod = [];
@@ -120,6 +121,7 @@ class shopController extends Controller
         foreach($datas as $data){
             $product = new Product();
             $product->id = $data['id'];
+
             $product->type = $data['type'];
             $product->price = $data['price'];
             $product->description = $data['description'];

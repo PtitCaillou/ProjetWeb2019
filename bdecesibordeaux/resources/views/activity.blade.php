@@ -20,7 +20,6 @@
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" >
         @include('searchBar')
         </form>
-<<<<<<< HEAD
        <script type="text/javascript">
 
         var url = "{{ route('autocompleteActivity') }}";
@@ -41,7 +40,6 @@
 
     </script>
            </script> 
-=======
            <!-- <script type="text/javascript">
            var path = "{{ route('autocompleteActivity') }}";
                $('input.typehead').typeahead({
@@ -52,13 +50,17 @@
                    }
                });
            </script> -->
->>>>>>> 5616c1217a3b61700c1a9e88a2d645fb79bc0477
 @yield('body')
 <main>
 	@include('eventDuMois')
 
 	<h2>Autres activités</h2>
+ 
+
+
   @foreach($event as $event)
+
+
 	<div class="event">
  <div class="row">
 
@@ -77,14 +79,19 @@
               <a href="#" class="btn btn-primary">Signaler</a>
               @endif
               @if(checkPermission(['bde'])) 
-              <a href="#" class="btn btn-primary">Masquer</a>
+              <form method="post" action="{{('hide')}}">
+                {{ csrf_field() }}
+                <input type="hidden" readonly class="form-control-plaintext" name="id" id ='id' value="{{$event->id}}">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
               @endif
             </div>
           </div>
         </div>
-@endforeach
+
     </div>
     </div>
+    @endforeach
 </main>
 
  <div class="container">

@@ -20,7 +20,6 @@
     <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 <form style= "position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('filter')); ?>" >
-  <input type="select" name="">
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <label class="input-group-text" for="inputGroupSelect01">Options</label>
@@ -28,7 +27,9 @@
   <select class="custom-select" id="inputGroupSelect01">
     <option selected>Choose...</option>
     <?php $__currentLoopData = $prod; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $prod): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-     <option name="filterCat" value="<?php echo e($prod->type); ?>">
+   
+    
+     <option name="filterCat" value="">
          <?php echo e($prod->type); ?>
 
      </option>
