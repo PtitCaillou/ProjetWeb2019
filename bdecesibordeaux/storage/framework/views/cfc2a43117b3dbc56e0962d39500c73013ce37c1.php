@@ -21,9 +21,12 @@
       <li class="nav-item">
       <?php if(! Auth::check()): ?>
       <div class="authentification">
-    <a class="Connexion" href="<?php echo e('login'); ?>">Connexion</a>
-    <a class="Inscription" href="<?php echo e('register'); ?>">Inscription</a>
-</div>
+        <a href="<?php echo e(('login')); ?>" class="Connexion" >Connexion</a>
+   <!--  <a class="Connexion" href="<?php echo e(('login')); ?>">Connexion</a> -->
+    <a  href="<?php echo e(('register')); ?>" class="Inscription">Inscription</a>
+  </div>
+</li>
+
     <?php elseif(Auth::check()): ?>
      <li class="nav-item dropdown">
     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color:white;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left: 90%; top: -5rem;">
@@ -47,8 +50,5 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: rgbrgb(238, 193, 94); color:white;" type="submit">Rechercher</button>
     </form>
-  </div>
+      </div>
 </nav>
-
-
-</div>

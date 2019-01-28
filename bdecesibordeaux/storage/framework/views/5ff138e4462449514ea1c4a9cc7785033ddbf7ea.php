@@ -15,6 +15,7 @@
       <?php
         $name = $product->name;
         $quantity = $product->quantity;
+        $image = $product->image;
       ?>
       <div class="produits">
         <div class="row">
@@ -22,7 +23,7 @@
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
-                <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+                <img class= "<?php echo e($name); ?>" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
               </div>
               <div class="card-footer">
                 <a href="#" class="btn btn-primary"><?php echo e($quantity); ?><? return $price ?></a>

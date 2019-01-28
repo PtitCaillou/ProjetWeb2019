@@ -57,6 +57,7 @@ class shopController extends Controller
         }
         return view('basket', ['product'=>$products]);
     }
+    
     public function addBasket(Request $request){
         $client = new Client();
         $user_id = auth()->user()->id;

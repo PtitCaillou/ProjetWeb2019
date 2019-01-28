@@ -14,6 +14,6 @@ class Media extends Model
      * @var array
      */
     protected $fillable = [
-        'path', 'description', 'author'
+        'path', 'description', 'user', 'status'
     ];
 }
