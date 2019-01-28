@@ -1,3 +1,4 @@
+@yield('body')
 <h2>Evènements du mois</h2>
 <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">

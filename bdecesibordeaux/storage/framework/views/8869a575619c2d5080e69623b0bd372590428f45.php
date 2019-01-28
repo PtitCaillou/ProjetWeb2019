@@ -24,7 +24,7 @@
         <div class="col-md-6 mb-md-0 mb-2">
 
             <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
+            <h5 class="text-uppercase" style="color:white;">Links</h5>
 
     <div class="socialService">
         <li class="list-item text-white"><a href="https://www.instagram.com/bde_cesi_bdx/?hl=fr"><img class="instagram" src="css/instagram.png"></a></li>

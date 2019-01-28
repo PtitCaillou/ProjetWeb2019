@@ -1,13 +1,24 @@
 .Connexion{
-	left:55%;
+	margin-left: 670%;
     margin-top: -4rem;
     position: relative;
+    color: white;
 }	
 .Inscription{
-    margin-top: -4rem;
+    margin-bottom: -20rem;
     position: relative;
-    margin-right: 20%;
-    left: 60%;
+    margin-left: 675%;
+    color: white;
+}
+.connected {
+    margin-left: 675%;
+}
+#menu {
+    width: 150px;
+    height: 4000px;
+    background-color: black;
+    float: left;
+    position: sticky;
 }
 .img {
     position:relative;
@@ -21,7 +32,7 @@ h1{
 
 h2{
 	text-align: center;
-	color: rgb(255,255,255);
+	color: black;
 	font-size: 20px;
     position: relative;
     line-height: 5;
@@ -33,7 +44,7 @@ h3{
 	position: relative;
 }
 h5 {
-    color: rgb(255,255,255);
+    color: white;
 }
 .logo{
 	max-width: 7%;
@@ -71,6 +82,9 @@ h5 {
 .footer{
     align-items: center;
 } 
+.foot {
+    background-color: black;
+}
 
 nav{
 	/*position: relative;
@@ -98,13 +112,6 @@ nav{
 	border-bottom: double;
 	border-color: rgb(238, 193, 94);
 	margin-right: 230px;
-}
-
-body{
-	background-color: black;
-	font-family: Roboto,sans-serif;
-    margin: 0;
-    padding: 0
 }
 
 h3{
