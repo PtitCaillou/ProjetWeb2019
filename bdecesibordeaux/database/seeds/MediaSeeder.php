@@ -17,7 +17,7 @@ class MediaSeeder extends Seeder
         DB::table('Media')->insert(['path' => 'images/event.jpg', 'description' => 'Eevent', 'user_id' => '1', 'status' => '1']);
         DB::table('Media')->insert(['path' => 'images/goodies-bde.jpg', 'description' => 'Goodies BDE', 'user_id' => '1', 'status' => '1']);
         DB::table('Media')->insert(['path' => 'images/halloween.png', 'description' => 'Halloween', 'user_id' => '1', 'status' => '1']);
-        DB::table('Media')->insert(['path' => 'images/herrisson.jpg', 'description' => 'Herrisson', 'user_id' => '1', 'status' => '1']);
+        DB::table('Media')->insert(['path' => 'images/herisson.jpg', 'description' => 'Herrisson', 'user_id' => '1', 'status' => '1']);
         DB::table('Media')->insert(['path' => 'images/Marteau.jpg', 'description' => 'Marteau', 'user_id' => '1', 'status' => '1']);
         DB::table('Media')->insert(['path' => 'images/mug-bde.jpg', 'description' => 'Mug BDE', 'user_id' => '1', 'status' => '1']);
         DB::table('Media')->insert(['path' => 'images/mug.jpg', 'description' => 'Mug', 'user_id' => '1', 'status' => '1']);
