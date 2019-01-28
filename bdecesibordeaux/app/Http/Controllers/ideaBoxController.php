@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
 use GuzzleHttp\Client;
+use Illuminate\Http\Fille;
+use Illuminate\Support\Facades\Storage;
 
 
 class ideaBoxController extends Controller
@@ -30,27 +32,15 @@ class ideaBoxController extends Controller
     public function addIdea(Request $request) {
         $client = new Client();
         $user_id = auth()->user()->id;
-        $description = $request->file('image')->getClientOriginalName();
-        $filepath = $request->file('image')->store('images');
-
-        $url = "http://bdecesibordeaux:3000/medias/add";
-        $body['path'] = $filepath;
-        $body['description'] = $description;
-        $body['user'] = $user_id;
-        $body['status'] = "1";
-        $response = $client->post($url, ['form_params'=>$body]);
-        dump($response);
-        unset($body);
-
+        
         $url = "http://bdecesibordeaux:3000/events/add";
         $body['name'] = $request->titre;
         $body['description'] = $request->description;
         $body['eventtype'] = "1";
         $body['eventstatus'] = "1";
-        $body['media'] = "20";
+        $body['media'] = "4";
         $body['user'] = $user_id;
         $response = $client->post($url, ['form_params'=>$body]);
-        dump($response);
         return $this->ideaBox();
     }
 }
