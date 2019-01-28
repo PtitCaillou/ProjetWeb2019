@@ -31,8 +31,8 @@
             $user = $idea->user;
             ?>
         <div class="well">
-            <div class="media">
-                <img class="idea-image" src="<?php echo e($image); ?>">
+            <div class="idea">
+                <img class="idea-image" src="../storage/app/<?php echo e($image); ?>">
                 <div class="media-body">
                     <h4 class="text-left"><?php echo e($name); ?></h4>
                     <p class="text-left"><?php echo e($description); ?></p>
@@ -42,7 +42,7 @@
                     <?php endif; ?>
                     <?php if(checkPermission(['bde'])): ?>
                         <a href="#" class="btn btn-primary">Masquer</a> <!--IDEA BOX CONTROLLER -->
-                        <a href="#" class="btn btn-primary">Accepeter</a> <!--IDEA BOX CONTROLLER -->
+                        <a href="#" class="btn btn-primary">Accepter</a> <!--IDEA BOX CONTROLLER -->
                     <?php endif; ?>
                     <ul class="list-inline list-unstyled">
                         <div class="comments">
@@ -63,7 +63,7 @@
         
 
     <div class="body-idea">
-        <form method="post" action="<?php echo e(('add-idea')); ?>" class="add-idea">
+        <form method="post" action="<?php echo e(('add-idea')); ?>" enctype="multipart/form-data">
             <?php echo e(csrf_field()); ?>
 
             <p>Titre de l'idée : </p>
@@ -71,7 +71,7 @@
             <p>Description de l'idée : </p>
             <input type="text" class="form-control" name="description">
             <p>Image : </p>
-            <input type="file" class="form-control-file" name="image">
+            <input type="file" class="form-control-file" name="image" accept="image/*">
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
     </div>
