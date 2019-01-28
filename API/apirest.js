@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express();
-var hostname = 'siteweb';
+var hostname = 'bdecesibordeaux';
 var bodyParser = require("body-parser");
 var port = 3000;
 var routes = require("./routes/route.js");

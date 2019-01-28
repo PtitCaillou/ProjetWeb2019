@@ -19,6 +19,7 @@ class shopController extends Controller
             $product->name = $data['name'];
             $product->price = $data['price'];
             $product->description = $data['description'];
+            $product->image = $data['path'];
             array_push($products, $product);
         }
         return view('shop', ['product'=>$products]);
@@ -37,6 +38,7 @@ class shopController extends Controller
             $product = new Product();
             $product->id = $data['name'];
             $product->name = $data['quantity'];
+            $product->image = $data['path'];
             array_push($products, $product);
         }
         return view('basket', ['product'=>$products]);
@@ -60,8 +62,11 @@ class shopController extends Controller
         $products = [];
         foreach($datas as $data){
             $product = new Product();
-            $product->name = $data['name'];
+            $product->id = $data['id'];
+            $product->type = $data['type'];
             $product->price = $data['price'];
+            $product->description = $data['description'];
+            $product->image = $data['path'];
             array_push($products, $product);
         }
         return view('shop', ['product'=>$products]);

@@ -29,6 +29,7 @@ class CreateProductTable extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->integer('ProductType_ID');
+            $table->integer('media_id');
         });
     }
 
