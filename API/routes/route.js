@@ -90,13 +90,13 @@ var queryOneBasketComplete = "SELECT user.lastname, user.name AS username, produ
 //Query all complete baskets of one user
 var queryOneBasketUncomplete = "SELECT user.lastname, user.name AS username, product.name, quantity, media.path FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id INNER JOIN media ON product.media_id = media.id WHERE basket.status = 1 AND user.id = ";
 //Query all products
-var queryAllProducts = "SELECT product.id, product.name, product.description, product.price, producttype.type, media.path FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON media.id = product.media_id";
+var queryAllProducts = "SELECT product.id, product.name, product.description, product.price, producttype.type, media.path, product.status FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON media.id = product.media_id";
 //Add one product
-var addOneProduct = "INSERT INTO product (name, description, price, stock, producttype_id) VALUES (\"";
+var addOneProduct = "INSERT INTO product (name, description, price, stock, producttype_id, media_id) VALUES (\"";
 //Query one product
 var queryOneProduct = "SELECT product.id, product.description, product.price, producttype.type, media.path FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON product.media_id = media.id WHERE Product.name = \"";
 //Update one product
-var updateOneProduct = "UPDATE product SET stock =";
+var updateOneProduct = "UPDATE product SET status = ";
 //Query all medias
 var queryAllMedias = "SELECT media.id, path, description, user.name, user.lastname FROM Media INNER JOIN user ON media.user_id = user.id";
 //Add one media
@@ -253,8 +253,8 @@ function handle_database(req, res, opt) {
 				if (!err) { res.json(rows); }
 			});
 		} else if (opt == 21) { //Update one product
-			query = updateOneProduct + req.query.stock + " WHERE name = "
-				+ req.params.product_name;
+			query = updateOneProduct + req.body.status + " WHERE id = "
+				+ req.params.product_id;
 			connection.query(query, function (err, rows) {
 				connection.release();
 				if (!err) { res.json(rows); }
@@ -393,7 +393,7 @@ var appRouter = function (app) {
 	app.get('/products/:product_name', function (req, res) {
 		handle_database(req, res, 20);
 	})
-	app.put('/products/update/:product_name', function (req, res) {
+	app.put('/products/update/:product_id', function (req, res) {
 		handle_database(req, res, 21);
 	})
 
