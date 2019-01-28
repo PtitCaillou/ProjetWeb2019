@@ -108,6 +108,10 @@ public function hide(Request $request){
 							/*, 'media'=>$img*/]);
 }
 
+public function warning(){
+	return view('warning');
+}
+
 /*protected function validator(array $data){
  return Validator::make($data, [
 'name' =>['required', 'string', 'max :255'],

@@ -42,6 +42,8 @@ Route::get('searchActivity', "activityController@search");
 Route::get('autocomplete-Activity',array('as'=>'autocompleteActivity','uses'=>'activityController@autocomplete'));
 Route::get('filter', "shopController@filter");
 Route::post('hide', "activityController@hide");
+Route::get('warning', "activityController@warning");
+Route::post('mail', "ContactController@sendMail");
 
 Auth::routes();
 

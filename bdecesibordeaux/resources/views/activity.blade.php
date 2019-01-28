@@ -72,7 +72,7 @@
                <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
               </form>
                @if(checkPermission(['employee']))
-              <a href="#" class="btn btn-primary">Signaler</a>
+              <a href="{{('warning')}}" class="btn btn-primary">Signaler</a>
               @endif
               @if(checkPermission(['bde'])) 
               <form method="post" action="{{('hide')}}">

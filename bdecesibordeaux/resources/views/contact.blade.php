@@ -4,8 +4,8 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <h2>Avis de signalement</h2>
-    <p>Un element a ete signalé</p>
+    <h2>{{ $contact['title'] }}</h2>
+    <p>{{ $contact['content'] }}</p>
     <ul>
       <li><strong>Nom</strong> : {{ $contact['nom'] }}</li>
       <li><strong>Email</strong> : {{ $contact['email'] }}</li>
