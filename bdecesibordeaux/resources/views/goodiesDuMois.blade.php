@@ -9,17 +9,17 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
         <div class="goodies">
-      <img class="d-block w-100" src="css/pullCesi.jpg" alt="...">
+      <img class="d-block w-100" src="images/pullCesi.jpg" alt="...">
         </div>
     </div>
     <div class="carousel-item">
         <div class="goodies">
-      <img class="d-block w-100" src="css/goodies-bde.jpg" alt="...">
+      <img class="d-block w-100" src="images/goodies-bde.jpg" alt="...">
         </div>
     </div>
     <div class="carousel-item">
         <div class= "goodies">
-      <img class="d-block w-100" src="css/mug-bde.jpg" style="height: 100%;" alt="...">
+      <img class="d-block w-100" src="images/mug-bde.jpg" style="height: 100%;" alt="...">
         </div>
     </div>
   </div>

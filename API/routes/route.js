@@ -87,13 +87,13 @@ var deleteOneBasket = "DELETE FROM basket WHERE user_id = ";
 //Query all uncomplete baskets of one user
 var queryOneBasketComplete = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 0 AND user.id = ";
 //Query all complete baskets of one user
-var queryOneBasketUncomplete = "SELECT user.lastname, user.name AS username, product.name, quantity FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id WHERE basket.status = 1 AND user.id = ";
+var queryOneBasketUncomplete = "SELECT user.lastname, user.name AS username, product.name, quantity, media.path FROM basket INNER JOIN User ON user.id = basket.user_id INNER JOIN product ON basket.product_id = product.id INNER JOIN media ON product.media_id = media.id WHERE basket.status = 1 AND user.id = ";
 //Query all products
-var queryAllProducts = "SELECT product.id, name, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id";
+var queryAllProducts = "SELECT product.id, product.name, product.description, product.price, producttype.type, media.path FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON media.id = product.media_id";
 //Add one product
 var addOneProduct = "INSERT INTO product (name, description, price, stock, producttype_id)VALUES (\"";
 //Query one product
-var queryOneProduct = "SELECT product.id, description, price, producttype.type FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id WHERE Product.name = \"";
+var queryOneProduct = "SELECT product.id, product.description, product.price, producttype.type, media.path FROM Product INNER JOIN producttype ON product.producttype_id = producttype.id INNER JOIN media ON product.media_id = media.id WHERE Product.name = \"";
 //Update one product
 var updateOneProduct = "UPDATE product SET stock =";
 //Query all medias

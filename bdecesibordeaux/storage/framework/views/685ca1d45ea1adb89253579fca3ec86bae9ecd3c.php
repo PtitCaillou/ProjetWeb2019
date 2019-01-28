@@ -15,7 +15,6 @@
     <?php endif; ?>
     <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </header>
-  <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" style= "margin-left:65%" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
   <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchShop')); ?>" id='search' class="typehead">
     <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </form>
@@ -38,6 +37,7 @@
       $name = $product->name;
       $price = $product->price;
       $description = $product->description;
+      $image = $product->image;
     ?>
   <div class="produits">
     <div class="row">
@@ -45,7 +45,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
-            <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+            <img class= "pullbleu" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
           </div>
           <div class="card-footer">
             <p><?php echo e($description); ?></p>

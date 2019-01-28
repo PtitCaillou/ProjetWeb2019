@@ -15,6 +15,7 @@
       <?php
         $name = $product->name;
         $quantity = $product->quantity;
+        $image = $product->image;
       ?>
       <div class="produits">
         <div class="row">
@@ -22,7 +23,7 @@
             <div class="card h-100">
               <div class="card-body">
                 <h4 class="card-title" name ="name" >{{$name}}<? return $name ?></h4>
-                <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
+                <img class= "{{$name}}" src="{{$image}}" class="d-block w-100" alt="...">
               </div>
               <div class="card-footer">
                 <a href="#" class="btn btn-primary">{{$quantity}}<? return $price ?></a>
