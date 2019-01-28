@@ -62,7 +62,7 @@
                                    </span>
                                <?php endif; ?>
                            </div> -->
-                                                </div>
+                                                
                             
          
 
@@ -114,11 +114,11 @@
                         </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 </div>
 <?php $__env->stopSection(); ?>
