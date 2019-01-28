@@ -1,10 +1,12 @@
 .authentification {
-    margin-left: 670%;
-    color: white;
+    margin-left: 0%;
     position: relative;
 }
 .container-inscription {
    margin-left: -10%;
+}
+.menu-top {
+    left: 50%;
 }
 .connected {
     margin-left: 675%;
@@ -19,8 +21,8 @@
     float: left;
     position: sticky;
 }
-.menu-top:hover {
-    z-index:1;
+body {
+    background-color: white;
 }
 .img {
     position:relative;
@@ -154,7 +156,6 @@ main{
     color: #000;
     max-width: 100%;
     overflow: auto;
-    background-color: black;
 }
 header{
 	display: inline;
