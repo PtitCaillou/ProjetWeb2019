@@ -13,7 +13,7 @@ class shopController extends Controller
 {
     public function shop() {
         $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/products'), true);
-        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/producttypes'), true);
+        $datatypes = json_decode(file_get_contents('http://bdecesibordeaux:3000/types'), true);
         $products = [];
         $prod = [];
         $producttypes =[];
