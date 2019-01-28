@@ -20,6 +20,7 @@
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" >
         @include('searchBar')
         </form>
+<<<<<<< HEAD
        <script type="text/javascript">
 
         var url = "{{ route('autocompleteActivity') }}";
@@ -40,6 +41,18 @@
 
     </script>
            </script> 
+=======
+           <!-- <script type="text/javascript">
+           var path = "{{ route('autocompleteActivity') }}";
+               $('input.typehead').typeahead({
+                   source:  function (query, process) {
+                   return $.get(path, { query: query }, function (data) {
+                return process(data);
+            });
+                   }
+               });
+           </script> -->
+>>>>>>> 5616c1217a3b61700c1a9e88a2d645fb79bc0477
 @yield('body')
 <main>
 	@include('eventDuMois')
@@ -55,11 +68,15 @@
               <h4 class="card-title"> {{ $event->name }} </h4>
               <img class= "night" src="{{('css/event.jpg')}}" class="d-block w-100" alt="...">
               <p class="card-text"> {{ $event->description }}</p>
-              <a href="#" style="color: blue;">Voir plus</a>
+              <form method="post" action="{{('description')}}">
+                 {{ csrf_field() }}
+              <input type="hidden" readonly class="form-control-plaintext" name="description" id="name" value="{{$event->id}}">
+               <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
+              </form>
                @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>
               @endif
-              @if(checkPermission(['bde']))
+              @if(checkPermission(['bde'])) 
               <a href="#" class="btn btn-primary">Masquer</a>
               @endif
             </div>

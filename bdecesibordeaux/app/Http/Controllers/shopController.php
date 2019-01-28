@@ -6,52 +6,72 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Basket;
+use GuzzleHttp\Client;
 
 class shopController extends Controller
 {
     public function shop() {
-       $prod = Product::all();
-        return view('shop', ['product'=>$prod]);
+        $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/products'), true);
+        $products = [];
+        foreach($datas as $data){
+            $product = new Product();
+            $product->id = $data['id'];
+            $product->name = $data['name'];
+            $product->price = $data['price'];
+            $product->description = $data['description'];
+            $product->image = $data['path'];
+            array_push($products, $product);
+        }
+        return view('shop', ['product'=>$products]);
     }
 
     public function add(){
     	return view('addProduct');
     }
-    public function basket(){
-    	return view('basket');
-    }
-    public function addBasket(){
-        $basket = new Basket;
-        $product = new Product;
-        dd($this->$product->name);
-        $basket->name = $this->$product->name;
 
-    	return view('shop');
+    public function basket(){
+        $user_id = auth()->user()->id;
+        $url = "http://bdecesibordeaux:3000/baskets/uncomplete/" . $user_id;
+        $datas = json_decode(file_get_contents($url), true);
+        $products = [];
+        foreach($datas as $data){
+            $product = new Product();
+            $product->id = $data['name'];
+            $product->name = $data['quantity'];
+            $product->image = $data['path'];
+            array_push($products, $product);
+        }
+        return view('basket', ['product'=>$products]);
+    }
+    public function addBasket(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+        $product_id = $request->add;
+        $url = "http://bdecesibordeaux:3000/baskets/add/" . $user_id;
+        $body['product'] = $product_id;
+        $body['quantity'] = "1";
+        $body['status'] = "1";
+        $response = $client->post($url, ['form_params'=>$body]);
+        return $this->shop();
     }
 
     public function search(Request $request){
         $research = $request->search;
-        $prod = Product::where('name', '=', $research)->get();
-        return view('shop', ['product'=>$prod]);
+        $uri = "http://bdecesibordeaux:3000/products/" . $research;
+        $datas = json_decode(file_get_contents($uri), true);
+        $products = [];
+        foreach($datas as $data){
+            $product = new Product();
+            $product->id = $data['id'];
+            $product->type = $data['type'];
+            $product->price = $data['price'];
+            $product->description = $data['description'];
+            $product->image = $data['path'];
+            array_push($products, $product);
+        }
+        return view('shop', ['product'=>$products]);
     }
-    public function store(Request $request){
-        $product = new Product;
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-       if ($request->type == "1") {
-        $product->productType_id = '1';
-    }
-    elseif (($request->type == "2")) {
-        $product->productType_id = '2';
-    }
-    else{
-        $product->productType_id = '3';
-    }
-    dump($product);
-        $prod = Product::all();
-        return view('shop', ['product'=>$prod]);
-    }
+  
      public function autocomplete(Request $request)
     {
         $data = Product::select("name")

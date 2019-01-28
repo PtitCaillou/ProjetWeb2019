@@ -1,12 +1,26 @@
 .Connexion{
-	left:75%;
-    margin-top: -4rem;
+    color: white;
     position: relative;
+  left: 670%; 
+    margin-top: -4rem;
+        
 }	
 .Inscription{
-    margin-top: -4rem;
+    color: white;
     position: relative;
-    left:77%;
+   left: 675%;
+   margin-bottom: -20rem; 
+    
+}
+.connected {
+    margin-left: 675%;
+}
+#menu {
+    width: 150px;
+    height: 4000px;
+    background-color: black;
+    float: left;
+    position: sticky;
 }
 .img {
     position:relative;
@@ -20,7 +34,7 @@ h1{
 
 h2{
 	text-align: center;
-	color: rgb(255,255,255);
+	color: black;
 	font-size: 20px;
     position: relative;
     line-height: 5;
@@ -32,14 +46,14 @@ h3{
 	position: relative;
 }
 h5 {
-    color: rgb(255,255,255);
+    color: white;
 }
 .logo{
 	max-width: 7%;
     line-height: -1;
-    margin-top: -4rem;
+    margin-top: -3rem;
     position: relative;
-    left: 0%;
+    margin-right: 10%;
 }
 
 .socialService {
@@ -70,6 +84,9 @@ h5 {
 .footer{
     align-items: center;
 } 
+.foot {
+    background-color: black;
+}
 
 nav{
 	/*position: relative;
@@ -99,20 +116,15 @@ nav{
 	margin-right: 230px;
 }
 
-body{
-	background-color: black;
-	font-family: Roboto,sans-serif;
-    margin: 0;
-    padding: 0
-}
-
 h3{
 	color: rgb(238, 193, 94);
 }
 .goodies{
-	max-width: 60%;
-	position: relative;
-    left: 50%;
+	max-width: 90%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+
 }
 .pullbleu {
     max-width: 60%;
@@ -201,7 +213,11 @@ button {
 .add-article{
 	position: relative;
 left: 65%;
+<<<<<<< HEAD
 /* margin-top: -5rem; */
+=======
+
+>>>>>>> 5616c1217a3b61700c1a9e88a2d645fb79bc0477
 margin-bottom: -2rem; 
 }
 .basket{
@@ -263,13 +279,16 @@ position: relative;
     flex-direction: row;
     margin-left: 3%
 }
+.likes, .comment {
+    color: rgb(255,255,255);
+}
 .idea-image {
    width: 20%;
 }
 .pull-left {
   overflow: hidden;
-	top: 70%;
-	margin-top: -28rem
+    top: 70%;
+    margin-top: -28rem
 }
 .add.activity{
    position: relative;
@@ -278,4 +297,10 @@ position: relative;
 }
 .adding{
     max-width: 50%;
+}
+.thumb-up {
+    position: relative;
+    margin-top: 3%;
+    width: 3%;
+    height: 50%;
 }

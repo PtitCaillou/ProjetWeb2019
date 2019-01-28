@@ -7,60 +7,67 @@
 <body>
   <header>
     <h3>BOUTIQUE</h3>
-    <!--  adding button to add an article  -->
-    </div></a>
-      @if(checkPermission(['bde']))
-        <div class="add-article">
+    @if(checkPermission(['bde']))
+      <div class="add-article">
         <a href="{{('add.product')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
-        </div>
-        @endif
-                </header>
-        @include('menu')
-        <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}" id='search' class="typehead">
-        @include('searchBar')
-        </form>
-    <!--    <script type="text/javascript">
-        var path = "{{ route('autocomplete') }}";
-        $('input.typehead').typeahead({
-     source:  function (query, process) {
-     return $.get(path, { query: query }, function (data) {
-             return process(data);
-         });
-     }
-        });
-    </script> -->
-        <h2>Eléments les plus vendus</h2>
-        @include('goodiesDuMois')
-        @foreach($product as $product)
-        <?php $name = $product->name;
-        $price = $product->price;
-        ?>
-        <!-- creating the product view -->
-      <!-- Content Row -->
-        <div class="produits">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h4 class="card-title" name ="name" >{{$name}}<? return $name ?></h4>
-              <img class= "pullbleu" src="css/pull.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">{{$price}}<? return $price ?></a>
-              <a href="{{('add-basket')}}" class="btn btn-primary">Ajouter au panier</a>
-              @if(checkPermission(['employee']))
+        <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
+      </div>
+    @endif
+    @include('menu')
+  </header>
+  <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchShop')}}" id='search' class="typehead">
+    @include('searchBar')
+  </form>
+  <!--
+  <script type="text/javascript">
+    var path = "{//{ route('autocomplete') }}";
+    $('input.typehead').typeahead({
+      source:  function (query, process) {
+        return $.get(path, { query: query }, function (data) {
+          return process(data);
+        );
+      }
+    });
+  </script>
+  -->
+  @include('goodiesDuMois')
+  @foreach($product as $product)
+    <?php 
+      $id = $product->id;
+      $name = $product->name;
+      $price = $product->price;
+      $description = $product->description;
+      $image = $product->image;
+    ?>
+  <div class="produits">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title" name ="name" >{{$name}}<? return $name ?></h4>
+            <img class= "pullbleu" src="{{$image}}" class="d-block w-100" alt="...">
+          </div>
+          <div class="card-footer">
+            <p>{{$description}}</p>
+            <a href="#" class="btn btn-primary">{{$price}}<? return $price ?></a>
+            <form method="post" action="{{('add-basket')}}">
+              {{ csrf_field() }}
+              <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="{{ $product->id }}">
+              <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
+            </form>
+            @if(checkPermission(['employee']))
               <a href="#" class="btn btn-primary">Signaler</a>
-              @endif
-              @if(checkPermission(['bde']))
+            @endif
+            @if(checkPermission(['bde']))
               <a href="#" class="btn btn-primary">Masquer</a>
-              @endif
-            </div>
+            @endif
           </div>
         </div>
       </div>
     </div>
-    @endforeach 
-    <div class="container">
+  </div>
+  @endforeach 
+  <div class="container">
     <footer>
       @extends('footer')
     </footer>
