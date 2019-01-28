@@ -17,9 +17,31 @@
         </div>
         @endif
              @include('menu')
-             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" class="typehead">
+             <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="{{('searchActivity')}}" id='search' autocomplete="true" >
         @include('searchBar')
         </form>
+<<<<<<< HEAD
+       <script type="text/javascript">
+
+        var url = "{{ route('autocompleteActivity') }}";
+
+        $('#search_text').typeahead({
+
+            source:  function (query, process) {
+
+            return $.get(url, { query: query }, function (data) {
+
+                    return process(data);
+
+                });
+
+            }
+
+        });
+
+    </script>
+           </script> 
+=======
            <!-- <script type="text/javascript">
            var path = "{{ route('autocompleteActivity') }}";
                $('input.typehead').typeahead({
@@ -30,6 +52,7 @@
                    }
                });
            </script> -->
+>>>>>>> 5616c1217a3b61700c1a9e88a2d645fb79bc0477
 @yield('body')
 <main>
 	@include('eventDuMois')
@@ -71,7 +94,9 @@
     </div>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
  <link rel="stylesheet" type="text/css" href="css/style.css">
-
+ <link rel="stylesheet"href="//codeorigin.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 </body>
 </html>
  

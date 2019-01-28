@@ -3,12 +3,17 @@
     margin-top: -4rem;
     position: relative;
     color: white;
+    position: relative;
+  left: 670%; 
+    margin-top: -4rem;
+        
 }	
 .Inscription{
-    margin-bottom: -20rem;
-    position: relative;
-    margin-left: 675%;
     color: white;
+    position: relative;
+   left: 675%;
+   margin-bottom: -20rem; 
+    
 }
 .connected {
     margin-left: 675%;
@@ -224,7 +229,6 @@ button {
 .add-article{
 	position: relative;
 left: 65%;
-
 margin-bottom: -2rem; 
 }
 .basket{
@@ -300,6 +304,7 @@ position: relative;
 .add.activity{
    position: relative;
    left: 50%;
+   margin-top: 5rem;
 }
 .adding{
     max-width: 50%;

@@ -27,6 +27,7 @@ Route::get('shop',"shopController@shop");
 Route::get('activity',"activityController@activity");
 
 Route::get('ideaBox', "ideaBoxController@ideaBox");
+Route::post('add-idea', "ideaBoxController@addIdea");
 
 Route::get('add.product',"shopController@add");
 Route::get('basket', "shopController@basket");
@@ -37,8 +38,8 @@ Route::post('storeProduct', "shopController@store");
 Route::get('searchShop', "shopController@search");
 Route::post('description', "activityController@description");
 Route::get('searchActivity', "activityController@search");
-/*Route::get('autocompleteShop', 'shopController@autocomplete')->name('autocompleteShop');
-Route::get('autocompleteActivity', 'activityController@autocomplete')->name('autocompleteActivity');*/
+/*Route::get('autocompleteShop', 'shopController@autocomplete')->name('autocompleteShop');*/
+Route::get('autocomplete-Activity',array('as'=>'autocompleteActivity','uses'=>'activityController@autocomplete'));
 
 Auth::routes();
 

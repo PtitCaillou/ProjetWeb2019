@@ -61,7 +61,9 @@ var addOneUser = "INSERT INTO user (lastname, name, email, password, role_id) VA
 //Query one user
 var queryOneUser = "SELECT lastname, name, email, role_id FROM User WHERE id = ";
 //Query all events
-var queryAllEvents = "SELECT event.name, event.description, eventtype.type AS eventtype, eventstatus.status, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN eventstatus ON event.eventstatus_id = eventstatus.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id ";
+var queryAllEvents = "SELECT event.id, event.name, event.description, eventtype.type AS eventtype, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id WHERE event.eventstatus_id = 2";
+//Query all events
+var queryAllIdeas = "SELECT event.id, event.name, event.description, eventtype.type AS eventtype, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id WHERE event.eventstatus_id = 1";
 //Add one event
 var addOneEvent = "INSERT INTO user (name, description, eventtype_id, eventstatus_id, media_id, user_id) VALUES (\"";
 //Query one event
@@ -106,6 +108,8 @@ var queryOneMedia = "SELECT path, description, user.name, user.lastname FROM Med
 var updateOneMedia = "UPDATE media SET status = ";
 //Query all medias of one event
 var queryAlbum = "SELECT path, description FROM Media WHERE status = 1 AND event_id = ";
+//Query all product types
+var queryAllTypes = "SELECT * FROM producttype";
 
 
 function handle_database(req, res, opt) {
@@ -141,18 +145,23 @@ function handle_database(req, res, opt) {
                 connection.release();
                 if (!err) { res.json(rows); }
             });
+        } else if (opt == 3) { //Querry all ideas
+            connection.query(queryAllIdeas, function (err, rows) {
+                connection.release();
+                if (!err) { res.json(rows); }
+            });
         } else if (opt == 4) { //Querry all events
             connection.query(queryAllEvents, function (err, rows) {
                 connection.release();
                 if (!err) { res.json(rows); }
             });
         } else if (opt == 5) { //Add one event
-            query = addOneEvent + req.query.name + "\", \""
-                + req.query.description + "\", \""
-                + req.query.eventtype + "\", \""
-                + req.query.eventstatus + "\", \""
-                + req.query.media + "\", \""
-                + req.query.user + "\")";
+            query = addOneEvent + req.body.name + "\", \""
+                + req.body.description + "\", \""
+                + req.body.eventtype + "\", \""
+                + req.body.eventstatus + "\", \""
+                + req.body.media + "\", \""
+                + req.body.user + "\")";
             connection.query(query, function (err, rows) {
                 connection.release();
                 if (!err) { res.json(rows); }
@@ -296,6 +305,11 @@ function handle_database(req, res, opt) {
                     DownloadAlbum(res, rows, id);
                 }
             });
+        } else if (opt == 29) { //Querry all product types
+            connection.query(queryAllTypes, function (err, rows) {
+                connection.release();
+                if (!err) { res.json(rows); }
+            });
         }
 
         connection.on('error', function (err) {
@@ -315,6 +329,10 @@ var appRouter = function (app) {
 
     app.get('/users/:user_id', function (req, res) {
         handle_database(req, res, 2);
+    })
+
+    app.get('/ideas', function (req, res) {
+        handle_database(req, res, 3);
     })
 
     app.get('/events', function (req, res) {
@@ -405,6 +423,10 @@ var appRouter = function (app) {
 
     app.get('/album/:event_id', function (req, res) {
         handle_database(req, res, 28);
+    })
+
+    app.get('/types', function (req, res) {
+        handle_database(req, res, 29);
     })
 }
 

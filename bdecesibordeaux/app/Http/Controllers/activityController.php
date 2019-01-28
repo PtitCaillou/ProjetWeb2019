@@ -64,11 +64,12 @@ public function search(Request $request){
 }
  public function autocomplete(Request $request)
     {
-        $data = Event::select("name")
-                ->where("name","LIKE","%{$request->input('query')}%")
-                ->get();
-   
-        return response()->json($data);
+        $query = $request->get('query','');        
+
+        $posts = Event::where('name','LIKE','%'.$query.'%')->get();
+        dump($post);        
+
+        return response()->json($posts);
     }
 /*protected function validator(array $data){
  return Validator::make($data, [
