@@ -63,7 +63,7 @@
         
 
     <div class="body-idea">
-        <form method="post" action="<?php echo e(('add-idea')); ?>" class="add-idea">
+        <form method="post" action="<?php echo e(('add-idea')); ?>" enctype="multipart/form-data">
             <?php echo e(csrf_field()); ?>
 
             <p>Titre de l'idée : </p>
@@ -71,7 +71,7 @@
             <p>Description de l'idée : </p>
             <input type="text" class="form-control" name="description">
             <p>Image : </p>
-            <input type="file" class="form-control-file" name="image">
+            <input type="file" class="form-control-file" name="image" accept="image/*">
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
     </div>

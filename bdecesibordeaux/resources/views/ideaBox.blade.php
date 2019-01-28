@@ -70,7 +70,7 @@
             <p>Description de l'idée : </p>
             <input type="text" class="form-control" name="description">
             <p>Image : </p>
-            <input type="file" class="form-control-file" name="image" id="image">
+            <input type="file" class="form-control-file" name="image" accept="image/*">
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>
     </div>
