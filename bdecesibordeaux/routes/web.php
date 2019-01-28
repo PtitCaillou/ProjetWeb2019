@@ -44,6 +44,7 @@ Route::get('filter', "shopController@filter");
 Route::post('hide', "activityController@hide");
 Route::get('warning', "activityController@warning");
 Route::post('mail', "ContactController@sendMail");
+Route::post('status', "UserController@updateStatus");
 
 Auth::routes();
 

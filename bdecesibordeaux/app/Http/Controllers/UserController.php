@@ -82,4 +82,13 @@ class UserController extends Controller
     {
         //
     }
+    public function updateStatus(Request $request){
+        $status = $request->status;
+        $name = $request->status;
+        $user = User::where('name', '=', $name);
+        $user->role_id = $status;
+        $user->save();
+        return view('welcome');
+
+    }
 }
