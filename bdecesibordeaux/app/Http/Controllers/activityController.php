@@ -10,22 +10,19 @@ use App\Media;
 
 class activityController extends Controller
 {
-        public function activity() {
-         $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/events'), true);
-         $events = [];
-         foreach ($datas as $data) {
+    public function activity() {
+        $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/events'), true);
+        $events = [];
+        foreach ($datas as $data) {
          	$event = new Event;
          	$event->id = $data['id'];
          	$event->name = $data['name'];
          	$event->description = $data['description'];
          	$event->media = $data['path'];
-         	$event->type = $data['eventtype'];
-         	array_push($events, $event);
-         }
-         	return view('activity', [
-		'event'=>$events,
-							
-							/*, 'media'=>$img*/]);
+        	$event->type = $data['eventtype'];
+        	array_push($events, $event);
+        }
+        return view('activity', ['event'=>$events]);
     }
 
     public function add(){
