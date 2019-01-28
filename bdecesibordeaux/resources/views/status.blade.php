@@ -1,6 +1,7 @@
-@extends(layouts.app)
-@if(checkPermission(['superAdmin']))
-<form method="post" action="{{('status')}}">
+
+
+<form method="POST" action="{{('status')}}">
+	 {{ csrf_field() }}
   <div class="form-group">
     <label for="exampleInputEmail1">Nom de l'utilisateur</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" placeholder="Entrer le nom">
@@ -12,4 +13,3 @@
     </div>
     <button type="submit" class="btn btn-primary mb-2">Confirmer</button>
 </form>
-@endif

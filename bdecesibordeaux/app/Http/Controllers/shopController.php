@@ -106,8 +106,8 @@ class shopController extends Controller
     public function finishBasket(Request $request){
         $client = new Client();
         $user_id = auth()->user()->id;
-        $url = "http://bdecesibordeaux:3000/baskets/delete/" . $user_id;
-        $body['user'] = $user_id;
+        $url = "http://bdecesibordeaux:3000/products/stock/remove";
+        $body['user_id'] = $user_id;
         $response = $client->put($url, ['form_params'=>$body]);
         return $this->shop();
     }
