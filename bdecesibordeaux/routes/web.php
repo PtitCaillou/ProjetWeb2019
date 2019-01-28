@@ -27,6 +27,7 @@ Route::get('shop',"shopController@shop");
 Route::get('activity',"activityController@activity");
 
 Route::get('ideaBox', "ideaBoxController@ideaBox");
+Route::post('add-idea', "ideaBoxController@addIdea");
 
 Route::get('add.product',"shopController@add");
 Route::get('basket', "shopController@basket");
