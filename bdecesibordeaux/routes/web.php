@@ -20,16 +20,14 @@ Route::get('login', "LoginController@login");
 
 Route::get('shop',"shopController@shop");
 
-/*Route::get('home', function() {
-    return view('welcome');
-});*/
-
 Route::get('activity',"activityController@activity");
 
 Route::get('ideaBox', "ideaBoxController@ideaBox");
 Route::post('add-idea', "ideaBoxController@addIdea");
 
-Route::get('add.product',"shopController@add");
+Route::get('productadd', function(){ return view('addProduct'); });
+Route::post('add-product',"shopController@add");
+Route::post('hideproduct',"shopController@hide");
 Route::get('basket', "shopController@basket");
 Route::post('add-basket', "shopController@addBasket");
 Route::get('add.activity', "activityController@add");
