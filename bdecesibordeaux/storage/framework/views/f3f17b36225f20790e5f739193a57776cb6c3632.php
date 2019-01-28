@@ -31,7 +31,7 @@
             $user = $idea->user;
             ?>
         <div class="well">
-            <div class="media">
+            <div class="idea">
                 <img class="idea-image" src="<?php echo e($image); ?>">
                 <div class="media-body">
                     <h4 class="text-left"><?php echo e($name); ?></h4>

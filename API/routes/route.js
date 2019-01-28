@@ -268,10 +268,11 @@ function handle_database(req, res, opt) {
                 if (!err) { res.json(rows); }
             });
         } else if (opt == 23) { //Add one media
-            query = addOneMedia + req.query.path + "\", \""
-                + req.params.description + "\", \""
-                + req.query.user + "\", \""
-                + req.query.status + "\")";
+            query = addOneMedia + req.body.path + "\", \""
+                + req.body.description + "\", \""
+                + req.body.user + "\", \""
+                + req.body.status + "\")";
+            console.log(query);
             connection.query(query, function (err, rows) {
                 connection.release();
                 if (!err) { res.json(rows); }
@@ -279,7 +280,7 @@ function handle_database(req, res, opt) {
         } else if (opt == 24) { //Querry one media
             connection.query(queryOneMedia + req.params.media_id, function (err, rows) {
                 connection.release();
-                if (!err) { res.json(rows); }
+                //if (!err) { res.json(rows); }
             });
         } else if (opt == 25) { //Update one media
             query = updateOneMedia + req.query.status + " WHERE path = "
