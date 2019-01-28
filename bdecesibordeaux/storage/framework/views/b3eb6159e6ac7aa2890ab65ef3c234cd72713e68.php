@@ -1,46 +1,32 @@
 <?php $__env->startSection('li'); ?>
 <html>
 <body>
-	<!-- We check if one user is connected -->
-
-<!-- If there is an user connected, we get is role id -->
-<!-- When this id is equal to 1 he has a student status. So we create the page for a student -->
 	 <?php if(checkPermission(['bde'])): ?>
         <div class="add-article">
         <a href="<?php echo e(('add.activity')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter une activité</a>
         </div>
         <?php endif; ?>
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" >
-        
         </form>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
-       <script type="text/javascript">
-
+    <script type="text/javascript">
         var url = "<?php echo e(route('autocompleteActivity')); ?>";
-
         $('#search_text').typeahead({
-
             source:  function (query, process) {
-
             return $.get(url, { query: query }, function (data) {
-
                     return process(data);
-
                 });
-
             }
-
         });
-
     </script>
+<?php echo $__env->yieldContent('body'); ?>
+<main>
+    <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
 	<h2>Autres activités</h2>
- 
   <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-
+	<div class="event">
  <div class="row">
         <div class="col-md-4 mb-4">
           <div class="card h-100">
@@ -55,7 +41,7 @@
                <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
               </form>
                <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
+              <a href="<?php echo e(('warning')); ?>" class="btn btn-primary">Signaler</a>
               <?php endif; ?>
               <?php if(checkPermission(['bde'])): ?> 
               <form method="post" action="<?php echo e(('hide')); ?>">
@@ -65,14 +51,14 @@
                 <button type="submit" class="btn btn-primary mb-2">Masquer</button>
               </form>
               <?php endif; ?>
-            </div>
-          </div>
-        </div>
     </div>
+    </div>
+    </div>
+            </div>
+        </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
 </body>
 </html>
  
-<?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
