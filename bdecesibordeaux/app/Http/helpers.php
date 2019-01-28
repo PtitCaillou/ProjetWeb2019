@@ -30,6 +30,9 @@
       case 2:
         return 'employee';
         break;
+      case 3:
+          return 'superAdmin';
+        break;
       default:
         return 'student';
         break;

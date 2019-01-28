@@ -44,41 +44,27 @@
                             </div>
                         </div>
                         
-                        <!--  <div class="form-group row">
+                         <!-- <div class="form-group row">
                            <label for="localisation" class="col-md-4 col-form-label text-md-right">{{ __('Localisation') }}</label>
-                           <select>
-                               <option>Bordeaux</option>
-                               <option>Nanterre</option>
-                               <option>Toulouse</option>
-                               <option>Nantes</option>
-                               <option>Strasbourg</option>
-                               <option>Lille</option>
-                               <option>Arras</option>
-                               <option>Rouen</option>
-                               <option>Caen</option>
-                               <option>Brest</option>
-                               <option>Saint-Nazaire</option>
-                               <option>La rochelle</option>
-                               <option>Pau</option>
-                               <option>Montpellier</option>
-                               <option>Aix-en-Provence</option>
-                               <option>Nice</option>
-                               <option>Grenoble</option>
-                               <option>Lyon</option>
-                               <option>Dijon</option>
-                               <option>Nancy</option>
-                               <option>Reims</option>
-                               <option>Orleans</option>
+                           <?php
+                             $nameCenter = App\Center::all()->pluck('center');
+                             $centerId = App\Center::all()->pluck('id');
+                             //dd($nameCenter);
+                           ?>
+                           <select name="localisation">
+                            @foreach($nameCenter as $center)
+                               <option value="{{$centerId}}">{{$center}}</option>
+                               @endforeach
                            </select>
-                        
+                                                 
                                @if ($errors->has('localisation'))
                                    <span class="invalid-feedback" role="alert">
                                        <strong>{{ $errors->first('localisation') }}</strong>
                                    </span>
                                @endif
-                           </div>
+                           </div> -->
                                                 </div>
-                            -->
+                            
          
 
                         <div class="form-group row">
