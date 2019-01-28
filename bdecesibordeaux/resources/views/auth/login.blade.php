@@ -1,10 +1,8 @@
-    <h1>Connexion</h1>
-@extends('footer')
 @extends('layouts.app')
-@extends('menu')
 @section('content')
- <link rel="stylesheet" type="text/css" href="css/style.css">
-
+<html>
+    <body>
+<div class="container-inscription" style= "margin-bottom:5%; margin-right:10%;">
 <div class="container">
     <div class="row justify-content-center">
    
@@ -77,4 +75,7 @@
         </div>
     </div>
 </div>
+</div>
 @endsection
+</body>
+</html>

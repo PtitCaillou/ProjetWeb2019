@@ -1,10 +1,7 @@
-    <h1>Connexion</h1>
-
-
-
 <?php $__env->startSection('content'); ?>
- <link rel="stylesheet" type="text/css" href="css/style.css">
-
+<html>
+    <body>
+<div class="container-inscription" style= "margin-bottom:5%; margin-right:10%;">
 <div class="container">
     <div class="row justify-content-center">
    
@@ -80,8 +77,9 @@
         </div>
     </div>
 </div>
+</div>
 <?php $__env->stopSection(); ?>
+</body>
+</html>
 
-<?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
