@@ -25,35 +25,32 @@
 <main>
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<h2>Autres activités</h2>
-    <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-	    <div class="event">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h4 class="card-title"> <?php echo e($event->name); ?> </h4>
-                            <img class= "night" src="<?php echo e(('images/event.jpg')); ?>" class="d-block w-100" alt="...">
-                            <p class="card-text"> <?php echo e($event->description); ?></p>
-                            <form method="post" action="<?php echo e(('description')); ?>">
-                                <?php echo e(csrf_field()); ?>
+  <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	<div class="event">
+ <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title"> <?php echo e($event->name); ?> </h4>
+              <img class= "night" src="<?php echo e(('css/event.jpg')); ?>" class="d-block w-100" alt="...">
+              <p class="card-text"> <?php echo e($event->description); ?></p>
+              <form method="post" action="<?php echo e(('description')); ?>">
+                 <?php echo e(csrf_field()); ?>
 
-                                <input type="hidden" readonly class="form-control-plaintext" name="description" id="name" value="<?php echo e($event->id); ?>">
-                                <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
-                            </form>
-                            <?php if(checkPermission(['employee'])): ?>
-                                <a href="#" class="btn btn-primary">Signaler</a>
-                            <?php endif; ?>
-                            <?php if(checkPermission(['bde'])): ?> 
-                                <form method="post" action="<?php echo e(('hide')); ?>">
-                                    <?php echo e(csrf_field()); ?>
+              <input type="hidden" readonly class="form-control-plaintext" name="description" id="name" value="<?php echo e($event->id); ?>">
+               <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
+              </form>
+               <?php if(checkPermission(['employee'])): ?>
+              <a href="<?php echo e(('warning')); ?>" class="btn btn-primary">Signaler</a>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?> 
+              <form method="post" action="<?php echo e(('hide')); ?>">
+                <?php echo e(csrf_field()); ?>
 
-                                    <input type="hidden" readonly class="form-control-plaintext" name="id" id ='id' value="<?php echo e($event->id); ?>">
-                                    <button type="submit" class="btn btn-primary mb-2">Masquer</button>
-                                </form>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
+                <input type="hidden" readonly class="form-control-plaintext" name="id" id ='id' value="<?php echo e($event->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
+              <?php endif; ?>
             </div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

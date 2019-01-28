@@ -33,8 +33,17 @@
         </div>
       </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+    <form method="post" action="<?php echo e(('finish-basket')); ?>">
+      <?php echo e(csrf_field()); ?>
 
+      <button type="submit" class="btn btn-primary mb-2">Finaliser le panier</button>
+    </form>
 
+    <form method="post" action="<?php echo e(('del-basket')); ?>">
+      <?php echo e(csrf_field()); ?>
+
+      <button type="submit" class="btn btn-primary mb-2">Supprimer le panier</button>
+    </form>
 
     <?php else: ?>
       <?php 

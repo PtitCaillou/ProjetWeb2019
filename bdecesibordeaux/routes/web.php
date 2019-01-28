@@ -30,6 +30,8 @@ Route::post('add-product',"shopController@add");
 Route::post('hideproduct',"shopController@hide");
 Route::get('basket', "shopController@basket");
 Route::post('add-basket', "shopController@addBasket");
+Route::post('del-basket', "shopController@delBasket");
+Route::post('finish-basket', "shopController@finishBasket");
 Route::get('add.activity', "activityController@add");
 Route::post('store', "activityController@store");
 Route::post('storeProduct', "shopController@store");

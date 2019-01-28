@@ -94,6 +94,24 @@ class shopController extends Controller
         return $this->shop();
     }
 
+    public function delBasket(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+        $url = "http://bdecesibordeaux:3000/baskets/delete/" . $user_id;
+        $body['user'] = $user_id;
+        $response = $client->put($url, ['form_params'=>$body]);
+        return $this->shop();
+    }
+
+    public function finishBasket(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+        $url = "http://bdecesibordeaux:3000/baskets/delete/" . $user_id;
+        $body['user'] = $user_id;
+        $response = $client->put($url, ['form_params'=>$body]);
+        return $this->shop();
+    }
+
     public function search(Request $request){
         $research = $request->search;
         $uri = "http://bdecesibordeaux:3000/products/" . $research;
