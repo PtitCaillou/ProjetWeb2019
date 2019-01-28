@@ -16,11 +16,47 @@
         </form>
 @endsection
 @section('content')
+       <script type="text/javascript">
+
+        var url = "{{ route('autocompleteActivity') }}";
+
+        $('#search_text').typeahead({
+
+            source:  function (query, process) {
+
+            return $.get(url, { query: query }, function (data) {
+
+                    return process(data);
+
+                });
+
+            }
+
+        });
+
+    </script>
+           </script> 
+           <!-- <script type="text/javascript">
+           var path = "{{ route('autocompleteActivity') }}";
+               $('input.typehead').typeahead({
+                   source:  function (query, process) {
+                   return $.get(path, { query: query }, function (data) {
+                return process(data);
+            });
+                   }
+               });
+           </script> -->
+@yield('body')
 <main>
 	@include('eventDuMois')
 
 	<h2>Autres activités</h2>
+ 
+
+
   @foreach($event as $event)
+
+
 	<div class="event">
  <div class="row">
 
@@ -39,14 +75,19 @@
               <a href="#" class="btn btn-primary">Signaler</a>
               @endif
               @if(checkPermission(['bde'])) 
-              <a href="#" class="btn btn-primary">Masquer</a>
+              <form method="post" action="{{('hide')}}">
+                {{ csrf_field() }}
+                <input type="hidden" readonly class="form-control-plaintext" name="id" id ='id' value="{{$event->id}}">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
               @endif
             </div>
           </div>
         </div>
-@endforeach
+
     </div>
     </div>
+    @endforeach
 </main>
 @endsection
 </body>

@@ -10,14 +10,42 @@
     <?php if(checkPermission(['bde'])): ?>
       <div class="add-article">
         <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
+            <?php endif; ?>
         <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
       </div>
-    <?php endif; ?>
+
     <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </header>
   <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchShop')); ?>" id='search' class="typehead">
     <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-  </form>
+
+<form style= "position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('filter')); ?>" >
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <?php $__currentLoopData = $prod; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $prod): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+   
+    
+     <option name="filterCat" value="">
+         <?php echo e($prod->type); ?>
+
+     </option>
+     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <option>
+      Prix par ordre croissant
+    </option>
+    <option>
+      Prix par ordre décroissant
+    </option>
+  </select>
+</div>
+<button class="btn btn-sm" style="background-color: rgb(238, 193, 94);">Filtrer</button>
+</form>
+     
+    
   <!--
   <script type="text/javascript">
     var path = "{//{ route('autocomplete') }}";

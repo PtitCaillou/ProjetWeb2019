@@ -20,7 +20,6 @@
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" >
         <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         </form>
-<<<<<<< HEAD
        <script type="text/javascript">
 
         var url = "<?php echo e(route('autocompleteActivity')); ?>";
@@ -41,7 +40,6 @@
 
     </script>
            </script> 
-=======
            <!-- <script type="text/javascript">
            var path = "<?php echo e(route('autocompleteActivity')); ?>";
                $('input.typehead').typeahead({
@@ -52,13 +50,17 @@
                    }
                });
            </script> -->
->>>>>>> 5616c1217a3b61700c1a9e88a2d645fb79bc0477
 <?php echo $__env->yieldContent('body'); ?>
 <main>
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	<h2>Autres activités</h2>
+ 
+
+
   <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+
 	<div class="event">
  <div class="row">
 
@@ -78,14 +80,20 @@
               <a href="#" class="btn btn-primary">Signaler</a>
               <?php endif; ?>
               <?php if(checkPermission(['bde'])): ?> 
-              <a href="#" class="btn btn-primary">Masquer</a>
+              <form method="post" action="<?php echo e(('hide')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="id" id ='id' value="<?php echo e($event->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
               <?php endif; ?>
             </div>
           </div>
         </div>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
     </div>
     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </main>
 
  <div class="container">

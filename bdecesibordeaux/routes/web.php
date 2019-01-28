@@ -40,6 +40,8 @@ Route::post('description', "activityController@description");
 Route::get('searchActivity', "activityController@search");
 /*Route::get('autocompleteShop', 'shopController@autocomplete')->name('autocompleteShop');*/
 Route::get('autocomplete-Activity',array('as'=>'autocompleteActivity','uses'=>'activityController@autocomplete'));
+Route::get('filter', "shopController@filter");
+Route::post('hide', "activityController@hide");
 
 Auth::routes();
 

@@ -11,10 +11,21 @@ use App\Media;
 class activityController extends Controller
 {
         public function activity() {
-        $event = Event::all();
-        /*$eventImg = Event::all()->pluck('media_id');
-        $img = Media::where('id', '=', $eventImg);*/
-	return view('activity', ['event'=>$event/*, 'media'=>$img*/]);
+         $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/events'), true);
+         $events = [];
+         foreach ($datas as $data) {
+         	$event = new Event;
+         	$event->id = $data['id'];
+         	$event->name = $data['name'];
+         	$event->description = $data['description'];
+         	$event->media = $data['path'];
+         	$event->type = $data['eventtype'];
+         	array_push($events, $event);
+         }
+         	return view('activity', [
+		'event'=>$events,
+							
+							/*, 'media'=>$img*/]);
     }
 
     public function add(){
@@ -71,6 +82,32 @@ public function search(Request $request){
 
         return response()->json($posts);
     }
+
+public function hide(Request $request){
+	$id = $request->id;
+
+	$post=Event::find($id);
+	
+	$post->eventStatus_id = '3';
+	$post->save();
+
+         $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/events'), true);
+         $events = [];
+         foreach ($datas as $data) {
+         	$event = new Event;
+         	$event->id = $data['id'];
+         	$event->name = $data['name'];
+         	$event->description = $data['description'];
+         	$event->media = $data['path'];
+         	$event->type = $data['eventtype'];
+         	array_push($events, $event);
+         }
+         	return view('activity', [
+		'event'=>$events,
+							
+							/*, 'media'=>$img*/]);
+}
+
 /*protected function validator(array $data){
  return Validator::make($data, [
 'name' =>['required', 'string', 'max :255'],
@@ -93,4 +130,6 @@ EventInfo::create(['location'=>$data['lieu'],
 ]);
 }*/
 }
+    
+
     
