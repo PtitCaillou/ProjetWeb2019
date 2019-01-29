@@ -4,10 +4,10 @@
   @section('li')
   <header>
     <div class= "menu-top">
-      <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:950%;"> Panier</a>
-      @if(checkPermission(['bde']))
+        @if(checkPermission(['bde']))
         <a href="{{('productadd')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:160%;"> Ajouter un produit</a>
         @endif 
+        <a href="{{('basket')}}" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:200%;"> Panier</a>
 </div>
   </header>
   @endsection
