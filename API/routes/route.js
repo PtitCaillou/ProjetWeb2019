@@ -113,8 +113,8 @@ var queryAlbum = "SELECT path, description FROM Media WHERE status = 1 AND event
 var queryAllTypes = "SELECT * FROM producttype";
 //Query all likes
 var queryAllLikes = "SELECT COUNT(eventinterraction.user_id) AS likes FROM eventinterraction INNER JOIN event ON event.id = eventinterraction.event_id INNER JOIN interractiontype ON interractiontype.id = eventinterraction.interractiontype_id WHERE interractiontype.type = 'Like' AND eventinterraction.event_id = ";
-
-
+//Add one like
+var addOneLike = "INSERT INTO eventinterraction (event_id, interractiontype_id, user_id, content) VALUES (";
 
 function handle_database(req, res, opt) {
 	res.header("Access-Control-Allow-Origin", "*");
@@ -323,6 +323,10 @@ function handle_database(req, res, opt) {
 			connection.query(queryAllLikes + req.params.event_id, function (err, rows) {
 				if (!err) { res.json(rows); }
 			});
+		} else if (opt == 32) { //Add one like
+			connection.query(addOneLike + req.params.event_id + ", 1, " + req.body.user + ", '')", function (err, rows) {
+				if (!err) { res.json(rows); }
+			});
 		}
 
 		connection.on('error', function (err) {
@@ -360,6 +364,9 @@ var appRouter = function (app) {
 	})
 	app.put('/events/update/:event_id', function (req, res) {
 		handle_database(req, res, 7);
+	})
+	app.post('/events/like/:event_id', function (req, res) {
+		handle_database(req, res, 32);
 	})
 
 	app.get('/registeredusers/:event_name', function (req, res) {

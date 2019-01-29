@@ -13,6 +13,7 @@
 
 
 
+
     
 @section('content')
     <div class="dropdown">
@@ -55,7 +56,11 @@
                 <div class="media-body">
                     <h4 class="text-left">{{ $name }}</h4>
                     <p class="text-left">{{ $description }}</p>
-                    <p class="text-left">Vote : {{ $likes }}</p>
+                    <form method="post" action="{{('likeidea')}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $idea->id }}">
+                        <button type="submit" class="btn btn-primary mb-2">Vote : {{ $likes }}</button>
+                    </form>
                     <p class="text-right">Autheur : {{ $user }}</p>
                     @if(checkPermission(['employee']))
                     <a href="#" class="btn btn-primary">Signaler</a> @endif @if(checkPermission(['bde']))
@@ -96,6 +101,7 @@
         </form>
     </div>
 @endsection
+
 
 
 

@@ -64,4 +64,14 @@ class ideaBoxController extends Controller
         $response = $client->put($url, ['form_params'=>$body]);
     	return $this->ideaBox();
     }
+
+    public function like(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+
+        $url = "http://bdecesibordeaux:3000/events/like/" . $request->hide;
+        $body['user'] = $user_id;
+        $response = $client->post($url, ['form_params'=>$body]);
+    	return $this->ideaBox();
+    }
 }

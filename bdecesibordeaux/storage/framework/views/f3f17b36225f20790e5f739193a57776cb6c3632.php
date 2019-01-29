@@ -13,6 +13,7 @@
 
 
 
+
     
 <?php $__env->startSection('content'); ?>
     <div class="dropdown">
@@ -55,7 +56,12 @@
                 <div class="media-body">
                     <h4 class="text-left"><?php echo e($name); ?></h4>
                     <p class="text-left"><?php echo e($description); ?></p>
-                    <p class="text-left">Vote : <?php echo e($likes); ?></p>
+                    <form method="post" action="<?php echo e(('likeidea')); ?>">
+                        <?php echo e(csrf_field()); ?>
+
+                        <input type="hidden" readonly class="form-control-plaintext" name="hide" value="<?php echo e($idea->id); ?>">
+                        <button type="submit" class="btn btn-primary mb-2">Vote : <?php echo e($likes); ?></button>
+                    </form>
                     <p class="text-right">Autheur : <?php echo e($user); ?></p>
                     <?php if(checkPermission(['employee'])): ?>
                     <a href="#" class="btn btn-primary">Signaler</a> <?php endif; ?> <?php if(checkPermission(['bde'])): ?>
@@ -99,6 +105,7 @@
         </form>
     </div>
 <?php $__env->stopSection(); ?>
+
 
 
 
