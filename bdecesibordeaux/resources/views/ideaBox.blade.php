@@ -1,20 +1,7 @@
 @extends('layouts.app') 
 @section('li')
 <html>
-
-<body>
-
-
-
-
-
-
-
-
-
-
-
-    
+<body>    
 @section('content')
     <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" style="background-color: rgb(238, 193, 94)" type="button" id="dropdownMenu1"
@@ -36,9 +23,7 @@
                 <p href="#" title="Lien 4">Associations</p>
             </li>
         </ul>
-
     </div>
-
     <div class="container">
         @foreach($idea as $idea)
         <?php 
