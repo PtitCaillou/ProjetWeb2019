@@ -111,6 +111,9 @@ var updateOneMedia = "UPDATE media SET status = ";
 var queryAlbum = "SELECT path, description FROM Media WHERE status = 1 AND event_id = ";
 //Query all product types
 var queryAllTypes = "SELECT * FROM producttype";
+//Query all likes
+var queryAllLikes = "SELECT COUNT(eventinterraction.user_id) AS likes FROM eventinterraction INNER JOIN event ON event.id = eventinterraction.event_id INNER JOIN interractiontype ON interractiontype.id = eventinterraction.interractiontype_id WHERE interractiontype.type = 'Like' AND eventinterraction.event_id = ";
+
 
 
 function handle_database(req, res, opt) {
@@ -318,6 +321,10 @@ function handle_database(req, res, opt) {
 					});
 				}
 			});
+		} else if (opt == 31) { //Query all likes
+			connection.query(queryAllLikes + req.params.event_id, function (err, rows) {
+				if (!err) { res.json(rows); }
+			});
 		}
 
 		connection.on('error', function (err) {
@@ -434,6 +441,10 @@ var appRouter = function (app) {
 
 	app.get('/album/:event_id', function (req, res) {
 		handle_database(req, res, 28);
+	})
+
+	app.get('/events/likes/:event_id', function (req, res) {
+		handle_database(req, res, 31);
 	})
 
 	app.get('/types', function (req, res) {

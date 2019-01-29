@@ -1,139 +1,68 @@
-<?php $__env->startSection('li'); ?>
 <html>
-    <body>
+<body>
+  <?php $__env->startSection('li'); ?>
+  <header>
     <div class= "menu-top">
-    <form  style="position: absolute; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchShop')); ?>" id='search' class="typehead">
-        <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    </form>
-    <?php if(checkPermission(['bde'])): ?>
-      <div class="add-article">
-        <a href="<?php echo e(('add.product')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Ajouter un produit</a>
-            <?php endif; ?>
-        <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="background-color: rgb(238, 193, 94);"> Panier</a>
-      </div>
-
-    <?php echo $__env->make('menu', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-  </header>
-  <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchShop')); ?>" id='search' class="typehead">
-    <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-<form style= "position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('filter')); ?>" >
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Options</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <?php $__currentLoopData = $prod; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $prod): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-   
-    
-     <option name="filterCat" value="">
-         <?php echo e($prod->type); ?>
-
-     </option>
-     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    <option>
-      Prix par ordre croissant
-    </option>
-    <option>
-      Prix par ordre décroissant
-    </option>
-  </select>
+        <?php if(checkPermission(['bde'])): ?>
+        <a href="<?php echo e(('productadd')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:160%;"> Ajouter un produit</a>
+        <?php endif; ?> 
+        <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:200%;"> Panier</a>
 </div>
-<button class="btn btn-sm" style="background-color: rgb(238, 193, 94);">Filtrer</button>
-</form>
-     
-    
-  <!--
-  <script type="text/javascript">
-    var path = "{//{ route('autocomplete') }}";
-    $('input.typehead').typeahead({
-      source:  function (query, process) {
-        return $.get(path, { query: query }, function (data) {
-          return process(data);
-        );
-      }
-    });
-  </script>
-  -->
-  <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-  <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php 
-      $id = $product->id;
-      $name = $product->name;
-      $price = $product->price;
-      $description = $product->description;
-      $image = $product->image;
-    ?>
-  <div class="produits">
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
-            <img class= "pullbleu" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
-          </div>
-          <div class="card-footer">
-            <p><?php echo e($description); ?></p>
-            <a href="#" class="btn btn-primary"><?php echo e($price); ?><? return $price ?></a>
-            <form method="post" action="<?php echo e(('add-basket')); ?>">
-              <?php echo e(csrf_field()); ?>
-
-              <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="<?php echo e($product->id); ?>">
-              <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
-            </form>
-            <?php if(checkPermission(['employee'])): ?>
-              <a href="#" class="btn btn-primary">Signaler</a>
-            <?php endif; ?>
-            <?php if(checkPermission(['bde'])): ?>
-              <a href="#" class="btn btn-primary">Masquer</a>
-            <?php endif; ?>
-          </div>
-        </div>
-        <?php endif; ?>
-    </div>
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('content'); ?>
+  </header>
+  <?php $__env->stopSection(); ?>
+  <?php $__env->startSection('content'); ?>
+  <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    
-        <h2>BOUTIQUE</h2>
+    <h2>BOUTIQUE</h2>
     <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <?php 
-            $id = $product->id;
-            $name = $product->name;
-            $price = $product->price;
-            $description = $product->description;
-            $image = $product->image;
-        ?>
-        <div class="produits">
-            <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
-                <img class= "pullbleu" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
-                </div>
-                <div class="card-footer">
-                <p><?php echo e($description); ?></p>
-                <a href="#" class="btn btn-primary"><?php echo e($price); ?><? return $price ?></a>
-                <form method="post" action="<?php echo e(('add-basket')); ?>">
-                    <?php echo e(csrf_field()); ?>
-
-                    <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="<?php echo e($product->id); ?>">
-                    <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
-                </form>
-                <?php if(checkPermission(['employee'])): ?>
-                    <a href="#" class="btn btn-primary">Signaler</a>
-                <?php endif; ?>
-                <?php if(checkPermission(['bde'])): ?>
-                    <a href="#" class="btn btn-primary">Masquer</a>
-                <?php endif; ?>
-                </div>
+      <?php 
+        $id = $product->id;
+        $name = $product->name;
+        $price = $product->price;
+        $description = $product->description;
+        $image = $product->image;
+      ?>
+      <div class="produits">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
+              <img class= "pullbleu" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
             </div>
+            <div class="card-footer">
+              <p><?php echo e($description); ?></p>
+              <a href="#" class="btn btn-primary"><?php echo e($price); ?><? return $price ?></a>
+              <form method="post" action="<?php echo e(('add-basket')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="<?php echo e($product->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
+              </form>
+              <?php if(checkPermission(['employee'])): ?>
+                 <form method="get" action="<?php echo e(('warning')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="warningID" value="<?php echo e($product->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Signaler</button>
+              </form>
+              <?php endif; ?>
+              <?php if(checkPermission(['bde'])): ?>
+              <form method="post" action="<?php echo e(('hideproduct')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="<?php echo e($product->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
+              <?php endif; ?>
+            </div>
+          </div>
         </div>
-        </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-<?php $__env->stopSection(); ?>
+      </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  <?php $__env->stopSection(); ?>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </html>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -11,11 +11,13 @@ use App\Media;
 class activityController extends Controller
 {
     public function activity() {
-        $datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/events'), true);
+		$datas = json_decode(file_get_contents('http://bdecesibordeaux:3000/events'), true);
         $events = [];
         foreach ($datas as $data) {
          	$event = new Event;
-         	$event->id = $data['id'];
+			$event->id = $data['id'];
+			$likes = json_decode(file_get_contents('http://bdecesibordeaux:3000/events/likes/' . $event->id), true);
+            $event->like = $likes[0]['likes'];
          	$event->name = $data['name'];
          	$event->description = $data['description'];
          	$event->media = $data['path'];

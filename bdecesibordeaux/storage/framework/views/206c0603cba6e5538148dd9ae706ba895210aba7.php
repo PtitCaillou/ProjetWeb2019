@@ -7,7 +7,6 @@
         </div>
         <?php endif; ?>
              <form  style="position: relative; left: 80%; margin-top: 1rem; max-width: 20%;" action="<?php echo e(('searchActivity')); ?>" id='search' autocomplete="true" >
-        
         </form>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
@@ -23,6 +22,7 @@
     </script>
 <?php echo $__env->yieldContent('body'); ?>
 <main>
+    <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<?php echo $__env->make('eventDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<h2>Autres activités</h2>
   <?php $__currentLoopData = $event; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $event): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -51,6 +51,9 @@
                 <button type="submit" class="btn btn-primary mb-2">Masquer</button>
               </form>
               <?php endif; ?>
+        </div>
+        </div>
+        </div>
             </div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -58,5 +61,4 @@
 </body>
 </html>
  
-<?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
