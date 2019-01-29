@@ -51,9 +51,9 @@
                 <button type="submit" class="btn btn-primary mb-2">Masquer</button>
               </form>
               <?php endif; ?>
-    </div>
-    </div>
-    </div>
+        </div>
+        </div>
+        </div>
             </div>
         </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
