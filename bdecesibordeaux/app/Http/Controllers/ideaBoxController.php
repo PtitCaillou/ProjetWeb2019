@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
 use GuzzleHttp\Client;
-use Illuminate\Http\Fille;
-use Illuminate\Support\Facades\Storage;
 
 
 class ideaBoxController extends Controller
@@ -45,5 +43,26 @@ class ideaBoxController extends Controller
         $body['user'] = $user_id;
         $response = $client->post($url, ['form_params'=>$body]);
         return $this->ideaBox();
+    }
+
+    public function hide(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+
+        $url = "http://bdecesibordeaux:3000/events/update/" . $request->hide;
+        $body['status'] = "3";
+        $response = $client->put($url, ['form_params'=>$body]);
+    	return $this->ideaBox();
+    }
+
+    public function accept(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+        
+        $url = "http://bdecesibordeaux:3000/events/update/" . $request->hide;
+        $body['status'] = "2";
+        $response = $client->post($url, ['form_params'=>$body]);
+        dump($response);
+    	return $this->ideaBox();
     }
 }
