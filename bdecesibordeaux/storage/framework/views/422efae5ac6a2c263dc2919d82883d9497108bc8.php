@@ -24,6 +24,7 @@
                         <a class="Inscription" href="<?php echo e('register'); ?>">Inscription</a>
                     </div>
                 <?php elseif(Auth::check()): ?>
+               
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color:white;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left: 90%; top: -5rem;">
                             <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
@@ -39,6 +40,7 @@
                                 <?php echo csrf_field(); ?>
                             </form>
                         </div>
+                    </li>
                     </li>
                 <?php endif; ?>
             </li>
