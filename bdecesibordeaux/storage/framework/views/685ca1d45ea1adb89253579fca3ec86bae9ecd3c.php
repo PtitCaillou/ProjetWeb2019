@@ -28,10 +28,7 @@
     <div class="col-md-4 mb-4">
       <div class="card h-100">
         <div class="card-body">
-          <h4 class="card-title" name="name"><?php echo e($name); ?>
-
-            <? return $name ?>
-          </h4>
+          <h4 class="card-title" name="name"><?php echo e($name); ?></h4>
           <img class="pullbleu" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
         </div>
         <div class="card-footer">
@@ -51,6 +48,14 @@
             <input type="hidden" readonly class="form-control-plaintext" name="hide" value="<?php echo e($product->id); ?>">
             <button type="submit" class="btn btn-primary mb-2">Masquer</button>
           </form>
+          <?php endif; ?>
+          <?php if(checkPermission(['bde'])): ?>
+              <form method="post" action="<?php echo e(('hideproduct')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="<?php echo e($product->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
           <?php endif; ?>
         </div>
       </div>

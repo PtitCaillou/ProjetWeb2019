@@ -61,8 +61,7 @@ class ideaBoxController extends Controller
         
         $url = "http://bdecesibordeaux:3000/events/update/" . $request->hide;
         $body['status'] = "2";
-        $response = $client->post($url, ['form_params'=>$body]);
-        dump($response);
+        $response = $client->put($url, ['form_params'=>$body]);
     	return $this->ideaBox();
     }
 }
