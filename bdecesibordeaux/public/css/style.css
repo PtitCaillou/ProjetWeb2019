@@ -202,13 +202,6 @@ button {
     left: 20%;
     width: 400px;
 }
-.produits {
-    width:1000px;
-    height: 500px;
-    position: relative;
-    padding-top: 25px;
-    margin: 0 auto;
-}
 .carrousel {
     width: 75%;
     margin-left: 12%;
@@ -263,9 +256,10 @@ position: relative;
 }
 .card {
     position: relative;
-    margin-left: 30%;
-    margin-top: 20%;
+    margin: 4rem;
     margin-bottom: 5%;
+    min-width: 20rem;
+    min-height: 20rem;
 }
 .body-idea{
 	position: relative;
@@ -289,6 +283,11 @@ position: relative;
 }
 .idea-image {
    width: 20%;
+}
+
+.productImage{
+    width: 15rem;
+    max-height: 15rem;
 }
 .pull-left {
   overflow: hidden;

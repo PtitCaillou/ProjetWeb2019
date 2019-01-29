@@ -15,6 +15,8 @@
   @include('searchBar')
     @include('goodiesDuMois')
     <h2>BOUTIQUE</h2>
+    <div class="container">
+            <div class="row">
     @foreach($product as $product)
       <?php 
         $id = $product->id;
@@ -23,12 +25,11 @@
         $description = $product->description;
         $image = $product->image;
       ?>
-      <div class="produits">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
+        <div class="col-sm-12 col-md-6 col-xl-4">
+          <div class="card">
             <div class="card-body">
               <h4 class="card-title" name ="name" >{{$name}}<? return $name ?></h4>
-              <img class= "pullbleu" src="{{$image}}" class="d-block w-100" alt="...">
+              <img class= "productImage" src="{{$image}}" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
               <p>{{$description}}</p>
@@ -55,8 +56,9 @@
             </div>
           </div>
         </div>
-      </div>
     @endforeach
+         </div>
+      </div>
   @endsection
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

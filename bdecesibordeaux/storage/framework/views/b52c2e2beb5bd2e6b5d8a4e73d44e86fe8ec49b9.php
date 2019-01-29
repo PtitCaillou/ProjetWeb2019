@@ -14,6 +14,8 @@
   <?php echo $__env->make('searchBar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->make('goodiesDuMois', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <h2>BOUTIQUE</h2>
+    <div class="container">
+            <div class="row">
     <?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <?php 
         $id = $product->id;
@@ -22,12 +24,11 @@
         $description = $product->description;
         $image = $product->image;
       ?>
-      <div class="produits">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
+        <div class="col-sm-12 col-md-6 col-xl-4">
+          <div class="card">
             <div class="card-body">
               <h4 class="card-title" name ="name" ><?php echo e($name); ?><? return $name ?></h4>
-              <img class= "pullbleu" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
+              <img class= "productImage" src="<?php echo e($image); ?>" class="d-block w-100" alt="...">
             </div>
             <div class="card-footer">
               <p><?php echo e($description); ?></p>
@@ -39,7 +40,12 @@
                 <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
               </form>
               <?php if(checkPermission(['employee'])): ?>
-                <a href="#" class="btn btn-primary">Signaler</a>
+                 <form method="get" action="<?php echo e(('warning')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="warningID" value="<?php echo e($product->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Signaler</button>
+              </form>
               <?php endif; ?>
               <?php if(checkPermission(['bde'])): ?>
               <form method="post" action="<?php echo e(('hideproduct')); ?>">
@@ -52,8 +58,9 @@
             </div>
           </div>
         </div>
-      </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+         </div>
+      </div>
   <?php $__env->stopSection(); ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
