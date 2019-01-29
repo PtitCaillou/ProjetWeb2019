@@ -20,7 +20,7 @@ class activityController extends Controller
             $event->like = $likes[0]['likes'];
          	$event->name = $data['name'];
          	$event->description = $data['description'];
-         	$event->media = $data['path'];
+			 $event->media = $data['path'];
         	$event->type = $data['eventtype'];
         	array_push($events, $event);
         }

@@ -36,7 +36,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title"> {{ $event->name }} </h4>
-                            <img class="night" src="{{('css/event.jpg')}}" class="d-block w-100" alt="...">
+                            <img class="night" src="{{ $event->media }}" class="d-block w-100" alt="...">
                             <p class="card-text"> {{ $event->description }}</p>
                             <p class="card-text">Like : {{ $event->like }}</p>
                             <form method="post" action="{{('description')}}">
@@ -59,6 +59,8 @@
         </div>
         @endforeach
 @endsection
+
+
 
 
 </body>
