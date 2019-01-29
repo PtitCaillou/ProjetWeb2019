@@ -1,5 +1,7 @@
-
-
+@extends('layouts.app')
+@section('content')
+<body>
+<main>
 <form method="POST" action="{{('status')}}">
 	 {{ csrf_field() }}
   <div class="form-group">
@@ -13,3 +15,6 @@
     </div>
     <button type="submit" class="btn btn-primary mb-2">Confirmer</button>
 </form>
+</main>
+</body>
+@endsection

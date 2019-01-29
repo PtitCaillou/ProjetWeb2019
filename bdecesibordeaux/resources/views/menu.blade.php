@@ -24,6 +24,7 @@
                         <a class="Inscription" href="{{'register'}}">Inscription</a>
                     </div>
                 @elseif(Auth::check())
+               
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color:white;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left: 90%; top: -5rem;">
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -38,6 +39,7 @@
                                 @csrf
                             </form>
                         </div>
+                    </li>
                     </li>
                 @endif
             </li>

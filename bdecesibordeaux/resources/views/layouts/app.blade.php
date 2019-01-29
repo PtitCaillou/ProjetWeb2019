@@ -54,6 +54,11 @@
                                 <a class="nav-link text-white my-2 my-sm-0" style="position:relative; left:430%;" href="{{'register'}}">Inscription</a>
                             </li>
                                 @elseif(Auth::check())
+                                  @if(checkPermission(['superAdmin']))
+                                     <li class="nav-item">
+                                         <a class="nav-link text-white " href="{{'stat'}}">Changer le status</a>
+                                     </li>
+                                   @endif
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style= "color:white;"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left:380%;">
                                             {{ Auth::user()->name }} <span class="caret"></span>
