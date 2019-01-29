@@ -2,6 +2,8 @@
 <html>
 
 <body>
+
+
   
 @section('li')
   <header>
@@ -41,19 +43,18 @@
             <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
           </form>
           @if(checkPermission(['employee']))
-          <a href="#" class="btn btn-primary">Signaler</a> @endif @if(checkPermission(['bde']))
+          <a href="#" class="btn btn-primary">Signaler</a>
+          <form method="get" action="{{('warning')}}">
+            {{ csrf_field() }}
+            <input type="hidden" readonly class="form-control-plaintext" name="warningID" value="{{ $product->id }}">
+            <button type="submit" class="btn btn-primary mb-2">Signaler</button>
+          </form>
+          @endif @if(checkPermission(['bde']))
           <form method="post" action="{{('hideproduct')}}">
             {{ csrf_field() }}
             <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $product->id }}">
             <button type="submit" class="btn btn-primary mb-2">Masquer</button>
           </form>
-          @endif
-          @if(checkPermission(['bde']))
-              <form method="post" action="{{('hideproduct')}}">
-                {{ csrf_field() }}
-                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $product->id }}">
-                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
-              </form>
           @endif
         </div>
       </div>
@@ -61,6 +62,8 @@
   </div>
   @endforeach
 @endsection
+
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

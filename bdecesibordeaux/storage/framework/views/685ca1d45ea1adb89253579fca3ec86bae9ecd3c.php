@@ -1,6 +1,8 @@
 <html>
 
 <body>
+
+
   
 <?php $__env->startSection('li'); ?>
   <header>
@@ -41,7 +43,14 @@
             <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
           </form>
           <?php if(checkPermission(['employee'])): ?>
-          <a href="#" class="btn btn-primary">Signaler</a> <?php endif; ?> <?php if(checkPermission(['bde'])): ?>
+          <a href="#" class="btn btn-primary">Signaler</a>
+          <form method="get" action="<?php echo e(('warning')); ?>">
+            <?php echo e(csrf_field()); ?>
+
+            <input type="hidden" readonly class="form-control-plaintext" name="warningID" value="<?php echo e($product->id); ?>">
+            <button type="submit" class="btn btn-primary mb-2">Signaler</button>
+          </form>
+          <?php endif; ?> <?php if(checkPermission(['bde'])): ?>
           <form method="post" action="<?php echo e(('hideproduct')); ?>">
             <?php echo e(csrf_field()); ?>
 
@@ -49,20 +58,14 @@
             <button type="submit" class="btn btn-primary mb-2">Masquer</button>
           </form>
           <?php endif; ?>
-          <?php if(checkPermission(['bde'])): ?>
-              <form method="post" action="<?php echo e(('hideproduct')); ?>">
-                <?php echo e(csrf_field()); ?>
-
-                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="<?php echo e($product->id); ?>">
-                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
-              </form>
-          <?php endif; ?>
         </div>
       </div>
     </div>
   </div>
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
+
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
