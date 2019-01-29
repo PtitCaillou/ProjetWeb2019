@@ -68,7 +68,7 @@ var addOneEvent = "INSERT INTO event (name, description, eventtype_id, eventstat
 //Query one event
 var queryOneEvent = "SELECT event.name, event.description, eventtype.type AS eventtype, eventstatus.status, media.path, user.name AS username, user.lastname FROM event INNER JOIN eventtype ON event.eventtype_id = eventtype.id INNER JOIN eventstatus ON event.eventstatus_id = eventstatus.id INNER JOIN media ON event.media_id = media.id INNER JOIN user ON event.user_id = user.id WHERE event.id = ";
 //Update one event
-var updateOneEvent = "UPDATE event SET eventtype_id =";
+var updateOneEvent = "UPDATE event SET eventstatus_id =";
 //Query a list of user that have registered to an upcoming event
 var queryRegisteredUsers = "SELECT name, lastname, email FROM User INNER JOIN eventinterraction ON user.id = eventinterraction.user_id WHERE eventinterraction.interractiontype_id = 5 AND eventinterraction.event_id = ";
 //Query all baskets
@@ -113,8 +113,8 @@ var queryAlbum = "SELECT path, description FROM Media WHERE status = 1 AND event
 var queryAllTypes = "SELECT * FROM producttype";
 //Query all likes
 var queryAllLikes = "SELECT COUNT(eventinterraction.user_id) AS likes FROM eventinterraction INNER JOIN event ON event.id = eventinterraction.event_id INNER JOIN interractiontype ON interractiontype.id = eventinterraction.interractiontype_id WHERE interractiontype.type = 'Like' AND eventinterraction.event_id = ";
-
-
+//Add one like
+var addOneLike = "INSERT INTO eventinterraction (event_id, interractiontype_id, user_id, content) VALUES (";
 
 function handle_database(req, res, opt) {
 	res.header("Access-Control-Allow-Origin", "*");
@@ -174,9 +174,7 @@ function handle_database(req, res, opt) {
 				if (!err) { res.json(rows); }
 			});
 		} else if (opt == 7) { //Update one event
-			query = updateOneEvent + req.query.type + "\", eventstatus_id = \""
-				+ req.query.status
-				+ "WHERE name = \"" + req.params.event_name + "\"";
+			query = updateOneEvent + req.body.status + " WHERE id = " + req.params.event_id;
 			connection.query(query, function (err, rows) {
 				connection.release();
 				if (!err) { res.json(rows); }
@@ -325,6 +323,10 @@ function handle_database(req, res, opt) {
 			connection.query(queryAllLikes + req.params.event_id, function (err, rows) {
 				if (!err) { res.json(rows); }
 			});
+		} else if (opt == 32) { //Add one like
+			connection.query(addOneLike + req.params.event_id + ", 1, " + req.body.user + ", '')", function (err, rows) {
+				if (!err) { res.json(rows); }
+			});
 		}
 
 		connection.on('error', function (err) {
@@ -360,8 +362,11 @@ var appRouter = function (app) {
 	app.get('/events/:event_name', function (req, res) {
 		handle_database(req, res, 6);
 	})
-	app.put('/events/update/:event_name', function (req, res) {
+	app.put('/events/update/:event_id', function (req, res) {
 		handle_database(req, res, 7);
+	})
+	app.post('/events/like/:event_id', function (req, res) {
+		handle_database(req, res, 32);
 	})
 
 	app.get('/registeredusers/:event_name', function (req, res) {

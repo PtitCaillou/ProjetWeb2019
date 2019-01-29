@@ -36,9 +36,13 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title"> {{ $event->name }} </h4>
-                            <img class="night" src="{{('css/event.jpg')}}" class="d-block w-100" alt="...">
+                            <img class="night" src="{{ $event->media }}" class="d-block w-100" alt="...">
                             <p class="card-text"> {{ $event->description }}</p>
-                            <p class="card-text">Like : {{ $event->like }}</p>
+                            <form method="post" action="{{('likeactivity')}}">
+                                {{ csrf_field() }}
+                                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $event->id }}">
+                                <button type="submit" class="btn btn-primary mb-2">Like : {{ $event->like }}</button>
+                            </form>
                             <form method="post" action="{{('description')}}">
                                 {{ csrf_field() }}
                                 <input type="hidden" readonly class="form-control-plaintext" name="description" id="name" value="{{$event->id}}">
@@ -59,6 +63,11 @@
         </div>
         @endforeach
 @endsection
+
+
+
+
+
 
 
 </body>

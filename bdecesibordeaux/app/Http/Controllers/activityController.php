@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\EventInfo;
 use App\Event;
 use App\Media;
+use GuzzleHttp\Client;
 
 class activityController extends Controller
 {
@@ -20,11 +21,21 @@ class activityController extends Controller
             $event->like = $likes[0]['likes'];
          	$event->name = $data['name'];
          	$event->description = $data['description'];
-         	$event->media = $data['path'];
+			 $event->media = $data['path'];
         	$event->type = $data['eventtype'];
         	array_push($events, $event);
         }
         return view('activity', ['event'=>$events]);
+    }
+
+    public function like(Request $request){
+        $client = new Client();
+        $user_id = auth()->user()->id;
+
+        $url = "http://bdecesibordeaux:3000/events/like/" . $request->hide;
+        $body['user'] = $user_id;
+        $response = $client->post($url, ['form_params'=>$body]);
+    	return $this->activity();
     }
 
     public function add(){
