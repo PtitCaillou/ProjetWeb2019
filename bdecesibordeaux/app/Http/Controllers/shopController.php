@@ -109,7 +109,10 @@ class shopController extends Controller
         $url = "http://bdecesibordeaux:3000/products/stock/remove";
         $body['user_id'] = $user_id;
         $response = $client->put($url, ['form_params'=>$body]);
-        return $this->shop();
+
+        //app('App\Http\Controllers\ContactController')->sendMail(); //Acces methode d'un autre controller
+
+        return view('mailBasket');
     }
 
     public function search(Request $request){
