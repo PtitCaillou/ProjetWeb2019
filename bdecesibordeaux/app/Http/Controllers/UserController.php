@@ -89,11 +89,17 @@ class UserController extends Controller
     }
     
     public function updateStatus(Request $request){
-        $status = $request->status;
-        $name = $request->status;
-        $user = User::where('name', '=', $name);
+        $name = $request->name;
+        $id = User::where('name', '=', $name)->pluck('id');
+        $user = User::find($id);
+        foreach ($user as $user) {
+           $status = $request->status;;
         $user->role_id = $status;
         $user->save();
+        }
+        
+        
+        
 
         return view('welcome');
 
