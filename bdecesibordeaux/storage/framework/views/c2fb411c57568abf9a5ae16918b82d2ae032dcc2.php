@@ -38,9 +38,9 @@
                 <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="<?php echo e($product->id); ?>">
                 <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
               </form>
-              <?php if(checkPermission(['employee'])): ?>
-                 <form method="get" action="<?php echo e(('warning')); ?>">
-                <?php echo e(csrf_field()); ?>
+              <?php if(checkPermission(['employee'])): ?>     
+                    <form method="post" action="<?php echo e(('warningProduct')); ?>">
+                   <?php echo e(csrf_field()); ?>
 
                 <input type="hidden" readonly class="form-control-plaintext" name="warningID" value="<?php echo e($product->id); ?>">
                 <button type="submit" class="btn btn-primary mb-2">Signaler</button>

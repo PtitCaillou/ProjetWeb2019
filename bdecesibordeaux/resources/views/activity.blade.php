@@ -41,7 +41,11 @@
                <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
               </form>
                @if(checkPermission(['employee']))
-              <a href="{{('warning')}}" class="btn btn-primary">Signaler</a>
+              <form method="post" action="{{('warningEvent')}}">
+                {{ csrf_field() }}
+                <input type="hidden" readonly class="form-control-plaintext" name="warningID" id ='id' value="{{$event->id}}">
+                <button type="submit" class="btn btn-primary mb-2">Signaler</button>
+              </form>
               @endif
               @if(checkPermission(['bde'])) 
               <form method="post" action="{{('hide')}}">

@@ -38,9 +38,9 @@
                 <input type="hidden" readonly class="form-control-plaintext" name="add" id="name" value="{{ $product->id }}">
                 <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
               </form>
-              @if(checkPermission(['employee']))
-                 <form method="get" action="{{('warning')}}">
-                {{ csrf_field() }}
+              @if(checkPermission(['employee']))     
+                    <form method="post" action="{{('warningProduct')}}">
+                   {{ csrf_field() }}
                 <input type="hidden" readonly class="form-control-plaintext" name="warningID" value="{{ $product->id }}">
                 <button type="submit" class="btn btn-primary mb-2">Signaler</button>
               </form>

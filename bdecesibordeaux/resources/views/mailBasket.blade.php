@@ -7,7 +7,9 @@ $user = auth()->user()->name;
 	 {{ csrf_field() }}
   <div class="form-group">
     <label for="title">Objet</label>
-    <input type="text" class="form-control" name="title" id="title" placeholder="Merci de préciser le nom de 'objet que vous achetez">
+    @foreach($product as $product)
+    <input type="text" class="form-control" readonly name="title" id="title" value="Achat de l'objet {{$product->name}}">
+    @endforeach
   </div>
    <div class="form-group">
     <label for="exampleFormControlTextarea1">Content</label>

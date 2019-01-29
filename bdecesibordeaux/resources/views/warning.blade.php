@@ -5,15 +5,18 @@ $user = auth()->user()->name;
  ?>
 
 <form method="post" action="{{('mail')}}">
-	 {{ csrf_field() }}
-  <div class="form-group">
+	 {{ csrf_field() }} 
+   <div class="form-group">
     <label for="title">Objet</label>
-    <input type="text" readonly class="form-control" name="title" id="title" >
+    @foreach($product as $product)
+    <input type="text" readonly class="form-control" name="title" id="title" value="Signalement de l'element {{$product->name}}" >
+     @endforeach
   </div>
    <div class="form-group">
     <label for="exampleFormControlTextarea1">Content</label>
     <textarea class="form-control" name="content" id="content" placeholder="Description" rows="3"></textarea>
   </div>
+ 
   <div class="form-group">
     <label for="title">email</label>
     <input type="email" readonly class="form-control" id="email" name="email" placeholder="name@example.com" value="lea.ragot33@gmail.com">

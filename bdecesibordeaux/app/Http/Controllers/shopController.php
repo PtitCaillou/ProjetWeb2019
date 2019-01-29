@@ -73,8 +73,8 @@ class shopController extends Controller
         $datas = json_decode(file_get_contents($url), true);
         $products = [];
         foreach($datas as $data){
-            $product = new Product();
-            $product->id = $data['name'];
+            $product = new Basket();
+            $product->name = $data['name'];
             $product->name = $data['quantity'];
             $product->image = $data['path'];
             array_push($products, $product);
@@ -109,10 +109,13 @@ class shopController extends Controller
         $url = "http://bdecesibordeaux:3000/products/stock/remove";
         $body['user_id'] = $user_id;
         $response = $client->put($url, ['form_params'=>$body]);
+        $name = $request->name;
+        $product = Product::where('name', '=', $name)->get();
+        dd($name);
 
         //app('App\Http\Controllers\ContactController')->sendMail(); //Acces methode d'un autre controller
 
-        return view('mailBasket');
+        return view('mailBasket', ['product'=> $product]);
     }
 
     public function search(Request $request){

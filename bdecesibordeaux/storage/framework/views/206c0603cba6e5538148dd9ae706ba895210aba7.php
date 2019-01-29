@@ -41,7 +41,12 @@
                <button type="submit" class="btn btn-primary mb-2">Voir plus</button>
               </form>
                <?php if(checkPermission(['employee'])): ?>
-              <a href="<?php echo e(('warning')); ?>" class="btn btn-primary">Signaler</a>
+              <form method="post" action="<?php echo e(('warningEvent')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="warningID" id ='id' value="<?php echo e($event->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Signaler</button>
+              </form>
               <?php endif; ?>
               <?php if(checkPermission(['bde'])): ?> 
               <form method="post" action="<?php echo e(('hide')); ?>">
