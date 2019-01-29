@@ -8,8 +8,6 @@
   <header>
     <h3>PANIER</h3>
     @if(checkPermission(['student','employee','bde']))
-    
-
 
     @foreach($product as $product)
       <?php

@@ -3,12 +3,11 @@
 <?php $email = auth()->user()->email;
 $user = auth()->user()->name;
  ?>
-
 <form method="post" action="{{('mail')}}">
 	 {{ csrf_field() }}
   <div class="form-group">
     <label for="title">Objet</label>
-    <input type="text" readonly class="form-control" name="title" id="title" >
+    <input type="text" class="form-control" name="title" id="title" placeholder="Merci de préciser le nom de 'objet que vous achetez">
   </div>
    <div class="form-group">
     <label for="exampleFormControlTextarea1">Content</label>
@@ -28,5 +27,3 @@ $user = auth()->user()->name;
   </div>
    <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
 </form>
-
-
