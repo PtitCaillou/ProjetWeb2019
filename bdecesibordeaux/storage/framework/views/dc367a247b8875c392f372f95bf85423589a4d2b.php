@@ -48,13 +48,14 @@
                             </li>
                             <li class="nav-item">
                                 <?php if(! Auth::check()): ?>
-                                    <div class="authentification">
-                                        <a class="Connexion" href="<?php echo e('login'); ?>">Connexion</a>
-                                        <a class="Inscription" href="<?php echo e('register'); ?>">Inscription</a>
-                                    </div>
+                                <a class="nav-link text-white"  style="position:relative; left:330%;" href="<?php echo e('login'); ?>">Connexion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white my-2 my-sm-0" style="position:relative; left:430%;" href="<?php echo e('register'); ?>">Inscription</a>
+                            </li>
                                 <?php elseif(Auth::check()): ?>
                                     <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style= "color:white;"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left: 90%; top: -5rem;">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style= "color:white;"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; left:380%;">
                                             <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                                         </a>
                                         <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" style="background-color: rgb(238, 193, 94);">
