@@ -35,6 +35,8 @@ Route::post('finish-basket', "shopController@finishBasket");
 Route::get('add.activity', "activityController@add");
 Route::post('hideidea', "ideaBoxController@hide");
 Route::post('acceptidea', "ideaBoxController@accept");
+Route::post('likeidea', "ideaBoxController@like");
+Route::post('likeactivity', "activityController@like");
 Route::post('store', "activityController@store");
 Route::post('storeProduct', "shopController@store");
 Route::get('searchShop', "shopController@search");

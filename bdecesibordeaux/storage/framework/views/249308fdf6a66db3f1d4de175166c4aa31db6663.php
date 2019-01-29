@@ -38,7 +38,12 @@
                             <h4 class="card-title"> <?php echo e($event->name); ?> </h4>
                             <img class="night" src="<?php echo e($event->media); ?>" class="d-block w-100" alt="...">
                             <p class="card-text"> <?php echo e($event->description); ?></p>
-                            <p class="card-text">Like : <?php echo e($event->like); ?></p>
+                            <form method="post" action="<?php echo e(('likeactivity')); ?>">
+                                <?php echo e(csrf_field()); ?>
+
+                                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="<?php echo e($event->id); ?>">
+                                <button type="submit" class="btn btn-primary mb-2">Like : <?php echo e($event->like); ?></button>
+                            </form>
                             <form method="post" action="<?php echo e(('description')); ?>">
                                 <?php echo e(csrf_field()); ?>
 
@@ -61,6 +66,10 @@
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php $__env->stopSection(); ?>
+
+
+
+
 
 
 
