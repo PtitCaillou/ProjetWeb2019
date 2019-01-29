@@ -6,6 +6,13 @@
 
 
 
+
+
+
+
+
+
+
     
 @section('content')
     <div class="dropdown">
@@ -51,10 +58,17 @@
                     <p class="text-left">Vote : {{ $likes }}</p>
                     <p class="text-right">Autheur : {{ $user }}</p>
                     @if(checkPermission(['employee']))
-                    <a href="#" class="btn btn-primary">Signaler</a>
-                    @endif @if(checkPermission(['bde']))
-                    <a href="#" class="btn btn-primary">Masquer</a>
-                    <a href="#" class="btn btn-primary">Accepter</a>
+                    <a href="#" class="btn btn-primary">Signaler</a> @endif @if(checkPermission(['bde']))
+                    <form method="post" action="{{('hideidea')}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $idea->id }}">
+                        <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+                    </form>
+                    <form method="post" action="{{('acceptidea')}}">
+                        {{ csrf_field() }}
+                        <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $idea->id }}">
+                        <button type="submit" class="btn btn-primary mb-2">Accepter</button>
+                    </form>
                     @endif
                     <ul class="list-inline list-unstyled">
                         <div class="comments">
@@ -82,6 +96,13 @@
         </form>
     </div>
 @endsection
+
+
+
+
+
+
+
 
 
 
