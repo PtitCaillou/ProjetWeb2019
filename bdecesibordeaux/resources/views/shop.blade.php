@@ -29,9 +29,7 @@
     <div class="col-md-4 mb-4">
       <div class="card h-100">
         <div class="card-body">
-          <h4 class="card-title" name="name">{{$name}}
-            <? return $name ?>
-          </h4>
+          <h4 class="card-title" name="name">{{$name}}</h4>
           <img class="pullbleu" src="{{$image}}" class="d-block w-100" alt="...">
         </div>
         <div class="card-footer">
@@ -49,6 +47,13 @@
             <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $product->id }}">
             <button type="submit" class="btn btn-primary mb-2">Masquer</button>
           </form>
+          @endif
+          @if(checkPermission(['bde']))
+              <form method="post" action="{{('hideproduct')}}">
+                {{ csrf_field() }}
+                <input type="hidden" readonly class="form-control-plaintext" name="hide" value="{{ $product->id }}">
+                <button type="submit" class="btn btn-primary mb-2">Masquer</button>
+              </form>
           @endif
         </div>
       </div>

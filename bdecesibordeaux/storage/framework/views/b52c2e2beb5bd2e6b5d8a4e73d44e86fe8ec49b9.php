@@ -7,7 +7,6 @@
         <a href="<?php echo e(('productadd')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:160%;"> Ajouter un produit</a>
         <?php endif; ?> 
         <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:200%;"> Panier</a>
-
 </div>
   </header>
   <?php $__env->stopSection(); ?>

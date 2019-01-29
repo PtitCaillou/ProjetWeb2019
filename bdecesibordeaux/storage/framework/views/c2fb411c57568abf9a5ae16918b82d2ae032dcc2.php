@@ -3,10 +3,10 @@
   <?php $__env->startSection('li'); ?>
   <header>
     <div class= "menu-top">
-      <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:950%;"> Panier</a>
-      <?php if(checkPermission(['bde'])): ?>
+        <?php if(checkPermission(['bde'])): ?>
         <a href="<?php echo e(('productadd')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:160%;"> Ajouter un produit</a>
         <?php endif; ?> 
+        <a href="<?php echo e(('basket')); ?>" class="btn btn-lg active" role="button" aria-pressed="true" style="position:relative; background-color: rgb(238, 193, 94); left:200%;"> Panier</a>
 </div>
   </header>
   <?php $__env->stopSection(); ?>
@@ -39,7 +39,12 @@
                 <button type="submit" class="btn btn-primary mb-2">Ajouter au panier</button>
               </form>
               <?php if(checkPermission(['employee'])): ?>
-                <a href="#" class="btn btn-primary">Signaler</a>
+                 <form method="get" action="<?php echo e(('warning')); ?>">
+                <?php echo e(csrf_field()); ?>
+
+                <input type="hidden" readonly class="form-control-plaintext" name="warningID" value="<?php echo e($product->id); ?>">
+                <button type="submit" class="btn btn-primary mb-2">Signaler</button>
+              </form>
               <?php endif; ?>
               <?php if(checkPermission(['bde'])): ?>
               <form method="post" action="<?php echo e(('hideproduct')); ?>">
