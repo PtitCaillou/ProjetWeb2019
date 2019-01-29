@@ -18,6 +18,8 @@ class ideaBoxController extends Controller
         foreach($datas as $data){
             $idea = new Event();
             $idea->id = $data['id'];
+            $likes = json_decode(file_get_contents('http://bdecesibordeaux:3000/events/likes/' . $idea->id), true);
+            $idea->like = $likes[0]['likes'];
             $idea->name = $data['name'];
             $idea->description = $data['description'];
             $idea->type = $data['eventtype'];
@@ -26,6 +28,7 @@ class ideaBoxController extends Controller
             $idea->user = $idea->user . " " . $data['lastname'];
             array_push($ideas, $idea);
         }
+
         return view('ideaBox', ['idea'=>$ideas]);
     }
 
